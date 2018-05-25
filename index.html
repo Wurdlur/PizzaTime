@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="sass/main.css">
+</head>
+
+<body>
+  <div id="header" class="wrap">
+    Pizza Builder
+  </div>
+  <div class="wrapper">
+
+    <div id="left">
+      <div id="special" class="otherwrap">
+        **SPECIAL DEAL**
+      </div>
+      <div class="pizzacontainer">
+        <div id="pizza" class="imgContainer">
+
+        </div>
+      </div>
+      <div id="sizeContainer" class="otherwrap">
+        <span class="wrap">
+          <button></button>S </span>
+        <span class="wrap">
+          <button></button>M </span>
+        <span class="wrap">
+          <button></button>L </span>
+        <span class="wrap">
+          <button></button>XL</span>
+
+      </div>
+      <div id="priceContainer" class="otherwrap">
+        <span>TOTAL:
+          <label for="totalcost" id="totalcostlbl">$0.00</label>
+        </span>
+      </div>
+      <div id="addtoContainer" class="otherwrap">
+        <button>Add to Order</button>
+      </div>
+    </div>
+    <div id="right">
+      <div id="menuText">
+        <p>First topping is free, each after that is $1.00 Five toppings is $3.00, each after that is still $1.00</p>
+      </div>
+      <div class="tab-container">
+        <ul class="tab-nav wrap">
+          <li>
+            <a class="button-tab active-tab" href="#one">
+              SET-UP
+            </a>
+          </li>
+          <li>
+            <a class="button-tab" href="#two">
+              MEATS
+            </a>
+          </li>
+          <li>
+            <a class="button-tab" href="#three">
+              VEGGIES
+            </a>
+          </li>
+          <li>
+            <a class="button-tab" href="#four">
+              PRE-BUILT
+            </a>
+          </li>
+        </ul>
+
+        <div class="tab-content active" id="one">
+          <h3 class="otherwrap">CRUST</h3>
+          <div id="crustHolder">
+            <div class="row21item wrap">
+
+              <div id="col2">
+                <span class="btnwrap">
+                  <button></button>HAND-TOSSED</span>
+                <span class="btnwrap">
+                  <button></button>THIN & CRSPY</span>
+                <span class="btnwrap">
+                  <button></button>PAN</span>
+                <span class="btnwrap">
+                  <button></button>STUFFED CRUST</span>
+              </div>
+              <div id="col2">
+                <span class="btnwrap">
+                  <button></button>CHEESY</span>
+                <span class="btnwrap">
+                  <button></button>DEEP DISH</span>
+                <span class="btnwrap">
+                  <button></button>FLATBREAD</span>
+                <span class="btnwrap">
+                  <button></button>FOCACCIA</span>
+              </div>
+            </div>
+          </div>
+          <h3 class="otherwrap">SAUCE</h3>
+          <div id="sauceHolder">
+            <div class="row21item wrap">
+              <div id="col2">
+                <span class="btnwrap">
+                  <button></button>MARINARA</span>
+                <span class="btnwrap">
+                  <button></button>BUFFALO</span>
+              </div>
+              <div id="col2">
+                <span class="btnwrap">
+                  <button></button>BBQ</span>
+                <span class="btnwrap">
+                  <button></button>ALFREDO</span>
+              </div>
+            </div>
+            <div class="row21item wrap">
+              <div id="col2">
+                <span class="btnwrap">
+                  <button class="rndBtn"></button>GARLIC PARMESEAN</span>
+              </div>
+            </div>
+            <div id="amtBtnHolder" class="wrap">
+              <button>LIGHT</button>
+              <button>REG</button>
+              <button>EXTRA</button>
+            </div>
+          </div>
+          <h3 class="otherwrap">CHEESE</h3>
+          <div id="sauceHolder">
+            <div class="row21item wrap">
+              <div id="col2">
+                <span class="btnwrap">
+                  <button></button>NORMAL</span>
+                <span class="btnwrap">
+                  <button></button>EXTRA</span>
+              </div>
+              <div id="col2">
+                <span class="btnwrap">
+                  <button></button>LIGHT</span>
+                <span class="btnwrap">
+                  <button></button>NONE</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-content" id="two">
+          <div class="wrap">
+            <div class="toppingContainer">
+              <div class="nameContainer">
+                <h4>Pepperoni</h4>
+                <img src="https://cdn2.iconfinder.com/data/icons/pizza-toppings/200/pepperoni-64.png" alt="">
+              </div>
+              <div class="amountButtons">
+                <div class="col2">
+                  <span class="btnwrap">
+                    <button class="rndBtn"></button>EXTRA</span>
+                  <span class="btnwrap">
+                    <button class="rndBtn"></button>REGULAR</span>
+                  <span class="btnwrap">
+                    <button class="rndBtn"></button>NONE</span>
+                </div>
+              </div>
+              <div class="locationButtons">
+                <div class="col2">
+                  <span class="btnwrap">
+                    <button class="rndBtn"></button>BOTH</span>
+                  <span class="btnwrap">
+                    <button class="rndBtn"></button>LEFT</span>
+                  <span class="btnwrap">
+                    <button class="rndBtn"></button>RIGHT</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-content" id="three">
+        STUFF
+      </div>
+
+      <div class="tab-content" id="four">
+        <div class="wrap">
+          <div class="spcContainer">
+            <div class="spcImgContiner">
+              <img src="http://www.thegodfatherpizza.com.au/wp-content/uploads/2017/12/icon6.jpg" alt="">
+            </div>
+            <div class="spcDescHolder">
+              <p id="spcdescText">STUFF</p>
+            </div>
+            <div class="selectContainer">
+              <span class="wrap">SELECT</span>
+              <div style="margin-left: 20px;">
+                <button class="rndBtn"></button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+  <script src="scripts/script.js"></script>
+</body>
+
+</html>
