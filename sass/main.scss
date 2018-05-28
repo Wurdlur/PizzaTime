@@ -98,6 +98,7 @@ ul.tab-nav {
     border-bottom: 1px solid #d7d7d7;
     padding-left: 10px;
     padding-bottom: 4px;
+    
     margin: 0;
   }
   
@@ -108,9 +109,9 @@ ul.tab-nav {
   ul.tab-nav li a.button-tab {
     border-width: 1px 1px 0 1px;
     border-style: solid;
-    border-color: #d7d7d7;
+    // border-color: #d7d7d7;
     padding: 10px 15px 5px 15px;
-    margin-right: 5px;
+    // margin-right: 5px;
     background-color: #f5f5f5;
     border-radius: 5px 5px 0 0;
     color: inherit;
@@ -171,7 +172,7 @@ ul.tab-nav {
   }
   #crustHolder {
       display: flex;
-    border: 2px solid black;
+    // border: 2px solid black;
       
       & #col2{
         //   margin-left: 50px;
@@ -203,7 +204,7 @@ ul.tab-nav {
   }
   #sauceHolder {
       display: block;
-      border: 2px solid black;
+    //   border: 2px solid black;
 
     //   margin: 10px 0px 10px 0px;
 
@@ -226,7 +227,7 @@ ul.tab-nav {
  .spcContainer {
     display: inline-flex;
 align-items: center;
-border: 2px solid black;
+// border: 2px solid black;
 justify-content: center;
 }
 .toppingContainer {
@@ -244,12 +245,12 @@ justify-content: center;
 }
 #right {
 width: 450px;    
-border: 2px solid black;
+// border: 2px solid black;
 
 }
 #left {
 width: 100%;
-border: 2px solid black;
+// border: 2px solid black;
 
 }
 #right2 {
@@ -266,12 +267,17 @@ border: 2px solid black;
     border: 2px solid black;
     
 }
+.section-divider {
+    background-color: #FC0;
+    border: 1px solid #FC0;    
+    // height: 100px;
+}
 #dynamicListHolder {
-    border: 2px solid black;
+    // border: 2px solid black;
     
 }
 #orderViewer {
-    border: 2px solid black;
+    // border: 2px solid black;
     
 }
 .pizzacontainer {
@@ -300,7 +306,7 @@ margin-left: 30px;
 }
 }
 .pizzaContainer {
-    background-color: #fff;    
+    // background-color: #fff;    
     width: 100%;
 }
 @media all and (max-width: 960px){

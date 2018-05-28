@@ -18,16 +18,16 @@ tabButton.map(button => {
     });
 });
 
-var pizzaStack = [];
-pizzaStack.push('images/pizza.png');
-var TOTALPRICE = 0;
 var totalCostLabel = document.getElementById('totalcostlbl');
+var TOTALPRICE = 0;
+var pizzaStack = [];
+pizzaStack.push("url(images/handToss.png)");
 var currentPizzaCostLabel = document.getElementById('currentPizzaPricelbl');
 
 
 var dynListArr = [];
 var pizza = document.getElementById('pizza');
-pizza.style.background = "url(" + pizzaStack[0] + ")";
+pizza.style.background = "url(images/marinara.png)," + pizzaStack[0];
 pizza.style.backgroundSize = 'cover';
 
 var szBtn = document.getElementById('smallBtn');
@@ -108,6 +108,34 @@ function addXLarge(evt) {
     pizza.style.width = '300px';
     pizza.style.height = '300px';
 }
+function resetBackground(a) {
+    var s = "";
+    // a.forEach(function (element) {
+    //     console.log("El: " + element);
+    //     pizza.style.background = "url(" + element + ")";
+    //     pizza.style.backgroundSize = 'cover';
+    // });
+    pizzaStack.reverse();
+    for (var v = 0; v < pizzaStack.length; v++) {
+
+        if (v > 0) {
+            s += ", " + pizzaStack[v];
+
+        } else if (v == pizzaStack.length) {
+            s += ";";
+        } else {
+
+            s += pizzaStack[v];
+        }
+
+
+        console.log(s);
+        pizza.style.background = s;
+        pizza.style.backgroundSize = 'cover';
+    }
+
+
+}
 
 // var crustBtn = document.getElementById('crustBtn');
 // crustBtn.addEventListener('click', addCrust);
@@ -131,24 +159,32 @@ function addCrust(elem) {
             c2.style.background = 'black';
             c3.style.background = 'black';
             c4.style.background = 'black';
+            pizzaStack[0] = "url(images/handToss.png)";
+            resetBackground(pizzaStack);
             break;
         case "crustBtn2":
             c2.style.background = 'red';
             c1.style.background = 'black';
             c3.style.background = 'black';
             c4.style.background = 'black';
+            pizzaStack[0] = "url(images/thin.png)";
+            resetBackground(pizzaStack);
             break;
         case "crustBtn3":
             c3.style.background = 'red';
             c2.style.background = 'black';
             c1.style.background = 'black';
             c4.style.background = 'black';
+            pizzaStack[0] = "url(images/stuffed.png)";
+            resetBackground(pizzaStack);
             break;
         case "crustBtn4":
             c4.style.background = 'red';
             c2.style.background = 'black';
             c3.style.background = 'black';
             c1.style.background = 'black';
+            pizzaStack[0] = "url(images/cheesy.png)";
+            resetBackground(pizzaStack);
             break;
     }
     pizzaCrust.innerHTML = c;
@@ -168,6 +204,8 @@ function addSauce(elem) {
             s3.style.background = 'black';
             s4.style.background = 'black';
             s5.style.background = 'black';
+            pizzaStack[1] = "url(images/marinara.png)";
+            resetBackground(pizzaStack);
             break;
         case "sauceBtn2":
             s2.style.background = 'red';
@@ -175,7 +213,8 @@ function addSauce(elem) {
             s3.style.background = 'black';
             s4.style.background = 'black';
             s5.style.background = 'black';
-
+            pizzaStack[1] = "url(images/buffalo.png)";
+            resetBackground(pizzaStack);
             break;
         case "sauceBtn3":
             s3.style.background = 'red';
@@ -183,7 +222,8 @@ function addSauce(elem) {
             s1.style.background = 'black';
             s4.style.background = 'black';
             s5.style.background = 'black';
-
+            pizzaStack[1] = "url(images/bbq.png)";
+            resetBackground(pizzaStack);
             break;
         case "sauceBtn4":
             s4.style.background = 'red';
@@ -191,7 +231,8 @@ function addSauce(elem) {
             s3.style.background = 'black';
             s1.style.background = 'black';
             s5.style.background = 'black';
-
+            pizzaStack[1] = "url(images/alfredo.png)";
+            resetBackground(pizzaStack);
             break;
         case "sauceBtn5":
             s5.style.background = 'red';
@@ -199,7 +240,8 @@ function addSauce(elem) {
             s3.style.background = 'black';
             s1.style.background = 'black';
             s4.style.background = 'black';
-
+            pizzaStack[1] = "url(images/garlicParm.png)";
+            resetBackground(pizzaStack);
             break;
     }
     pizzaSauce.innerHTML = c;
@@ -390,7 +432,7 @@ function addSuperSupreme() {
     isFiveCheese = false;
     isMeatLovers = false;
     currentPizzaCostLabel.innerHTML = "$ " + 17;
-    
+
 }
 function addBBQ() {
     szBtn.style.background = 'black';
@@ -417,7 +459,7 @@ function addBBQ() {
     isFiveCheese = false;
     isMeatLovers = false;
     currentPizzaCostLabel.innerHTML = "$ " + 15;
-    
+
 }
 function addFiveCheese() {
     szBtn.style.background = 'black';
@@ -444,7 +486,7 @@ function addFiveCheese() {
     isFiveCheese = true;
     isMeatLovers = false;
     currentPizzaCostLabel.innerHTML = "$ " + 16;
-    
+
 }
 function addMeatLovers() {
     szBtn.style.background = 'black';
@@ -471,5 +513,5 @@ function addMeatLovers() {
     isFiveCheese = false;
     isMeatLovers = true;
     currentPizzaCostLabel.innerHTML = "$ " + 16;
-    
+
 }
