@@ -136,6 +136,9 @@ var spinachExtra = "url(images/spinachExtra.png)";
 var spinachExtraLeft = "url(images/spinachExtraLeft.png)";
 var spinachExtraRight = "url(images/spinachExtraRight.png)";
 
+pizza.style.background = cheese + "," + marinara + "," + handToss;
+pizza.style.backgroundSize = "cover";
+
 function addSmall(evt) {
     var u = szBtn.parentElement.innerHTML;
     u = u.match(sizeRegex);
