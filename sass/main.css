@@ -378,9 +378,63 @@ ul.tab-nav li a.active-tab.button-tab {
 }
 
 #spinach {
-  background: url("../images/spinich.jpg");
+  background: url("../images/spinach.jpg");
   background-size: cover;
   height: 50px;
   width: 50px;
+}
+
+#olives {
+  background: url("../images/olives.jpg");
+  background-size: cover;
+  height: 50px;
+  width: 50px;
+}
+
+#onion {
+  background: url("../images/onion.jpg");
+  background-size: cover;
+  height: 50px;
+  width: 50px;
+}
+
+#supremePizza {
+  background: url("../images/supremePizza.jpg");
+  background-size: cover;
+  height: 100px;
+  width: 100px;
+  border-radius: 50px;
+}
+
+#pepperoniPizza {
+  background: url("../images/pepperoniPizza.jpg");
+  background-size: cover;
+  height: 100px;
+  width: 100px;
+  border-radius: 50px;
+}
+
+#bbqChicken {
+  background: url("../images/bbqChickenPizza.jpg");
+  background-size: cover;
+  height: 100px;
+  width: 100px;
+  border-radius: 50px;
+}
+
+#cheesePizza {
+  background: url("../images/cheesePizza.jpg");
+  background-size: cover;
+  height: 100px;
+  width: 100px;
+  border-radius: 50px;
+}
+
+#meatLoverPizza {
+  background: url("../images/meatLoverPizza.jpg");
+  background-size: cover;
+  height: 100px;
+  width: 100px;
+  border-radius: 50px;
 }
 /*# sourceMappingURL=main.css.map */
