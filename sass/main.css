@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Signika");
 body {
   font-family: 'Signika', sans-serif;
+  background-color: #f9e7c2;
 }
 
 div {
@@ -134,7 +135,6 @@ ul.tab-nav li a.active-tab.button-tab {
 
 .tab-content {
   padding: 20px;
-  border: 1px solid #d7d7d7;
   border-radius: 0 0 5px 5px;
   display: none;
 }
@@ -260,6 +260,7 @@ ul.tab-nav li a.active-tab.button-tab {
 
 #allwrapper {
   width: 100%;
+  background-color: #D88E39;
   display: inline-flex;
   border: 2px solid black;
 }
@@ -279,10 +280,6 @@ ul.tab-nav li a.active-tab.button-tab {
   #left {
     width: 275px;
   }
-  #pizza {
-    width: 200px;
-    height: 200px;
-  }
   #crustHolder {
     display: inherit;
   }
@@ -292,6 +289,7 @@ ul.tab-nav li a.active-tab.button-tab {
 }
 
 .pizzaContainer {
+  background-color: #fff;
   width: 100%;
 }
 
@@ -299,16 +297,8 @@ ul.tab-nav li a.active-tab.button-tab {
   #leftrightwrapper {
     display: block;
   }
-  #pizza {
-    width: 200px;
-    height: 200px;
-  }
   #left {
     width: 90%;
-  }
-  #pizza {
-    width: 300px;
-    height: 300px;
   }
 }
 
@@ -323,5 +313,15 @@ ul.tab-nav li a.active-tab.button-tab {
     margin: auto;
     margin-top: 10px;
   }
+}
+
+#finishOrderBtn {
+  padding: 10px;
+  margin: 10px;
+}
+
+#addToOrderBtn {
+  padding: 10px;
+  margin: 10px;
 }
 /*# sourceMappingURL=main.css.map */

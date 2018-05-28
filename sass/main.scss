@@ -3,6 +3,7 @@
 
 body{
     font-family: 'Signika', sans-serif;
+background-color: lighten($back,20);
 }
 
 div{
@@ -128,7 +129,7 @@ ul.tab-nav {
   
   .tab-content {
     padding: 20px;
-    border: 1px solid #d7d7d7;
+    // border: 1px solid #d7d7d7;
     // border-top: none;
     border-radius: 0 0 5px 5px;
     display: none;
@@ -260,6 +261,7 @@ border: 2px solid black;
 }
 #allwrapper {
     width: 100%;    
+    background-color: $orange;
     display: inline-flex;    
     border: 2px solid black;
     
@@ -271,6 +273,9 @@ border: 2px solid black;
 #orderViewer {
     border: 2px solid black;
     
+}
+.pizzacontainer {
+    // background-color: #fff;    
 }
 ///MEDIA
 @media all and (max-width: 1000px){
@@ -284,8 +289,8 @@ border: 2px solid black;
     width: 275px;
 }
 #pizza {
-    width: 200px;
-    height: 200px;
+    // width: 200px;
+    // height: 200px;
 }
 #crustHolder {
     display: inherit;
@@ -295,6 +300,7 @@ margin-left: 30px;
 }
 }
 .pizzaContainer {
+    background-color: #fff;    
     width: 100%;
 }
 @media all and (max-width: 960px){
@@ -303,15 +309,15 @@ margin-left: 30px;
         display: block;
     }
     #pizza {
-    width: 200px;
-    height: 200px;
+    // width: 200px;
+    // height: 200px;
 }
 #left {
     width: 90%;
 }
 #pizza {
-    width: 300px;
-    height: 300px;
+    // width: 300px;
+    // height: 300px;
 }
 }
 
@@ -326,4 +332,12 @@ margin-left: 30px;
      margin: auto;
      margin-top: 10px;
  }
+}
+#finishOrderBtn {
+    padding: 10px;
+    margin: 10px;
+}
+#addToOrderBtn {
+    padding: 10px;
+    margin: 10px;
 }
