@@ -21,14 +21,14 @@ tabButton.map(button => {
 var totalCostLabel = document.getElementById('totalcostlbl');
 var TOTALPRICE = 0;
 var pizzaStack = [];
-pizzaStack.push("url(images/handToss.png)");
+// pizzaStack.push("url(images/handToss.png)");
 var currentPizzaCostLabel = document.getElementById('currentPizzaPricelbl');
-
+var TOPPINGS = [];
 
 var dynListArr = [];
 var pizza = document.getElementById('pizza');
-pizza.style.background = "url(images/marinara.png)," + pizzaStack[0];
-pizza.style.backgroundSize = 'cover';
+// pizza.style.background = "url(images/alfredo.png)," + pizzaStack[0];
+// pizza.style.backgroundSize = 'cover';
 
 var szBtn = document.getElementById('smallBtn');
 szBtn.addEventListener('click', addSmall);
@@ -108,31 +108,46 @@ function addXLarge(evt) {
     pizza.style.width = '300px';
     pizza.style.height = '300px';
 }
-function resetBackground(a) {
+function resetBackground() {
     var s = "";
     // a.forEach(function (element) {
     //     console.log("El: " + element);
     //     pizza.style.background = "url(" + element + ")";
     //     pizza.style.backgroundSize = 'cover';
     // });
-    pizzaStack.reverse();
-    for (var v = 0; v < pizzaStack.length; v++) {
+    // pizzaStack.reverse();
+    for (var counter = pizzaStack.length - 1; counter >= 0; counter--) {
+        console.log("CT " + counter);
+        if (counter > 0) {
+            s += pizzaStack[counter] + ",";
 
-        if (v > 0) {
-            s += ", " + pizzaStack[v];
-
-        } else if (v == pizzaStack.length) {
+        } else if (counter == pizzaStack.length) {
             s += ";";
         } else {
 
-            s += pizzaStack[v];
+            s += pizzaStack[counter];
         }
-
-
         console.log(s);
         pizza.style.background = s;
         pizza.style.backgroundSize = 'cover';
     }
+    // for (var v = 0; v < pizzaStack.length; v++) {
+
+    //     if (v > 0) {
+    //         s += ", " + pizzaStack[v];
+
+    //     } else if (v == pizzaStack.length) {
+    //         s += ";";
+    //     } else {
+
+    //         s += pizzaStack[v];
+    //     }
+
+
+    //     console.log(s);
+    //     pizza.style.background = s;
+    //     pizza.style.backgroundSize = 'cover';
+    // }
 
 
 }
@@ -160,7 +175,6 @@ function addCrust(elem) {
             c3.style.background = 'black';
             c4.style.background = 'black';
             pizzaStack[0] = "url(images/handToss.png)";
-            resetBackground(pizzaStack);
             break;
         case "crustBtn2":
             c2.style.background = 'red';
@@ -168,7 +182,6 @@ function addCrust(elem) {
             c3.style.background = 'black';
             c4.style.background = 'black';
             pizzaStack[0] = "url(images/thin.png)";
-            resetBackground(pizzaStack);
             break;
         case "crustBtn3":
             c3.style.background = 'red';
@@ -176,7 +189,6 @@ function addCrust(elem) {
             c1.style.background = 'black';
             c4.style.background = 'black';
             pizzaStack[0] = "url(images/stuffed.png)";
-            resetBackground(pizzaStack);
             break;
         case "crustBtn4":
             c4.style.background = 'red';
@@ -184,9 +196,10 @@ function addCrust(elem) {
             c3.style.background = 'black';
             c1.style.background = 'black';
             pizzaStack[0] = "url(images/cheesy.png)";
-            resetBackground(pizzaStack);
             break;
     }
+    resetBackground();
+
     pizzaCrust.innerHTML = c;
 }
 var s1 = document.getElementById('sauceBtn1');
@@ -205,7 +218,6 @@ function addSauce(elem) {
             s4.style.background = 'black';
             s5.style.background = 'black';
             pizzaStack[1] = "url(images/marinara.png)";
-            resetBackground(pizzaStack);
             break;
         case "sauceBtn2":
             s2.style.background = 'red';
@@ -214,7 +226,6 @@ function addSauce(elem) {
             s4.style.background = 'black';
             s5.style.background = 'black';
             pizzaStack[1] = "url(images/buffalo.png)";
-            resetBackground(pizzaStack);
             break;
         case "sauceBtn3":
             s3.style.background = 'red';
@@ -223,7 +234,6 @@ function addSauce(elem) {
             s4.style.background = 'black';
             s5.style.background = 'black';
             pizzaStack[1] = "url(images/bbq.png)";
-            resetBackground(pizzaStack);
             break;
         case "sauceBtn4":
             s4.style.background = 'red';
@@ -232,7 +242,6 @@ function addSauce(elem) {
             s1.style.background = 'black';
             s5.style.background = 'black';
             pizzaStack[1] = "url(images/alfredo.png)";
-            resetBackground(pizzaStack);
             break;
         case "sauceBtn5":
             s5.style.background = 'red';
@@ -241,9 +250,10 @@ function addSauce(elem) {
             s1.style.background = 'black';
             s4.style.background = 'black';
             pizzaStack[1] = "url(images/garlicParm.png)";
-            resetBackground(pizzaStack);
             break;
     }
+    resetBackground();
+
     pizzaSauce.innerHTML = c;
 }
 function addSauceAmt(elem) {
@@ -514,4 +524,86 @@ function addMeatLovers() {
     isMeatLovers = true;
     currentPizzaCostLabel.innerHTML = "$ " + 16;
 
+}
+var pepp1 = document.getElementById('peppBtn1');
+var pepp2 = document.getElementById('peppBtn2');
+var pepp3 = document.getElementById('peppBtn3');
+var pepp4 = document.getElementById('peppBtn4');
+var pepp5 = document.getElementById('peppBtn5');
+var pepp6 = document.getElementById('peppBtn6');
+var TOPPING_COUNT = 0;
+
+function addPepp(elem) {
+    var arrCount = pizzaStack.length;
+    var temp = arrCount;
+    console.log("temp " + temp);
+    console.log('PS ' + arrCount);
+    console.log('PS ' + pizzaStack);
+    var c = elem.parentElement.innerHTML;
+    // c = c.match(cheeseRegex);
+    switch (elem.id) {
+        case "peppBtn1":
+            pepp1.style.background = 'red';
+            pepp2.style.background = 'black';
+            pepp3.style.background = 'black';
+            pizzaStack[temp] = "url(images/pepperoniExtra.png)";
+            break;
+        case "peppBtn2":
+            pepp1.style.background = 'black';
+            pepp2.style.background = 'red';
+            pepp3.style.background = 'black';
+            pizzaStack[temp] = "url(images/pepperoni.png)";
+            break;
+        case "peppBtn3":
+            pepp1.style.background = 'black';
+            pepp2.style.background = 'black';
+            pepp3.style.background = 'red';
+            pepp4.style.background = 'black';
+            pepp5.style.background = 'black';
+            pepp6.style.background = 'black';
+            if (temp == arrCount) {
+
+            } else {
+                pizzaStack.pop();
+            }
+            break;
+        case "peppBtn4":
+            pepp4.style.background = 'red';
+            pepp5.style.background = 'black';
+            pepp6.style.background = 'black';
+            if (pepp1.style.background == 'red') {
+                pizzaStack[temp] = "url(images/pepperoniExtra.png)";
+
+            } else {
+                pizzaStack[temp] = "url(images/pepperoni.png)";
+            }
+            break;
+        case "peppBtn5":
+            pepp4.style.background = 'black';
+            pepp5.style.background = 'red';
+            pepp6.style.background = 'black';
+            if (pepp1.style.background == 'red') {
+                pizzaStack[temp] = "url(images/pepperoniExtraLeft.png)";
+
+            } else {
+                pizzaStack[temp] = "url(images/pepperoniLeft.png)";
+            }
+            break;
+        case "peppBtn6":
+            pepp4.style.background = 'black';
+            pepp5.style.background = 'black';
+            pepp6.style.background = 'red';
+            if (pepp1.style.background == 'red') {
+                pizzaStack[temp] = "url(images/pepperoniExtraRight.png)";
+
+            } else {
+                pizzaStack[temp] = "url(images/pepperoniRight.png)";
+            }
+            break;
+            
+        }
+        resetBackground();
+
+    // pizzaCheese.innerHTML = c;
+    console.log(dynListArr);
 }
