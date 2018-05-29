@@ -138,6 +138,13 @@ var spinachExtraRight = "url(images/spinachExtraRight.png)";
 
 pizza.style.background = cheese + "," + marinara + "," + handToss;
 pizza.style.backgroundSize = "cover";
+pizzaStack[0] = handToss;
+pizzaStack[1] = marinara;
+pizzaStack[2] = cheese;
+pizzaCrust.innerHTML = "HAND-TOSSED";
+pizzaCheese.innerHTML = "REGULAR";
+pizzaSauce.innerHTML = "MARINARA";
+pizzaSauceAmt.innerHTML = "REGULAR";
 
 function addSmall(evt) {
     var u = szBtn.parentElement.innerHTML;
@@ -496,6 +503,13 @@ function finishOrder() {
     dynListArr = []
     pizza.style.background = cheese + "," + marinara + "," + handToss;
     pizza.style.backgroundSize = "cover";
+    pizzaStack[0] = handToss;
+    pizzaStack[1] = marinara;
+    pizzaStack[2] = cheese;
+    pizzaCrust.innerHTML = "HAND-TOSSED";
+    pizzaCheese.innerHTML = "REGULAR";
+    pizzaSauce.innerHTML = "MARINARA";
+    pizzaSauceAmt.innerHTML = "REGULAR";
 }
 
 span.onclick = function() {
@@ -531,7 +545,7 @@ function addSupreme() {
     pizzaCheese.innerHTML = "REGULAR";
     pizzaSauce.innerHTML = "MARINARA";
     pizzaSauceAmt.innerHTML = "REGULAR";
-    pizzaTop.innerHTML = "ALMOST EVERYTHING";
+    pizzaTop.innerHTML = "EVERYTHING";
     supremeBtn.style.background = 'red';
     supersupremeBtn.style.background = 'black';
     bbqBtn.style.background = 'black';
@@ -561,7 +575,7 @@ function addSuperSupreme() {
     pizzaCheese.innerHTML = "REGULAR";
     pizzaSauce.innerHTML = "MARINARA";
     pizzaSauceAmt.innerHTML = "REGULAR";
-    pizzaTop.innerHTML = "EVERYTHING";
+    pizzaTop.innerHTML = "Pepperoni";
     supremeBtn.style.background = 'black';
     supersupremeBtn.style.background = 'red';
     bbqBtn.style.background = 'black';
