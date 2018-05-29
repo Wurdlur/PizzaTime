@@ -108,6 +108,7 @@ function addXLarge(evt) {
     pizza.style.width = '300px';
     pizza.style.height = '300px';
 }
+
 function resetBackground() {
     var s = "";
     // a.forEach(function (element) {
@@ -119,7 +120,9 @@ function resetBackground() {
     for (var counter = pizzaStack.length - 1; counter >= 0; counter--) {
         console.log("CT " + counter);
         if (counter > 0) {
-            s += pizzaStack[counter] + ",";
+            if (pizzaStack[counter] != undefined) {
+                s += pizzaStack[counter] + ",";
+            }
 
         } else if (counter == pizzaStack.length) {
             s += ";";
@@ -128,6 +131,7 @@ function resetBackground() {
             s += pizzaStack[counter];
         }
         console.log(s);
+
         pizza.style.background = s;
         pizza.style.backgroundSize = 'cover';
     }
@@ -274,19 +278,22 @@ function addCheese(elem) {
             ch2.style.background = 'black';
             ch3.style.background = 'black';
             ch4.style.background = 'black';
+            pizzaStack[2] = "url(images/cheese.png)";
+
             break;
         case "cheeseBtn2":
             ch2.style.background = 'red';
             ch1.style.background = 'black';
             ch3.style.background = 'black';
             ch4.style.background = 'black';
-
+            pizzaStack[2] = "url(images/extraCheese.png)";
             break;
         case "cheeseBtn3":
             ch3.style.background = 'red';
             ch2.style.background = 'black';
             ch1.style.background = 'black';
             ch4.style.background = 'black';
+            pizzaStack[2] = "url(images/lightCheese.png)";
 
             break;
         case "cheeseBtn4":
@@ -294,9 +301,12 @@ function addCheese(elem) {
             ch2.style.background = 'black';
             ch3.style.background = 'black';
             ch1.style.background = 'black';
+            pizzaStack[2] = "url()";
 
             break;
     }
+    resetBackground();
+
     pizzaCheese.innerHTML = c;
     console.log(dynListArr);
 }
@@ -546,13 +556,35 @@ function addPepp(elem) {
             pepp1.style.background = 'red';
             pepp2.style.background = 'black';
             pepp3.style.background = 'black';
-            pizzaStack[temp] = "url(images/pepperoniExtra.png)";
+            if (pepp5.style.background == 'red') {
+                pizzaStack[3] = "url(images/pepperoniExtraLeft.png)";
+                
+                TOPPINGS[0] = "PEPPERONI(EXTRA, LEFT)";
+            } else if (pepp6.style.background == 'red') {
+                pizzaStack[3] = "url(images/pepperoniExtraRight.png)";
+                TOPPINGS[0] = "PEPPERONI(EXTRA, RIGHT)";
+            } else {
+
+                pizzaStack[3] = "url(images/pepperoniExtra.png)";
+                TOPPINGS[0] = "PEPPERONI(EXTRA)";            
+            }
             break;
         case "peppBtn2":
             pepp1.style.background = 'black';
             pepp2.style.background = 'red';
             pepp3.style.background = 'black';
-            pizzaStack[temp] = "url(images/pepperoni.png)";
+            if (pepp5.style.background == 'red') {
+                pizzaStack[3] = "url(images/pepperoniLeft.png)";
+                TOPPINGS[0] = "PEPPERONI(LEFT)";                
+
+            } else if (pepp6.style.background == 'red') {
+                pizzaStack[3] = "url(images/pepperoniRight.png)";
+                TOPPINGS[0] = "PEPPERONI(RIGHT)";
+            } else {
+
+                pizzaStack[3] = "url(images/pepperoni.png)";
+                TOPPINGS[0] = "PEPPERONI";            
+            }
             break;
         case "peppBtn3":
             pepp1.style.background = 'black';
@@ -561,21 +593,19 @@ function addPepp(elem) {
             pepp4.style.background = 'black';
             pepp5.style.background = 'black';
             pepp6.style.background = 'black';
-            if (temp == arrCount) {
-
-            } else {
-                pizzaStack.pop();
-            }
+            pizzaStack[3] = "url()";
+            TOPPINGS[0] = "";            
             break;
         case "peppBtn4":
             pepp4.style.background = 'red';
             pepp5.style.background = 'black';
             pepp6.style.background = 'black';
             if (pepp1.style.background == 'red') {
-                pizzaStack[temp] = "url(images/pepperoniExtra.png)";
-
+                pizzaStack[3] = "url(images/pepperoniExtra.png)";
+                TOPPINGS[0] = "PEPPERONI(EXTRA)";            
             } else {
-                pizzaStack[temp] = "url(images/pepperoni.png)";
+                pizzaStack[3] = "url(images/pepperoni.png)";
+                TOPPINGS[0] = "PEPPERONI";                        
             }
             break;
         case "peppBtn5":
@@ -583,10 +613,13 @@ function addPepp(elem) {
             pepp5.style.background = 'red';
             pepp6.style.background = 'black';
             if (pepp1.style.background == 'red') {
-                pizzaStack[temp] = "url(images/pepperoniExtraLeft.png)";
+                pizzaStack[3] = "url(images/pepperoniExtraLeft.png)";
+                TOPPINGS[0] = "PEPPERONI(EXTRA, LEFT)";            
 
             } else {
-                pizzaStack[temp] = "url(images/pepperoniLeft.png)";
+                pizzaStack[3] = "url(images/pepperoniLeft.png)";
+                TOPPINGS[0] = "PEPPERONI(LEFT)";            
+
             }
             break;
         case "peppBtn6":
@@ -594,16 +627,193 @@ function addPepp(elem) {
             pepp5.style.background = 'black';
             pepp6.style.background = 'red';
             if (pepp1.style.background == 'red') {
-                pizzaStack[temp] = "url(images/pepperoniExtraRight.png)";
-
+                pizzaStack[3] = "url(images/pepperoniExtraRight.png)";
+                TOPPINGS[0] = "PEPPERONI(EXTRA, RIGHT)";            
             } else {
-                pizzaStack[temp] = "url(images/pepperoniRight.png)";
+                pizzaStack[3] = "url(images/pepperoniRight.png)";
+                TOPPINGS[0] = "PEPPERONI(RIGHT)";            
+            
             }
             break;
-            
-        }
-        resetBackground();
+
+        default:
+            pizzaStack[3] = "url()";
+
+            break;
+    }
+    viewToppings();
+    resetBackground();
 
     // pizzaCheese.innerHTML = c;
     console.log(dynListArr);
+}
+var pepp1 = document.getElementById('peppBtn1');
+var pepp2 = document.getElementById('peppBtn2');
+var pepp3 = document.getElementById('peppBtn3');
+var pepp4 = document.getElementById('peppBtn4');
+var pepp5 = document.getElementById('peppBtn5');
+var pepp6 = document.getElementById('peppBtn6');
+var TOPPING_COUNT = 0;
+
+function addSausage(elem) {
+    toppingAdder(4, sausage, elem);
+    // pizzaCheese.innerHTML = c;
+    console.log(dynListArr);
+}
+function addHam(elem) {
+    toppingAdder(5, ham, elem);
+
+}
+function addBacon(elem) {
+    toppingAdder(6, bacon, elem);
+
+}
+function addChicken(elem) {
+    toppingAdder(7, chicken, elem);
+
+}
+function addSalami(elem) {
+    toppingAdder(8, salami, elem);
+
+}
+function addGreenPepper(elem) {
+    toppingAdder(9, greenPepper, elem);
+
+}
+function addBananaPepper(elem) {
+    toppingAdder(10, bananaPepper, elem);
+
+}
+function addMushrooms(elem) {
+    toppingAdder(11, mushroom, elem);
+
+}
+function addSpinach(elem) {
+    toppingAdder(12, spinach, elem);
+
+}
+function addOlives(elem) {
+    toppingAdder(13,olives, elem);
+
+}
+function addOnions(elem) {
+    toppingAdder(14, onion, elem);
+
+}
+
+function viewToppings() {
+    for(var i =0; i< TOPPINGS.length;i++ ){
+        pizzaTop.innerHTML =""+TOPPINGS[i]+"<br/>";
+    }
+}
+
+function toppingAdder(arrindex, topppingName, e) {
+    // var s1 = topppingName.id + 1;
+    // var s2 = topppingName.id + 2;
+    // var s3 = topppingName.id + 3;
+    // var s4 = topppingName.id + 4;
+    // var s5 = topppingName.id + 5;
+    // var s6 = topppingName.id + 6;
+    console.log(s1);
+    // console.log("TN " + topppingName.id + 'Btn1');
+    var b1name = topppingName.id + 'Btn1';
+    var b2name = topppingName.id + 'Btn2';
+    var b3name = topppingName.id + 'Btn3';
+    var b4name = topppingName.id + 'Btn4';
+    var b5name = topppingName.id + 'Btn5';
+    var b6name = topppingName.id + 'Btn6';
+    console.log(b1name);
+    s1 = document.getElementById(b1name);
+    s2 = document.getElementById(b2name);
+    s3 = document.getElementById(b3name);
+    s4 = document.getElementById(b4name);
+    s5 = document.getElementById(b5name);
+    s6 = document.getElementById(b6name);
+    console.log(s1);
+    console.log(s1.id)
+    var c = e.parentElement.innerHTML;
+    // c = c.match(cheeseRegex);
+    console.log(topppingName.id + 1);
+    console.log(e.id);
+    switch (e.id) {
+        case b1name:
+            s1.style.background = 'red';
+            s2.style.background = 'black';
+            s3.style.background = 'black';
+            if (s5.style.background == 'red') {
+                pizzaStack[arrindex] = "url(images/" + topppingName.id + "ExtraLeft.png)";
+
+            } else if (s6.style.background == 'red') {
+                pizzaStack[arrindex] = "url(images/" + topppingName.id + "ExtraRight.png)";
+
+            } else {
+
+                pizzaStack[arrindex] = "url(images/" + topppingName.id + "Extra.png)";
+            }
+            break;
+        case b2name:
+            s1.style.background = 'black';
+            s2.style.background = 'red';
+            s3.style.background = 'black';
+            if (s5.style.background == 'red') {
+                pizzaStack[arrindex] = "url(images/" + topppingName.id + "Left.png)";
+
+            } else if (s6.style.background == 'red') {
+                pizzaStack[arrindex] = "url(images/" + topppingName.id + "Right.png)";
+
+            } else {
+
+                pizzaStack[arrindex] = "url(images/" + topppingName.id + ".png)";
+            }
+            break;
+        case b3name:
+            s1.style.background = 'black';
+            s2.style.background = 'black';
+            s3.style.background = 'red';
+            s4.style.background = 'black';
+            s5.style.background = 'black';
+            s6.style.background = 'black';
+            pizzaStack[arrindex] = "url()";
+
+            break;
+        case b4name:
+            s4.style.background = 'red';
+            s5.style.background = 'black';
+            s6.style.background = 'black';
+            if (s1.style.background == 'red') {
+                pizzaStack[arrindex] = "url(images/" + topppingName.id + "Extra.png)";
+
+            } else {
+                pizzaStack[arrindex] = "url(images/" + topppingName.id + ".png)";
+            }
+            break;
+        case b5name:
+            s4.style.background = 'black';
+            s5.style.background = 'red';
+            s6.style.background = 'black';
+            if (s1.style.background == 'red') {
+                pizzaStack[arrindex] = "url(images/" + topppingName.id + "ExtraLeft.png)";
+
+            } else {
+                pizzaStack[arrindex] = "url(images/" + topppingName.id + "Left.png)";
+            }
+            break;
+        case b6name:
+            s4.style.background = 'black';
+            s5.style.background = 'black';
+            s6.style.background = 'red';
+            if (s1.style.background == 'red') {
+                pizzaStack[arrindex] = "url(images/" + topppingName.id + "ExtraRight.png)";
+
+            } else {
+                pizzaStack[arrindex] = "url(images/" + topppingName.id + "Right.png)";
+            }
+            break;
+
+        default:
+            pizzaStack[arrindex] = "url()";
+
+            break;
+    }
+    resetBackground();
 }
