@@ -80,7 +80,7 @@ var hamRight = "url(images/hamRight.png)";
 var hamExtra = "url(images/hamExtra.png)";
 var hamExtraLeft = "url(images/hamExtraLeft.png)";
 var hamExtraRight = "url(images/hamExtraRight.png)";
-var pepperoni = "url(images/pepperoni.png)";
+var pepperoni1 = "url(images/pepperoni.png)";
 var pepperoniLeft = "url(images/pepperoniLeft.png)";
 var pepperoniRight = "url(images/pepperoniRight.png)";
 var pepperoniExtra = "url(images/pepperoniExtra.png)";
@@ -482,14 +482,30 @@ function addToOrder() {
     dynListArr = [];
 
 }
+
+var modal = document.getElementById('myModal');
+var btn = document.getElementById("myBtn");
+var span = document.getElementsByClassName("close")[0];
+
 function finishOrder() {
     console.log("hi")
+    modal.style.display = "block";
     orderContainer.innerHTML = '';
     pizzaString = "";
     pizzaCt = 0;
     dynListArr = []
     pizza.style.background = cheese + "," + marinara + "," + handToss;
     pizza.style.backgroundSize = "cover";
+}
+
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
 }
 //PRE-BUILT
 var supremeBtn = document.getElementById('supremeBtn');
@@ -527,9 +543,10 @@ function addSupreme() {
     isFiveCheese = false;
     isMeatLovers = false;
     currentPizzaCostLabel.innerHTML = "$ " + 15;
-    pizza.style.background = greenPepper1 + "," + bananaPepper1 + "," + mushroom1 + "," + olives1 + "," + onion1 
-                            + "," + spinach1 + "," + bacon1 + "," + salami1 + "," + pepperoni1 + "," + sausage1
-                            + "," + ham1 + "," + chicken1 + "," + extraCheese + "," + marinara + "," + handToss;
+    pizza.style.background = greenPepper1 + "," + bananaPepper1 + "," + mushroom1 + "," + olives1 + ","
+                            + onion1 + "," + spinach1 + "," + bacon1 + "," + salami1 + "," + pepperoni1
+                            + "," + sausage1 + "," + ham1 + "," + chicken1 + "," + extraCheese + "," + 
+                            marinara + "," + handToss;
     pizza.style.backgroundSize = "cover";
 }
 function addSuperSupreme() {
