@@ -394,6 +394,8 @@ function addCheese(elem) {
 }
 var addBtn = document.getElementById('addToOrderBtn');
 addBtn.addEventListener('click', addToOrder);
+var finish = document.getElementById('finishOrderBtn');
+finish.addEventListener('click', finishOrder);
 var orderContainer = document.getElementById('orderContainer');
 var pizzaCt = 0;
 var pizzaString = "";
@@ -443,7 +445,6 @@ function addToOrder() {
     c2.style.background = 'black';
     c3.style.background = 'black';
     c4.style.background = 'black';
-    // document.getElementById(dynListArr[]);
     medBtn.style.background = 'red';
     szBtn.style.background = 'black';
     largeBtn.style.background = 'black';
@@ -470,6 +471,13 @@ function addToOrder() {
     totalCostLabel.innerHTML = "$ " + TOTALPRICE;
     dynListArr = [];
 
+}
+function finishOrder() {
+    console.log("hi")
+    orderContainer.innerHTML = '';
+    pizzaString = "";
+    pizzaCt = 0;
+    dynListArr = []
 }
 //PRE-BUILT
 var supremeBtn = document.getElementById('supremeBtn');
