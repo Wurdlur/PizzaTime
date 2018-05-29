@@ -847,13 +847,15 @@ function toppingAdder(arrindex, topppingName, e) {
             s3.style.background = 'black';
             if (s5.style.background == 'red') {
                 pizzaStack[arrindex] = "url(images/" + topppingName.id + "ExtraLeft.png)";
-
+TOPPINGS[arrindex] = topppingName.id + "(EXTRA, LEFT)";
             } else if (s6.style.background == 'red') {
                 pizzaStack[arrindex] = "url(images/" + topppingName.id + "ExtraRight.png)";
-
+                TOPPINGS[arrindex] = topppingName.id + "(EXTRA, RIGHT)";
             } else {
 
                 pizzaStack[arrindex] = "url(images/" + topppingName.id + "Extra.png)";
+TOPPINGS[arrindex] = topppingName.id + "(EXTRA)";
+                
             }
             break;
         case b2name:
@@ -862,13 +864,17 @@ function toppingAdder(arrindex, topppingName, e) {
             s3.style.background = 'black';
             if (s5.style.background == 'red') {
                 pizzaStack[arrindex] = "url(images/" + topppingName.id + "Left.png)";
+                TOPPINGS[arrindex] = topppingName.id + "(LEFT)";
 
             } else if (s6.style.background == 'red') {
                 pizzaStack[arrindex] = "url(images/" + topppingName.id + "Right.png)";
+                TOPPINGS[arrindex] = topppingName.id + "(RIGHT)";
 
             } else {
 
                 pizzaStack[arrindex] = "url(images/" + topppingName.id + ".png)";
+TOPPINGS[arrindex] = topppingName.id + "";
+            
             }
             break;
         case b3name:
@@ -879,6 +885,7 @@ function toppingAdder(arrindex, topppingName, e) {
             s5.style.background = 'black';
             s6.style.background = 'black';
             pizzaStack[arrindex] = "url()";
+            TOPPINGS[arrindex] = "";
 
             break;
         case b4name:
@@ -887,9 +894,12 @@ function toppingAdder(arrindex, topppingName, e) {
             s6.style.background = 'black';
             if (s1.style.background == 'red') {
                 pizzaStack[arrindex] = "url(images/" + topppingName.id + "Extra.png)";
+                TOPPINGS[arrindex] = topppingName.id + "(EXTRA)";
 
             } else {
                 pizzaStack[arrindex] = "url(images/" + topppingName.id + ".png)";
+TOPPINGS[arrindex] = topppingName.id + "";
+            
             }
             break;
         case b5name:
@@ -898,9 +908,11 @@ function toppingAdder(arrindex, topppingName, e) {
             s6.style.background = 'black';
             if (s1.style.background == 'red') {
                 pizzaStack[arrindex] = "url(images/" + topppingName.id + "ExtraLeft.png)";
+                TOPPINGS[arrindex] = topppingName.id + "(EXTRA, LEFT)";
 
             } else {
                 pizzaStack[arrindex] = "url(images/" + topppingName.id + "Left.png)";
+TOPPINGS[arrindex] = topppingName.id + "(LEFT)";                
             }
             break;
         case b6name:
@@ -909,9 +921,11 @@ function toppingAdder(arrindex, topppingName, e) {
             s6.style.background = 'red';
             if (s1.style.background == 'red') {
                 pizzaStack[arrindex] = "url(images/" + topppingName.id + "ExtraRight.png)";
-
+                TOPPINGS[arrindex] = topppingName.id + "(EXTRA, RIGHT)";
             } else {
                 pizzaStack[arrindex] = "url(images/" + topppingName.id + "Right.png)";
+TOPPINGS[arrindex] = topppingName.id + "(RIGHT)";
+            
             }
             break;
 
