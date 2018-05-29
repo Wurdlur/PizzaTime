@@ -80,7 +80,7 @@ var hamRight = "url(images/hamRight.png)";
 var hamExtra = "url(images/hamExtra.png)";
 var hamExtraLeft = "url(images/hamExtraLeft.png)";
 var hamExtraRight = "url(images/hamExtraRight.png)";
-var pepperoni = "url(images/pepperoni.png)";
+var pepperoni1 = "url(images/pepperoni.png)";
 var pepperoniLeft = "url(images/pepperoniLeft.png)";
 var pepperoniRight = "url(images/pepperoniRight.png)";
 var pepperoniExtra = "url(images/pepperoniExtra.png)";
@@ -138,6 +138,8 @@ var spinachExtraRight = "url(images/spinachExtraRight.png)";
 
 pizza.style.background = cheese + "," + marinara + "," + handToss;
 pizza.style.backgroundSize = "cover";
+var currPriceHolder = 5;
+currentPizzaCostLabel.innerHTML = '$' + currPriceHolder;
 
 function addSmall(evt) {
     var u = szBtn.parentElement.innerHTML;
@@ -149,6 +151,8 @@ function addSmall(evt) {
     xlargeBtn.style.background = 'black';
     pizza.style.width = '150px';
     pizza.style.height = '150px';
+    currPriceHolder = 5;
+    currentPizzaCostLabel.innerHTML = '$' + currPriceHolder;
 
     // console.log(u);
     // dynListArr.push(u);
@@ -175,6 +179,9 @@ function addMed(evt) {
     xlargeBtn.style.background = 'black';
     pizza.style.width = '200px';
     pizza.style.height = '200px';
+    currPriceHolder = 7;
+    currentPizzaCostLabel.innerHTML = '$' + currPriceHolder;
+
 
 }
 function addLarge(evt) {
@@ -187,6 +194,9 @@ function addLarge(evt) {
     xlargeBtn.style.background = 'black';
     pizza.style.width = '250px';
     pizza.style.height = '250px';
+    currPriceHolder = 9;
+    currentPizzaCostLabel.innerHTML = '$' + currPriceHolder;
+
 
 }
 function addXLarge(evt) {
@@ -199,6 +209,9 @@ function addXLarge(evt) {
     szBtn.style.background = 'black';
     pizza.style.width = '300px';
     pizza.style.height = '300px';
+    currPriceHolder = 11;
+    currentPizzaCostLabel.innerHTML = '$' + currPriceHolder;
+
 }
 
 function resetBackground() {
@@ -398,6 +411,7 @@ function addCheese(elem) {
             break;
     }
     resetBackground();
+    console.log("lenght " + TOPPINGS.length);
 
     pizzaCheese.innerHTML = c;
     console.log(dynListArr);
@@ -480,6 +494,7 @@ function addToOrder() {
     console.log("TP" + TOTALPRICE);
     totalCostLabel.innerHTML = "$ " + TOTALPRICE;
     dynListArr = [];
+    TOPPINGS = [];
 
 }
 function finishOrder() {
@@ -487,7 +502,10 @@ function finishOrder() {
     orderContainer.innerHTML = '';
     pizzaString = "";
     pizzaCt = 0;
-    dynListArr = []
+    currPriceHolder = 5;
+    dynListArr = [];
+    currentPizzaCostLabel.innerHTML = '$' + 5;
+
 }
 //PRE-BUILT
 var supremeBtn = document.getElementById('supremeBtn');
@@ -525,9 +543,9 @@ function addSupreme() {
     isFiveCheese = false;
     isMeatLovers = false;
     currentPizzaCostLabel.innerHTML = "$ " + 15;
-    pizza.style.background = greenPepper1 + "," + bananaPepper1 + "," + mushroom1 + "," + olives1 + "," + onion1 
-                            + "," + spinach1 + "," + bacon1 + "," + salami1 + "," + pepperoni1 + "," + sausage1
-                            + "," + ham1 + "," + chicken1 + "," + extraCheese + "," + marinara + "," + handToss;
+    pizza.style.background = greenPepper1 + "," + bananaPepper1 + "," + mushroom1 + "," + olives1 + "," + onion1
+        + "," + spinach1 + "," + bacon1 + "," + salami1 + "," + pepperoni1 + "," + sausage1
+        + "," + ham1 + "," + chicken1 + "," + extraCheese + "," + marinara + "," + handToss;
     pizza.style.backgroundSize = "cover";
 }
 function addSuperSupreme() {
@@ -637,7 +655,7 @@ function addMeatLovers() {
     isMeatLovers = true;
     currentPizzaCostLabel.innerHTML = "$ " + 16;
     pizza.style.background = bacon1 + "," + ham1 + "," + pepperoni1 + "," + chicken1 + "," + salami1
-                            + "," + sausage1 + "," + cheese + "," + marinara + "," + handToss;
+        + "," + sausage1 + "," + cheese + "," + marinara + "," + handToss;
     pizza.style.backgroundSize = "cover";
 }
 var pepp1 = document.getElementById('peppBtn1');
@@ -647,121 +665,24 @@ var pepp4 = document.getElementById('peppBtn4');
 var pepp5 = document.getElementById('peppBtn5');
 var pepp6 = document.getElementById('peppBtn6');
 var TOPPING_COUNT = 0;
+var toppingCounter = 0;
+var selected = 0;
+var b1selected = false;
+var b2selected = false;
+var b3selected = false;
+var b4selected = false;
+var b5selected = false;
+var b6selected = false;
 
 function addPepp(elem) {
-    var arrCount = pizzaStack.length;
-    var temp = arrCount;
-    console.log("temp " + temp);
-    console.log('PS ' + arrCount);
-    console.log('PS ' + pizzaStack);
-    var c = elem.parentElement.innerHTML;
-    // c = c.match(cheeseRegex);
-    switch (elem.id) {
-        case "peppBtn1":
-            pepp1.style.background = 'red';
-            pepp2.style.background = 'black';
-            pepp3.style.background = 'black';
-            if (pepp5.style.background == 'red') {
-                pizzaStack[3] = "url(images/pepperoniExtraLeft.png)";
-                
-                TOPPINGS[0] = "PEPPERONI(EXTRA, LEFT)";
-            } else if (pepp6.style.background == 'red') {
-                pizzaStack[3] = "url(images/pepperoniExtraRight.png)";
-                TOPPINGS[0] = "PEPPERONI(EXTRA, RIGHT)";
-            } else {
+    toppingAdder(3, pepperoni, elem)
 
-                pizzaStack[3] = "url(images/pepperoniExtra.png)";
-                TOPPINGS[0] = "PEPPERONI(EXTRA)";            
-            }
-            break;
-        case "peppBtn2":
-            pepp1.style.background = 'black';
-            pepp2.style.background = 'red';
-            pepp3.style.background = 'black';
-            if (pepp5.style.background == 'red') {
-                pizzaStack[3] = "url(images/pepperoniLeft.png)";
-                TOPPINGS[0] = "PEPPERONI(LEFT)";                
-
-            } else if (pepp6.style.background == 'red') {
-                pizzaStack[3] = "url(images/pepperoniRight.png)";
-                TOPPINGS[0] = "PEPPERONI(RIGHT)";
-            } else {
-
-                pizzaStack[3] = "url(images/pepperoni.png)";
-                TOPPINGS[0] = "PEPPERONI";            
-            }
-            break;
-        case "peppBtn3":
-            pepp1.style.background = 'black';
-            pepp2.style.background = 'black';
-            pepp3.style.background = 'red';
-            pepp4.style.background = 'black';
-            pepp5.style.background = 'black';
-            pepp6.style.background = 'black';
-            pizzaStack[3] = "url()";
-            TOPPINGS[0] = "";            
-            break;
-        case "peppBtn4":
-            pepp4.style.background = 'red';
-            pepp5.style.background = 'black';
-            pepp6.style.background = 'black';
-            if (pepp1.style.background == 'red') {
-                pizzaStack[3] = "url(images/pepperoniExtra.png)";
-                TOPPINGS[0] = "PEPPERONI(EXTRA)";            
-            } else {
-                pizzaStack[3] = "url(images/pepperoni.png)";
-                TOPPINGS[0] = "PEPPERONI";                        
-            }
-            break;
-        case "peppBtn5":
-            pepp4.style.background = 'black';
-            pepp5.style.background = 'red';
-            pepp6.style.background = 'black';
-            if (pepp1.style.background == 'red') {
-                pizzaStack[3] = "url(images/pepperoniExtraLeft.png)";
-                TOPPINGS[0] = "PEPPERONI(EXTRA, LEFT)";            
-
-            } else {
-                pizzaStack[3] = "url(images/pepperoniLeft.png)";
-                TOPPINGS[0] = "PEPPERONI(LEFT)";            
-
-            }
-            break;
-        case "peppBtn6":
-            pepp4.style.background = 'black';
-            pepp5.style.background = 'black';
-            pepp6.style.background = 'red';
-            if (pepp1.style.background == 'red') {
-                pizzaStack[3] = "url(images/pepperoniExtraRight.png)";
-                TOPPINGS[0] = "PEPPERONI(EXTRA, RIGHT)";            
-            } else {
-                pizzaStack[3] = "url(images/pepperoniRight.png)";
-                TOPPINGS[0] = "PEPPERONI(RIGHT)";            
-            
-            }
-            break;
-
-        default:
-            pizzaStack[3] = "url()";
-
-            break;
-    }
-    viewToppings();
-    resetBackground();
-
-    // pizzaCheese.innerHTML = c;
-    console.log(dynListArr);
 }
-var pepp1 = document.getElementById('peppBtn1');
-var pepp2 = document.getElementById('peppBtn2');
-var pepp3 = document.getElementById('peppBtn3');
-var pepp4 = document.getElementById('peppBtn4');
-var pepp5 = document.getElementById('peppBtn5');
-var pepp6 = document.getElementById('peppBtn6');
 var TOPPING_COUNT = 0;
 
 function addSausage(elem) {
     toppingAdder(4, sausage, elem);
+
     // pizzaCheese.innerHTML = c;
     console.log(dynListArr);
 }
@@ -798,7 +719,7 @@ function addSpinach(elem) {
 
 }
 function addOlives(elem) {
-    toppingAdder(13,olives, elem);
+    toppingAdder(13, olives, elem);
 
 }
 function addOnions(elem) {
@@ -806,12 +727,99 @@ function addOnions(elem) {
 
 }
 
+var alreadygone = false;
+var alreadygone2 = false;
+var alreadygone3 = false;
+var alreadygone4 = false;
+var alreadygone5 = false;
+var alreadygone6 = false;
+var alreadygone7 = false;
+var alreadygone8 = false;
+var alreadygone9 = false;
+var alreadygone10 = false;
+var alreadygone11 = false;
+var alreadygone12 = false;
+var l = TOPPINGS.length;
+var len = 0;
+var newARR = [];
 function viewToppings() {
-    for(var i =0; i< TOPPINGS.length;i++ ){
-        pizzaTop.innerHTML =""+TOPPINGS[i]+"<br/>";
+    for (var y = 0; y < TOPPINGS.length; y++) {
+        if (TOPPINGS[y] != undefined || TOPPINGS[y] != "," || !TOPPINGS[y].contains(',')) {
+            newARR[y] = TOPPINGS[y];
+        }
+
+        // TOPPINGS.splice(0,TOPPINGS.length-1,"");
+        // if (TOPPINGS[y] == undefined) {
+        //     TOPPINGS[y] = "";
+        // }
+        // if (TOPPINGS[y] != "" && TOPPINGS[y] !=  undefined &&TOPPINGS[y] != ",") {
+        //     len++;
+        // }
+        // console.log(TOPPINGS[y]);
+        // console.log(newARR);
+    }
+    function cleanArray(actual) {
+        var newArray = new Array();
+        for (var i = 0; i < actual.length; i++) {
+            if (actual[i]) {
+                newArray.push(actual[i]);
+            }
+        }
+        return newArray;
+    }
+
+
+    len = cleanArray(TOPPINGS).length;
+    console.log("len " + len);
+    console.log("TOPP" + cleanArray(TOPPINGS));
+
+    l = TOPPINGS.length;
+    pizzaTop.innerHTML = "";
+    console.log("lenght " + (l));
+    var x = currPriceHolder;
+    console.log(x);
+    console.log(x + 1);
+    var currPrice = x;
+    if (len == 1) {
+        console.log(currPrice);
+        currentPizzaCostLabel.innerHTML = "$ " + currPrice;
+
+    } else if (len == 5) {
+        currPrice = x + (len-2);
+        currentPizzaCostLabel.innerHTML = "$ " + currPrice;
+        document.getElementById('dealtext').style.visibility = 'visible';
+    }else if(len >5) {
+        currPrice = x + (len-2);
+        currentPizzaCostLabel.innerHTML = "$ " + currPrice;
+        document.getElementById('dealtext').style.visibility = 'hidden';
+        
+    }
+    else {
+        document.getElementById('dealtext').style.visibility = 'hidden';        
+        currPrice = x +(len-1);
+        console.log(currPrice);
+        currentPizzaCostLabel.innerHTML = "$ " + currPrice;
+    }
+
+    for (var i = 0; i < TOPPINGS.length; i++) {
+        if (TOPPINGS[i] != undefined && TOPPINGS[i] != "") {
+
+            pizzaTop.innerHTML += "" + TOPPINGS[i] + "<br/>";
+        }
     }
 }
-
+var alreadySubtracted = false;
+var alreadySubtracted2 = false;
+var alreadySubtracted3 = false;
+var alreadySubtracted4 = false;
+var alreadySubtracted5 = false;
+var alreadySubtracted6 = false;
+var alreadySubtracted7 = false;
+var alreadySubtracted8 = false;
+var alreadySubtracted9 = false;
+var alreadySubtracted10 = false;
+var alreadySubtracted11 = false;
+var alreadySubtracted12 = false;
 function toppingAdder(arrindex, topppingName, e) {
     // var s1 = topppingName.id + 1;
     // var s2 = topppingName.id + 2;
@@ -827,19 +835,19 @@ function toppingAdder(arrindex, topppingName, e) {
     var b4name = topppingName.id + 'Btn4';
     var b5name = topppingName.id + 'Btn5';
     var b6name = topppingName.id + 'Btn6';
-    console.log(b1name);
+    // console.log(b1name);
     s1 = document.getElementById(b1name);
     s2 = document.getElementById(b2name);
     s3 = document.getElementById(b3name);
     s4 = document.getElementById(b4name);
     s5 = document.getElementById(b5name);
     s6 = document.getElementById(b6name);
-    console.log(s1);
-    console.log(s1.id)
+    // console.log(s1);
+    // console.log(s1.id)
     var c = e.parentElement.innerHTML;
     // c = c.match(cheeseRegex);
-    console.log(topppingName.id + 1);
-    console.log(e.id);
+    // console.log(topppingName.id + 1);
+    // console.log(e.id);
     switch (e.id) {
         case b1name:
             s1.style.background = 'red';
@@ -847,16 +855,18 @@ function toppingAdder(arrindex, topppingName, e) {
             s3.style.background = 'black';
             if (s5.style.background == 'red') {
                 pizzaStack[arrindex] = "url(images/" + topppingName.id + "ExtraLeft.png)";
-TOPPINGS[arrindex] = topppingName.id + "(EXTRA, LEFT)";
+                TOPPINGS[arrindex] = topppingName.id.toUpperCase() + "(EXTRA, LEFT)";
             } else if (s6.style.background == 'red') {
                 pizzaStack[arrindex] = "url(images/" + topppingName.id + "ExtraRight.png)";
-                TOPPINGS[arrindex] = topppingName.id + "(EXTRA, RIGHT)";
+                TOPPINGS[arrindex] = topppingName.id.toUpperCase() + "(EXTRA, RIGHT)";
             } else {
 
                 pizzaStack[arrindex] = "url(images/" + topppingName.id + "Extra.png)";
-TOPPINGS[arrindex] = topppingName.id + "(EXTRA)";
-                
+                TOPPINGS[arrindex] = topppingName.id.toUpperCase() + "(EXTRA)";
+
             }
+            b1selected = true;
+            selected = 1;
             break;
         case b2name:
             s1.style.background = 'black';
@@ -864,20 +874,22 @@ TOPPINGS[arrindex] = topppingName.id + "(EXTRA)";
             s3.style.background = 'black';
             if (s5.style.background == 'red') {
                 pizzaStack[arrindex] = "url(images/" + topppingName.id + "Left.png)";
-                TOPPINGS[arrindex] = topppingName.id + "(LEFT)";
+                TOPPINGS[arrindex] = topppingName.id.toUpperCase() + "(LEFT)";
 
             } else if (s6.style.background == 'red') {
                 pizzaStack[arrindex] = "url(images/" + topppingName.id + "Right.png)";
-                TOPPINGS[arrindex] = topppingName.id + "(RIGHT)";
+                TOPPINGS[arrindex] = topppingName.id.toUpperCase() + "(RIGHT)";
 
             } else {
 
                 pizzaStack[arrindex] = "url(images/" + topppingName.id + ".png)";
-TOPPINGS[arrindex] = topppingName.id + "";
-            
+                TOPPINGS[arrindex] = topppingName.id.toUpperCase() + "";
+
             }
+            selected = 1;
             break;
         case b3name:
+            var x = currPriceHolder;
             s1.style.background = 'black';
             s2.style.background = 'black';
             s3.style.background = 'red';
@@ -887,46 +899,72 @@ TOPPINGS[arrindex] = topppingName.id + "";
             pizzaStack[arrindex] = "url()";
             TOPPINGS[arrindex] = "";
 
+            console.log("len inside DEL: "+ len);
+            console.log("DEL :" + TOPPINGS.length);
+            len -=1;
+            // if (TOPPINGS.length > 4) {
+            //     TOPPINGS.pop();
+            // }
+            // selected = 1;
+            // var currPrice = (x + l) - 2;
+            // console.log("INSIDE DELEETE: " + currPrice);
+            // currentPizzaCostLabel.innerHTML = "$ " + currPrice;
+
             break;
+
         case b4name:
+            s3.style.background = 'black';
             s4.style.background = 'red';
             s5.style.background = 'black';
             s6.style.background = 'black';
             if (s1.style.background == 'red') {
                 pizzaStack[arrindex] = "url(images/" + topppingName.id + "Extra.png)";
-                TOPPINGS[arrindex] = topppingName.id + "(EXTRA)";
+                TOPPINGS[arrindex] = topppingName.id.toUpperCase() + "(EXTRA)";
 
             } else {
                 pizzaStack[arrindex] = "url(images/" + topppingName.id + ".png)";
-TOPPINGS[arrindex] = topppingName.id + "";
-            
+                TOPPINGS[arrindex] = topppingName.id.toUpperCase() + "";
+
             }
+            selected = 1;
+
             break;
+
         case b5name:
+            s3.style.background = 'black';
+
             s4.style.background = 'black';
             s5.style.background = 'red';
             s6.style.background = 'black';
             if (s1.style.background == 'red') {
                 pizzaStack[arrindex] = "url(images/" + topppingName.id + "ExtraLeft.png)";
-                TOPPINGS[arrindex] = topppingName.id + "(EXTRA, LEFT)";
+                TOPPINGS[arrindex] = topppingName.id.toUpperCase() + "(EXTRA, LEFT)";
 
             } else {
                 pizzaStack[arrindex] = "url(images/" + topppingName.id + "Left.png)";
-TOPPINGS[arrindex] = topppingName.id + "(LEFT)";                
+                TOPPINGS[arrindex] = topppingName.id.toUpperCase() + "(LEFT)";
             }
+
+            selected = 1;
+
             break;
         case b6name:
+            s3.style.background = 'black';
+
             s4.style.background = 'black';
             s5.style.background = 'black';
             s6.style.background = 'red';
             if (s1.style.background == 'red') {
                 pizzaStack[arrindex] = "url(images/" + topppingName.id + "ExtraRight.png)";
-                TOPPINGS[arrindex] = topppingName.id + "(EXTRA, RIGHT)";
+                TOPPINGS[arrindex] = topppingName.id.toUpperCase() + "(EXTRA, RIGHT)";
             } else {
-                pizzaStack[arrindex] = "url(images/" + topppingName.id + "Right.png)";
-TOPPINGS[arrindex] = topppingName.id + "(RIGHT)";
-            
+                pizzaStack[arrindex] = "url(images/" + topppingName.id.toUpperCase() + "Right.png)";
+                TOPPINGS[arrindex] = topppingName.id.toUpperCase() + "(RIGHT)";
+
             }
+
+            selected = 1;
+
             break;
 
         default:
@@ -934,5 +972,7 @@ TOPPINGS[arrindex] = topppingName.id + "(RIGHT)";
 
             break;
     }
+
+    viewToppings();
     resetBackground();
 }

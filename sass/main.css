@@ -223,6 +223,12 @@ ul.tab-nav li a.active-tab.button-tab {
   justify-content: center;
 }
 
+#dealtext {
+  font-size: 25px;
+  color: #511415;
+  visibility: hidden;
+}
+
 .nameContainer {
   display: block;
 }

@@ -233,7 +233,11 @@ justify-content: center;
 .toppingContainer {
 
 }
-
+#dealtext {
+    font-size: 25px;
+    color: darken(#A3282A, 20);
+    visibility: hidden;
+}
 .nameContainer {
     display: block;
 }
@@ -309,6 +313,7 @@ margin-left: 30px;
     // background-color: #fff;    
     width: 100%;
 }
+
 @media all and (max-width: 960px){
 
     #leftrightwrapper {
