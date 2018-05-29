@@ -437,4 +437,17 @@ ul.tab-nav li a.active-tab.button-tab {
   width: 100px;
   border-radius: 50px;
 }
+
+#addToOrderBtn, #finishOrderBtn {
+  border: 2px solid #FFF;
+  background: #000;
+  color: #FFF;
+  text-decoration: none;
+  border-radius: 10px;
+}
+
+#addToOrderBtn:active, #finishOrderBtn:active {
+  color: #A3282A;
+  border: 2px solid #A3282A;
+}
 /*# sourceMappingURL=main.css.map */

@@ -47,6 +47,98 @@ var pizzaSauce = document.getElementById('pizzaSA');
 var pizzaSauceAmt = document.getElementById('sauceAmt');
 pizzaTop.innerHTML = "";
 
+var cheesy = "url(images/cheesy.png)";
+var handToss = "url(images/handToss.png)";
+var stuffed = "url(images/stuffed.png)";
+var thin = "url(images/thin.png)";
+
+var aldredo = "url(images/alfredo.png)";
+var bbq = "url(images/bbq.png)";
+var buffalo = "url(images/buffalo.png)";
+var garlicParm = "url(images/garlicParm.png)";
+var marinara = "url(images/marinara.png)";
+
+var cheese = "url(images/cheese.png)";
+var lightCheese = "url(images/lightCheese.png)";
+var extraCheese = "url(images/extraCheese.png)";
+
+var bacon = "url(images/bacon.png)";
+var baconLeft = "url(images/baconLeft.png)";
+var baconRight = "url(images/baconRight.png)";
+var baconExtra = "url(images/baconExtra.png)";
+var baconExtraLeft = "url(images/baconExtraLeft.png)";
+var baconExtraRight = "url(images/baconExtraRight.png)";
+var chicken = "url(images/chicken.png)";
+var chickenLeft = "url(images/chickenLeft.png)";
+var chickenRight = "url(images/chickenRight.png)";
+var chickenExtra = "url(images/chickenExtra.png)";
+var chickenExtraLeft = "url(images/chickenExtraLeft.png)";
+var chickenExtraRight = "url(images/chickenExtraRight.png)";
+var ham = "url(images/ham.png)";
+var hamLeft = "url(images/hamLeft.png)";
+var hamRight = "url(images/hamRight.png)";
+var hamExtra = "url(images/hamExtra.png)";
+var hamExtraLeft = "url(images/hamExtraLeft.png)";
+var hamExtraRight = "url(images/hamExtraRight.png)";
+var pepperoni = "url(images/pepperoni.png)";
+var pepperoniLeft = "url(images/pepperoniLeft.png)";
+var pepperoniRight = "url(images/pepperoniRight.png)";
+var pepperoniExtra = "url(images/pepperoniExtra.png)";
+var pepperoniExtraLeft = "url(images/pepperoniExtraLeft.png)";
+var pepperoniExtraRight = "url(images/pepperoniExtraRight.png)";
+var salami = "url(images/salami.png)";
+var salamiLeft = "url(images/salamiLeft.png)";
+var salamiRight = "url(images/salamiRight.png)";
+var salamiExtra = "url(images/salamiExtra.png)";
+var salamiExtraLeft = "url(images/salamiExtraLeft.png)";
+var salamiExtraRight = "url(images/salamiExtraRight.png)";
+var sausage = "url(images/sausage.png)";
+var sausageLeft = "url(images/sausageLeft.png)";
+var sausageRight = "url(images/sausageRight.png)";
+var sausageExtra = "url(images/sausageExtra.png)";
+var sausageExtraLeft = "url(images/sausageExtraLeft.png)";
+var sausageExtraRight = "url(images/sausageExtraRight.png)";
+
+var bananaPepper = "url(images/bananaPepper.png)";
+var bananaPepperLeft = "url(images/bananaPepperLeft.png)";
+var bananaPepperRight = "url(images/bananaPepperRight.png)";
+var bananaPepperExtra = "url(images/bananaPepperExtra.png)";
+var bananaPepperExtraLeft = "url(images/bananaPepperExtraLeft.png)";
+var bananaPepperExtraRight = "url(images/bananaPepperExtraRight.png)";
+var greenPepper = "url(images/greenPepper.png)";
+var greenPepperLeft = "url(images/greenPepperLeft.png)";
+var greenPepperRight = "url(images/greenPepperRight.png)";
+var greenPepperExtra = "url(images/greenPepperExtra.png)";
+var greenPepperExtraLeft = "url(images/greenPepperExtraLeft.png)";
+var greenPepperExtraRight = "url(images/greenPepperExtraRight.png)";
+var mushroom = "url(images/mushroom.png)";
+var mushroomLeft = "url(images/mushroomLeft.png)";
+var mushroomRight = "url(images/mushroomRight.png)";
+var mushroomExtra = "url(images/mushroomExtra.png)";
+var mushroomExtraLeft = "url(images/mushroomExtraLeft.png)";
+var mushroomExtraRight = "url(images/mushroomExtraRight.png)";
+var olives = "url(images/olives.png)";
+var olivesLeft = "url(images/olivesLeft.png)";
+var olivesRight = "url(images/olivesRight.png)";
+var olivesExtra = "url(images/olivesExtra.png)";
+var olivesExtraLeft = "url(images/olivesExtraLeft.png)";
+var olivesExtraRight = "url(images/olivesExtraRight.png)";
+var onion = "url(images/onion.png)";
+var onionLeft = "url(images/onionLeft.png)";
+var onionRight = "url(images/onionRight.png)";
+var onionExtra = "url(images/onionExtra.png)";
+var onionExtraLeft = "url(images/onionExtraLeft.png)";
+var onionExtraRight = "url(images/onionExtraRight.png)";
+var spinach = "url(images/spinach.png)";
+var spinachLeft = "url(images/spinachLeft.png)";
+var spinachRight = "url(images/spinachRight.png)";
+var spinachExtra = "url(images/spinachExtra.png)";
+var spinachExtraLeft = "url(images/spinachExtraLeft.png)";
+var spinachExtraRight = "url(images/spinachExtraRight.png)";
+
+pizza.style.background = cheese + "," + marinara + "," + handToss;
+pizza.style.backgroundSize = "cover";
+
 function addSmall(evt) {
     var u = szBtn.parentElement.innerHTML;
     u = u.match(sizeRegex);
@@ -312,6 +404,8 @@ function addCheese(elem) {
 }
 var addBtn = document.getElementById('addToOrderBtn');
 addBtn.addEventListener('click', addToOrder);
+var finish = document.getElementById('finishOrderBtn');
+finish.addEventListener('click', finishOrder);
 var orderContainer = document.getElementById('orderContainer');
 var pizzaCt = 0;
 var pizzaString = "";
@@ -361,7 +455,6 @@ function addToOrder() {
     c2.style.background = 'black';
     c3.style.background = 'black';
     c4.style.background = 'black';
-    // document.getElementById(dynListArr[]);
     medBtn.style.background = 'red';
     szBtn.style.background = 'black';
     largeBtn.style.background = 'black';
@@ -389,6 +482,13 @@ function addToOrder() {
     dynListArr = [];
 
 }
+function finishOrder() {
+    console.log("hi")
+    orderContainer.innerHTML = '';
+    pizzaString = "";
+    pizzaCt = 0;
+    dynListArr = []
+}
 //PRE-BUILT
 var supremeBtn = document.getElementById('supremeBtn');
 var supersupremeBtn = document.getElementById('supersupremeBtn');
@@ -406,7 +506,6 @@ function addSupreme() {
     medBtn.style.background = 'black';
     largeBtn.style.background = 'black';
     xlargeBtn.style.background = 'red';
-    szBtn.disabled = true;
     pizza.style.width = '300px';
     pizza.style.height = '300px';
     pizzaSize.innerHTML = "XL";
@@ -426,13 +525,16 @@ function addSupreme() {
     isFiveCheese = false;
     isMeatLovers = false;
     currentPizzaCostLabel.innerHTML = "$ " + 15;
+    pizza.style.background = greenPepper + "," + bananaPepper + "," + mushroom + "," + olives + "," + onion 
+                            + "," + spinach + "," + bacon+ "," + salami + "," + pepperoni + "," + sausage
+                            + "," + ham + "," + chicken + "," + extraCheese + "," + marinara + "," + handToss;
+    pizza.style.backgroundSize = "cover";
 }
 function addSuperSupreme() {
     szBtn.style.background = 'black';
     medBtn.style.background = 'black';
     largeBtn.style.background = 'black';
     xlargeBtn.style.background = 'red';
-    szBtn.disabled = true;
     pizza.style.width = '300px';
     pizza.style.height = '300px';
     pizzaSize.innerHTML = "XL";
@@ -452,6 +554,8 @@ function addSuperSupreme() {
     isFiveCheese = false;
     isMeatLovers = false;
     currentPizzaCostLabel.innerHTML = "$ " + 17;
+    pizza.style.background = pepperoniExtra + "," + cheese + "," + marinara + "," + handToss;
+    pizza.style.backgroundSize = "cover";
 
 }
 function addBBQ() {
@@ -459,7 +563,6 @@ function addBBQ() {
     medBtn.style.background = 'black';
     largeBtn.style.background = 'black';
     xlargeBtn.style.background = 'red';
-    szBtn.disabled = true;
     pizza.style.width = '300px';
     pizza.style.height = '300px';
     pizzaSize.innerHTML = "XL";
@@ -479,14 +582,14 @@ function addBBQ() {
     isFiveCheese = false;
     isMeatLovers = false;
     currentPizzaCostLabel.innerHTML = "$ " + 15;
-
+    pizza.style.background = spinach + "," + onion + "," + chicken + "," + cheese + "," + bbq + "," + handToss;
+    pizza.style.backgroundSize = "cover";
 }
 function addFiveCheese() {
     szBtn.style.background = 'black';
     medBtn.style.background = 'black';
     largeBtn.style.background = 'black';
     xlargeBtn.style.background = 'red';
-    szBtn.disabled = true;
     pizza.style.width = '300px';
     pizza.style.height = '300px';
     pizzaSize.innerHTML = "XL";
@@ -506,14 +609,14 @@ function addFiveCheese() {
     isFiveCheese = true;
     isMeatLovers = false;
     currentPizzaCostLabel.innerHTML = "$ " + 16;
-
+    pizza.style.background = lightCheese + "," + cheese + "," + extraCheese + "," + marinara + "," + handToss;
+    pizza.style.backgroundSize = "cover";
 }
 function addMeatLovers() {
     szBtn.style.background = 'black';
     medBtn.style.background = 'black';
     largeBtn.style.background = 'black';
     xlargeBtn.style.background = 'red';
-    szBtn.disabled = true;
     pizza.style.width = '300px';
     pizza.style.height = '300px';
     pizzaSize.innerHTML = "XL";
@@ -521,7 +624,7 @@ function addMeatLovers() {
     pizzaCheese.innerHTML = "REGULAR";
     pizzaSauce.innerHTML = "MARINARA";
     pizzaSauceAmt.innerHTML = "REGULAR";
-    pizzaTop.innerHTML = "PEPPERONI<br/>SAUSAGE<br/>BACON<br/>HAM<br/>SALAMI";
+    pizzaTop.innerHTML = "PEPPERONI<br/>SAUSAGE<br/>BACON<br/>HAM<br/>SALAMI<br/>CHICKEN";
     supremeBtn.style.background = 'red';
     supersupremeBtn.style.background = 'black';
     bbqBtn.style.background = 'black';
@@ -533,7 +636,9 @@ function addMeatLovers() {
     isFiveCheese = false;
     isMeatLovers = true;
     currentPizzaCostLabel.innerHTML = "$ " + 16;
-
+    pizza.style.background = bacon + "," + ham + "," + pepperoni + "," + chicken + "," + salami
+                            + "," + sausage + "," + cheese + "," + marinara + "," + handToss;
+    pizza.style.backgroundSize = "cover";
 }
 var pepp1 = document.getElementById('peppBtn1');
 var pepp2 = document.getElementById('peppBtn2');
