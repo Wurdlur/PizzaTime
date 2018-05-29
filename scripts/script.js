@@ -62,19 +62,19 @@ var cheese = "url(images/cheese.png)";
 var lightCheese = "url(images/lightCheese.png)";
 var extraCheese = "url(images/extraCheese.png)";
 
-var bacon = "url(images/bacon.png)";
+var bacon1 = "url(images/bacon.png)";
 var baconLeft = "url(images/baconLeft.png)";
 var baconRight = "url(images/baconRight.png)";
 var baconExtra = "url(images/baconExtra.png)";
 var baconExtraLeft = "url(images/baconExtraLeft.png)";
 var baconExtraRight = "url(images/baconExtraRight.png)";
-var chicken = "url(images/chicken.png)";
+var chicken1 = "url(images/chicken.png)";
 var chickenLeft = "url(images/chickenLeft.png)";
 var chickenRight = "url(images/chickenRight.png)";
 var chickenExtra = "url(images/chickenExtra.png)";
 var chickenExtraLeft = "url(images/chickenExtraLeft.png)";
 var chickenExtraRight = "url(images/chickenExtraRight.png)";
-var ham = "url(images/ham.png)";
+var ham1 = "url(images/ham.png)";
 var hamLeft = "url(images/hamLeft.png)";
 var hamRight = "url(images/hamRight.png)";
 var hamExtra = "url(images/hamExtra.png)";
@@ -86,50 +86,50 @@ var pepperoniRight = "url(images/pepperoniRight.png)";
 var pepperoniExtra = "url(images/pepperoniExtra.png)";
 var pepperoniExtraLeft = "url(images/pepperoniExtraLeft.png)";
 var pepperoniExtraRight = "url(images/pepperoniExtraRight.png)";
-var salami = "url(images/salami.png)";
+var salami1 = "url(images/salami.png)";
 var salamiLeft = "url(images/salamiLeft.png)";
 var salamiRight = "url(images/salamiRight.png)";
 var salamiExtra = "url(images/salamiExtra.png)";
 var salamiExtraLeft = "url(images/salamiExtraLeft.png)";
 var salamiExtraRight = "url(images/salamiExtraRight.png)";
-var sausage = "url(images/sausage.png)";
+var sausage1 = "url(images/sausage.png)";
 var sausageLeft = "url(images/sausageLeft.png)";
 var sausageRight = "url(images/sausageRight.png)";
 var sausageExtra = "url(images/sausageExtra.png)";
 var sausageExtraLeft = "url(images/sausageExtraLeft.png)";
 var sausageExtraRight = "url(images/sausageExtraRight.png)";
 
-var bananaPepper = "url(images/bananaPepper.png)";
+var bananaPepper1 = "url(images/bananaPepper.png)";
 var bananaPepperLeft = "url(images/bananaPepperLeft.png)";
 var bananaPepperRight = "url(images/bananaPepperRight.png)";
 var bananaPepperExtra = "url(images/bananaPepperExtra.png)";
 var bananaPepperExtraLeft = "url(images/bananaPepperExtraLeft.png)";
 var bananaPepperExtraRight = "url(images/bananaPepperExtraRight.png)";
-var greenPepper = "url(images/greenPepper.png)";
+var greenPepper1 = "url(images/greenPepper.png)";
 var greenPepperLeft = "url(images/greenPepperLeft.png)";
 var greenPepperRight = "url(images/greenPepperRight.png)";
 var greenPepperExtra = "url(images/greenPepperExtra.png)";
 var greenPepperExtraLeft = "url(images/greenPepperExtraLeft.png)";
 var greenPepperExtraRight = "url(images/greenPepperExtraRight.png)";
-var mushroom = "url(images/mushroom.png)";
+var mushroom1 = "url(images/mushroom.png)";
 var mushroomLeft = "url(images/mushroomLeft.png)";
 var mushroomRight = "url(images/mushroomRight.png)";
 var mushroomExtra = "url(images/mushroomExtra.png)";
 var mushroomExtraLeft = "url(images/mushroomExtraLeft.png)";
 var mushroomExtraRight = "url(images/mushroomExtraRight.png)";
-var olives = "url(images/olives.png)";
+var olives1 = "url(images/olives.png)";
 var olivesLeft = "url(images/olivesLeft.png)";
 var olivesRight = "url(images/olivesRight.png)";
 var olivesExtra = "url(images/olivesExtra.png)";
 var olivesExtraLeft = "url(images/olivesExtraLeft.png)";
 var olivesExtraRight = "url(images/olivesExtraRight.png)";
-var onion = "url(images/onion.png)";
+var onion1 = "url(images/onion.png)";
 var onionLeft = "url(images/onionLeft.png)";
 var onionRight = "url(images/onionRight.png)";
 var onionExtra = "url(images/onionExtra.png)";
 var onionExtraLeft = "url(images/onionExtraLeft.png)";
 var onionExtraRight = "url(images/onionExtraRight.png)";
-var spinach = "url(images/spinach.png)";
+var spinach1 = "url(images/spinach.png)";
 var spinachLeft = "url(images/spinachLeft.png)";
 var spinachRight = "url(images/spinachRight.png)";
 var spinachExtra = "url(images/spinachExtra.png)";
@@ -525,9 +525,9 @@ function addSupreme() {
     isFiveCheese = false;
     isMeatLovers = false;
     currentPizzaCostLabel.innerHTML = "$ " + 15;
-    pizza.style.background = greenPepper + "," + bananaPepper + "," + mushroom + "," + olives + "," + onion 
-                            + "," + spinach + "," + bacon+ "," + salami + "," + pepperoni + "," + sausage
-                            + "," + ham + "," + chicken + "," + extraCheese + "," + marinara + "," + handToss;
+    pizza.style.background = greenPepper1 + "," + bananaPepper1 + "," + mushroom1 + "," + olives1 + "," + onion1 
+                            + "," + spinach1 + "," + bacon1 + "," + salami1 + "," + pepperoni1 + "," + sausage1
+                            + "," + ham1 + "," + chicken1 + "," + extraCheese + "," + marinara + "," + handToss;
     pizza.style.backgroundSize = "cover";
 }
 function addSuperSupreme() {
@@ -582,7 +582,7 @@ function addBBQ() {
     isFiveCheese = false;
     isMeatLovers = false;
     currentPizzaCostLabel.innerHTML = "$ " + 15;
-    pizza.style.background = spinach + "," + onion + "," + chicken + "," + cheese + "," + bbq + "," + handToss;
+    pizza.style.background = spinach1 + "," + onion1 + "," + chicken1 + "," + cheese + "," + bbq + "," + handToss;
     pizza.style.backgroundSize = "cover";
 }
 function addFiveCheese() {
@@ -636,8 +636,8 @@ function addMeatLovers() {
     isFiveCheese = false;
     isMeatLovers = true;
     currentPizzaCostLabel.innerHTML = "$ " + 16;
-    pizza.style.background = bacon + "," + ham + "," + pepperoni + "," + chicken + "," + salami
-                            + "," + sausage + "," + cheese + "," + marinara + "," + handToss;
+    pizza.style.background = bacon1 + "," + ham1 + "," + pepperoni1 + "," + chicken1 + "," + salami1
+                            + "," + sausage1 + "," + cheese + "," + marinara + "," + handToss;
     pizza.style.backgroundSize = "cover";
 }
 var pepp1 = document.getElementById('peppBtn1');
