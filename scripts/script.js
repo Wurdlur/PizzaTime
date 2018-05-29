@@ -488,6 +488,8 @@ function finishOrder() {
     pizzaString = "";
     pizzaCt = 0;
     dynListArr = []
+    pizza.style.background = cheese + "," + marinara + "," + handToss;
+    pizza.style.backgroundSize = "cover";
 }
 //PRE-BUILT
 var supremeBtn = document.getElementById('supremeBtn');
