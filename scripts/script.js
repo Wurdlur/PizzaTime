@@ -833,7 +833,7 @@ function addSupreme() {
     isMeatLovers = false;
     currentPizzaCostLabel.innerHTML = "$ " + 20;
     FNCUSTOMPRICE = supremeBasePrice;
-
+    TOPPINGS = [];
     currentPizzaCostLabel.innerHTML = "$ " + supremeBasePrice;
     pizza.style.background = greenPepper1 + "," + bananaPepper1 + "," + mushroom1 + "," + olives1 + ","
         + onion1 + "," + spinach1 + "," + bacon1 + "," + salami1 + "," + pepperoni1
@@ -939,9 +939,11 @@ function addSupreme() {
     TOPPINGS[11] = "MUSHROOM";
     TOPPINGS[12] = "SPINACH";
     TOPPINGS[13] = "OLIVES";
+    TOPPINGS[14] = "ONIONS";
     viewToppings();
 }
 function addPepperoniPizza() {
+    TOPPINGS = [];
     szBtn.style.background = 'black';
     medBtn.style.background = 'black';
     largeBtn.style.background = 'black';
@@ -1046,8 +1048,11 @@ function addPepperoniPizza() {
     document.getElementById('onionBtn4').style.background = 'black';
     document.getElementById('onionBtn5').style.background = 'black';
     document.getElementById('onionBtn6').style.background = 'black';
+    TOPPINGS[3] = "PEPPERONI";
+    viewToppings();
 }
 function addBBQ() {
+    TOPPINGS = [];
     szBtn.style.background = 'black';
     medBtn.style.background = 'black';
     largeBtn.style.background = 'black';
@@ -1154,8 +1159,13 @@ function addBBQ() {
     document.getElementById('onionBtn4').style.background = 'black';
     document.getElementById('onionBtn5').style.background = 'black';
     document.getElementById('onionBtn6').style.background = 'black';
+    TOPPINGS[7] = "CHICKEN";
+    TOPPINGS[12] = "SPINACH";
+    TOPPINGS[14] = "ONIONS";
+    viewToppings();
 }
 function addFiveCheese() {
+    TOPPINGS = [];
     szBtn.style.background = 'black';
     medBtn.style.background = 'black';
     largeBtn.style.background = 'black';
@@ -1265,6 +1275,7 @@ function addFiveCheese() {
     document.getElementById('onionBtn6').style.background = 'black';
 }
 function addMeatLovers() {
+    TOPPINGS = [];
     szBtn.style.background = 'black';
     medBtn.style.background = 'black';
     largeBtn.style.background = 'black';
@@ -1375,6 +1386,13 @@ function addMeatLovers() {
     document.getElementById('onionBtn4').style.background = 'black';
     document.getElementById('onionBtn5').style.background = 'black';
     document.getElementById('onionBtn6').style.background = 'black';
+    TOPPINGS[3] = "PEPPERONI";
+    TOPPINGS[4] = "SAUSAGE";
+    TOPPINGS[5] = "HAM";
+    TOPPINGS[6] = "BACON";
+    TOPPINGS[7] = "CHICKEN";
+    TOPPINGS[8] = "SALAMI";
+    viewToppings();
 }
 
 var pepp2 = document.getElementById('peppBtn2');
