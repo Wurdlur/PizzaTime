@@ -928,18 +928,18 @@ function addSupreme() {
     document.getElementById('onionBtn4').style.background = 'black';
     document.getElementById('onionBtn5').style.background = 'black';
     document.getElementById('onionBtn6').style.background = 'black';
-    //     TOPPINGS[4] = "PEPPERONI";
-    // TOPPINGS[5] = "SAUSAGE";
-    // TOPPINGS[6] = "HAM";
-    // TOPPINGS[7] = "BACON";
-    // TOPPINGS[8] = "CHICKEN";
-    // TOPPINGS[9] = "SALAMI";
-    // TOPPINGS[10] = "GREENPEPPER";
-    // TOPPINGS[11] = "BANANAPERPPER";
-    // TOPPINGS[12] = "MUSHROOM";
-    // TOPPINGS[13] = "SPINACH";
-    // TOPPINGS[14] = "OLIVES";
-    // viewToppings();
+    TOPPINGS[3] = "PEPPERONI";
+    TOPPINGS[4] = "SAUSAGE";
+    TOPPINGS[5] = "HAM";
+    TOPPINGS[6] = "BACON";
+    TOPPINGS[7] = "CHICKEN";
+    TOPPINGS[8] = "SALAMI";
+    TOPPINGS[9] = "GREENPEPPER";
+    TOPPINGS[10] = "BANANAPERPPER";
+    TOPPINGS[11] = "MUSHROOM";
+    TOPPINGS[12] = "SPINACH";
+    TOPPINGS[13] = "OLIVES";
+    viewToppings();
 }
 function addPepperoniPizza() {
     szBtn.style.background = 'black';
@@ -1291,7 +1291,7 @@ function addMeatLovers() {
     FNCUSTOMPRICE = meatsloversBasePrice;
     currentPizzaCostLabel.innerHTML = "$ " + meatsloversBasePrice;
     pizza.style.background = bacon1 + "," + ham1 + "," + pepperoni1 + "," + chicken1 + "," + salami1
-                            + "," + sausage1 + "," + cheese + "," + marinara + "," + handToss;
+        + "," + sausage1 + "," + cheese + "," + marinara + "," + handToss;
     pizza.style.backgroundSize = "cover";
     pizzaStack[0] = handToss;
     pizzaStack[1] = marinara;
@@ -1624,8 +1624,8 @@ function toppingAdder(arrindex, topppingName, e) {
             if (isSupreme) {
                 switch (topppingName.id) {
                     case "pepperoni":
-console.log("MADE IT");
-TOPPINGS[3] = "";
+                        console.log("MADE IT");
+                        TOPPINGS[3] = "";
                         pizza.style.background = greenPepper1 + "," + bananaPepper1 + "," + mushroom1 + "," + olives1 + ","
                             + onion1 + "," + spinach1 + "," + bacon1 + "," + salami1 + ","
                             + sausage1 + "," + ham1 + "," + chicken1 + "," + extraCheese + "," +

@@ -224,6 +224,10 @@ ul.tab-nav li a.active-tab.button-tab {
   justify-content: center;
 }
 
+#spcdescText {
+  visibility: hidden;
+}
+
 #dealtext {
   font-size: 25px;
   color: #511415;
