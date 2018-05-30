@@ -701,7 +701,6 @@ function finishOrder() {
     currPriceHolder = 5;
     dynListArr = [];
     currentPizzaCostLabel.innerHTML = '$' + 5;
-    dynListArr = []
     pizza.style.background = cheese + "," + marinara + "," + handToss;
     pizza.style.backgroundSize = "cover";
     pizzaStack[0] = handToss;
@@ -760,6 +759,7 @@ function addSupreme() {
     isBBQChicken = false;
     isFiveCheese = false;
     isMeatLovers = false;
+    currentPizzaCostLabel.innerHTML = "$ " + 20;
     FNCUSTOMPRICE = supremeBasePrice;
 
     currentPizzaCostLabel.innerHTML = "$ " + supremeBasePrice;
@@ -768,23 +768,22 @@ function addSupreme() {
         + "," + sausage1 + "," + ham1 + "," + chicken1 + "," + extraCheese + "," +
         marinara + "," + handToss;
     pizza.style.backgroundSize = "cover";
-
-
-    ////
-    // TOPPINGS[4] = "PEPPERONI";
-    // TOPPINGS[5] = "SAUSAGE";
-    // TOPPINGS[6] = "HAM";
-    // TOPPINGS[7] = "BACON";
-    // TOPPINGS[8] = "CHICKEN";
-    // TOPPINGS[9] = "SALAMI";
-    // TOPPINGS[10] = "GREENPEPPER";
-    // TOPPINGS[11] = "BANANAPERPPER";
-    // TOPPINGS[12] = "MUSHROOM";
-    // TOPPINGS[13] = "SPINACH";
-    // TOPPINGS[14] = "OLIVES";
-    // TOPPINGS[15] = "ONIONS";
-
-    // viewToppings();
+    pizzaStack[0] = handToss;
+    pizzaStack[1] = marinara;
+    pizzaStack[2] = cheese;
+    pizzaStack[3] = pepperoni1;
+    pizzaStack[4] = sausage1;
+    pizzaStack[5] = ham1;
+    pizzaStack[6] = bacon1;
+    pizzaStack[7] = chicken1;
+    pizzaStack[8] = salami1;
+    pizzaStack[9] = greenPepper1;
+    pizzaStack[10] = bananaPepper1;
+    pizzaStack[11] = mushroom1;
+    pizzaStack[12] = spinach1;
+    pizzaStack[13] = olives1;
+    pizzaStack[14] = onion1;
+    currPriceHolder = 20;
 }
 function addPepperoniPizza() {
     szBtn.style.background = 'black';
@@ -809,10 +808,16 @@ function addPepperoniPizza() {
     isBBQChicken = false;
     isFiveCheese = false;
     isMeatLovers = false;
+    currentPizzaCostLabel.innerHTML = "$ " + 11;
     FNCUSTOMPRICE = pepperoniBasePrice;
     currentPizzaCostLabel.innerHTML = "$ " + pepperoniBasePrice;
     pizza.style.background = pepperoniExtra + "," + cheese + "," + marinara + "," + handToss;
     pizza.style.backgroundSize = "cover";
+    pizzaStack[0] = handToss;
+    pizzaStack[1] = marinara;
+    pizzaStack[2] = cheese;
+    pizzaStack[3] = pepperoniExtra;
+    currPriceHolder = 11;
 }
 function addBBQ() {
     szBtn.style.background = 'black';
@@ -837,10 +842,18 @@ function addBBQ() {
     isBBQChicken = true;
     isFiveCheese = false;
     isMeatLovers = false;
+    currentPizzaCostLabel.innerHTML = "$ " + 13;
     FNCUSTOMPRICE = bbqBasePrice;
     currentPizzaCostLabel.innerHTML = "$ " + bbqBasePrice;
     pizza.style.background = spinach1 + "," + onion1 + "," + chicken1 + "," + cheese + "," + bbq + "," + handToss;
     pizza.style.backgroundSize = "cover";
+    pizzaStack[0] = handToss;
+    pizzaStack[1] = bbq;
+    pizzaStack[2] = cheese;
+    pizzaStack[7] = chicken1;
+    pizzaStack[12] = spinach1;
+    pizzaStack[14] = onion1;
+    currPriceHolder = 13;
 }
 function addFiveCheese() {
     szBtn.style.background = 'black';
@@ -865,10 +878,15 @@ function addFiveCheese() {
     isBBQChicken = false;
     isFiveCheese = true;
     isMeatLovers = false;
+    currentPizzaCostLabel.innerHTML = "$ " + 11;
     FNCUSTOMPRICE = fivecheeseBasePrice;
     currentPizzaCostLabel.innerHTML = "$ " + fivecheeseBasePrice;
     pizza.style.background = lightCheese + "," + cheese + "," + extraCheese + "," + marinara + "," + handToss;
     pizza.style.backgroundSize = "cover";
+    pizzaStack[0] = handToss;
+    pizzaStack[1] = bbq;
+    pizzaStack[2] = cheese;
+    currPriceHolder = 11;
 }
 function addMeatLovers() {
     szBtn.style.background = 'black';
@@ -893,11 +911,22 @@ function addMeatLovers() {
     isBBQChicken = false;
     isFiveCheese = false;
     isMeatLovers = true;
+    currentPizzaCostLabel.innerHTML = "$ " + 14;
     FNCUSTOMPRICE = meatloversBasePrice;
     currentPizzaCostLabel.innerHTML = "$ " + meatsloversBasePrice;
     pizza.style.background = bacon1 + "," + ham1 + "," + pepperoni1 + "," + chicken1 + "," + salami1
         + "," + sausage1 + "," + cheese + "," + marinara + "," + handToss;
     pizza.style.backgroundSize = "cover";
+    pizzaStack[0] = handToss;
+    pizzaStack[1] = marinara;
+    pizzaStack[2] = cheese;
+    pizzaStack[3] = pepperoni1;
+    pizzaStack[4] = sausage1;
+    pizzaStack[5] = ham1;
+    pizzaStack[6] = bacon1;
+    pizzaStack[7] = chicken1;
+    pizzaStack[8] = salami1;
+    currPriceHolder = 14;
 }
 
 var pepp2 = document.getElementById('peppBtn2');
