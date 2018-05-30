@@ -57,6 +57,8 @@ justify-content: center;
 #pizza {
     width: 200px;
     height: 200px;
+    background-size: cover;
+    
 }
 .imgContainer {
         margin: 5px;
@@ -328,6 +330,7 @@ width: 100%;
 #pizza {
     // width: 200px;
     // height: 200px;
+    background-size: cover;
 }
 #crustHolder {
     display: inherit;
@@ -349,12 +352,17 @@ margin-left: 30px;
     #pizza {
     // width: 200px;
     // height: 200px;
+
+    background-size: cover;
+
 }
 #left {
     width: 90%;
 }
 #pizza {
     // width: 300px;
+    background-size: cover;
+    
     // height: 300px;
 }
 }

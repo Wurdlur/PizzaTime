@@ -27,8 +27,7 @@ var TOPPINGS = [];
 
 var dynListArr = [];
 var pizza = document.getElementById('pizza');
-// pizza.style.background = "url(images/alfredo.png)," + pizzaStack[0];
-// pizza.style.backgroundSize = 'cover';
+
 
 var szBtn = document.getElementById('smallBtn');
 szBtn.addEventListener('click', addSmall);
@@ -140,6 +139,13 @@ var c1 = document.getElementById('crustBtn1');
 var s1 = document.getElementById('sauceBtn1');
 var ch1 = document.getElementById('cheeseBtn1');
 
+var supremeBasePrice = 30;
+var pepperoniBasePrice = 21;
+var bbqBasePrice = 23;
+var fivecheeseBasePrice = 20;
+var meatsloversBasePrice = 24;
+
+
 pizza.style.background = cheese + "," + marinara + "," + handToss;
 pizza.style.backgroundSize = "cover";
 var currPriceHolder = 5;
@@ -148,10 +154,10 @@ pizzaStack[0] = handToss;
 pizzaStack[1] = marinara;
 pizzaStack[2] = cheese;
 c1.style.background = 'red';
-pizzaCrust.innerHTML = "HAND-TOSSED";
 ch1.style.background = 'red';
-pizzaCheese.innerHTML = "REGULAR";
 s1.style.background = 'red';
+pizzaCrust.innerHTML = "HAND-TOSSED";
+pizzaCheese.innerHTML = "REGULAR";
 pizzaSauce.innerHTML = "MARINARA";
 pizzaSauceAmt.innerHTML = "REGULAR";
 
@@ -165,21 +171,31 @@ function addSmall(evt) {
     xlargeBtn.style.background = 'black';
     pizza.style.width = '150px';
     pizza.style.height = '150px';
-    currPriceHolder = 5;
+
+    if (isSupreme) {
+        currPriceHolder = (supremeBasePrice - 6);
+        FNCUSTOMPRICE = currPriceHolder;
+    } else if (isPepperoni) {
+        pepperoniBasePrice = (pepperoniBasePrice - 6);
+        FNCUSTOMPRICE = currPriceHolder;
+
+    } else if (isBBQChicken) {
+        currPriceHolder = (bbqBasePrice - 6);
+        FNCUSTOMPRICE = currPriceHolder;
+
+    } else if (isFiveCheese) {
+        currPriceHolder = (fivecheeseBasePrice - 6);
+        FNCUSTOMPRICE = currPriceHolder;
+
+    } else if (isMeatLovers) {
+        currPriceHolder = (meatsloversBasePrice - 6);
+        FNCUSTOMPRICE = currPriceHolder;
+
+    } else {
+        currPriceHolder = 5;
+
+    }
     currentPizzaCostLabel.innerHTML = '$' + currPriceHolder;
-
-    // console.log(u);
-    // dynListArr.push(u);
-    // // console.log(szBtn.innerHTML);
-    // console.log("ARR " + dynListArr[0]);
-
-    // var dynList = document.getElementById('dynamicListHolder');
-
-    // for (var i = 0; i < dynListArr.length; i++) {
-    //     dynList.innerHTML = dynListArr[i];
-
-    //     console.log("dyn" + dynList.innerHTML);
-    // }
 }
 medBtn.style.background = 'red';
 pizzaSize.innerHTML = 'M';
@@ -193,7 +209,30 @@ function addMed(evt) {
     xlargeBtn.style.background = 'black';
     pizza.style.width = '200px';
     pizza.style.height = '200px';
-    currPriceHolder = 7;
+    if (isSupreme) {
+        currPriceHolder = (supremeBasePrice - 4);
+        FNCUSTOMPRICE = currPriceHolder;
+
+    } else if (isPepperoni) {
+        currPriceHolder = (pepperoniBasePrice - 4);
+        FNCUSTOMPRICE = currPriceHolder;
+
+    } else if (isBBQChicken) {
+        currPriceHolder = (bbqBasePrice - 4);
+        FNCUSTOMPRICE = currPriceHolder;
+
+    } else if (isFiveCheese) {
+        currPriceHolder = (fivecheeseBasePrice - 4);
+        FNCUSTOMPRICE = currPriceHolder;
+
+    } else if (isMeatLovers) {
+        currPriceHolder = (meatsloversBasePrice - 4);
+        FNCUSTOMPRICE = currPriceHolder;
+
+    } else {
+        currPriceHolder = 7;
+
+    }
     currentPizzaCostLabel.innerHTML = '$' + currPriceHolder;
 
 
@@ -208,7 +247,25 @@ function addLarge(evt) {
     xlargeBtn.style.background = 'black';
     pizza.style.width = '250px';
     pizza.style.height = '250px';
-    currPriceHolder = 9;
+    if (isSupreme) {
+        currPriceHolder = (supremeBasePrice - 2);
+        FNCUSTOMPRICE = currPriceHolder;
+    } else if (isPepperoni) {
+        currPriceHolder = (pepperoniBasePrice - 2);
+        FNCUSTOMPRICE = currPriceHolder;
+    } else if (isBBQChicken) {
+        currPriceHolder = (bbqBasePrice - 2);
+        FNCUSTOMPRICE = currPriceHolder;
+    } else if (isFiveCheese) {
+        currPriceHolder = (fivecheeseBasePrice - 2);
+        FNCUSTOMPRICE = currPriceHolder;
+    } else if (isMeatLovers) {
+        currPriceHolder = (meatsloversBasePrice - 2);
+        FNCUSTOMPRICE = currPriceHolder;
+    } else {
+
+        currPriceHolder = 9;
+    }
     currentPizzaCostLabel.innerHTML = '$' + currPriceHolder;
 
 
@@ -223,7 +280,29 @@ function addXLarge(evt) {
     szBtn.style.background = 'black';
     pizza.style.width = '300px';
     pizza.style.height = '300px';
-    currPriceHolder = 11;
+    if (isSupreme) {
+        currPriceHolder = supremeBasePrice;
+        FNCUSTOMPRICE = currPriceHolder;
+    } else if (isPepperoni) {
+        currPriceHolder = pepperoniBasePrice;
+        FNCUSTOMPRICE = currPriceHolder;
+
+    } else if (isBBQChicken) {
+        currPriceHolder = bbqBasePrice;
+        FNCUSTOMPRICE = currPriceHolder;
+
+    } else if (isFiveCheese) {
+        currPriceHolder = fivecheeseBasePrice;
+        FNCUSTOMPRICE = currPriceHolder;
+
+    } else if (isMeatLovers) {
+        currPriceHolder = meatsloversBasePrice;
+        FNCUSTOMPRICE = currPriceHolder;
+
+    } else {
+
+        currPriceHolder = 11;
+    }
     currentPizzaCostLabel.innerHTML = '$' + currPriceHolder;
 
 }
@@ -442,6 +521,7 @@ var isBBQChicken = false;
 var isFiveCheese = false;
 var isMeatLovers = false;
 
+var final = 0;
 function addToOrder() {
     pizzaCt += 1;
     // orderContainer.innerHTML = "";
@@ -489,26 +569,123 @@ function addToOrder() {
     pizza.style.width = '200px';
     pizza.style.height = '200px';
     console.log(isSupreme);
-    if (isSupreme) {
-        TOTALPRICE += 15;
-    } else if (isPepperoni) {
-        TOTALPRICE += 17;
+    // if (isSupreme) {
+    //     TOTALPRICE += 30;
+    // } else if (isPepperoni) {
+    //     TOTALPRICE += 17;
 
-    } else if (isBBQChicken) {
-        TOTALPRICE += 15;
+    // } else if (isBBQChicken) {
+    //     TOTALPRICE += 15;
 
-    } else if (isFiveCheese) {
-        TOTALPRICE += 16;
+    // } else if (isFiveCheese) {
+    //     TOTALPRICE += 16;
 
-    } else if (isMeatLovers) {
-        TOTALPRICE += 16;
+    // } else if (isMeatLovers) {
+    //     TOTALPRICE += 16;
 
-    }
+    // }
+    // TOTALPRICE = currPriceHolder;
     console.log("TP" + TOTALPRICE);
-    totalCostLabel.innerHTML = "$ " + TOTALPRICE;
+    console.log("FN" + FNCUSTOMPRICE);
+    var price = currentPizzaCostLabel.innerHTML;
+    console.log(price);
+    final += FNCUSTOMPRICE;
+    console.log(final);
+    totalCostLabel.innerHTML = "$" + final;
     dynListArr = [];
     TOPPINGS = [];
-
+    FNCUSTOMPRICE = 5;
+    pizza.style.background = cheese + "," + marinara + "," + handToss;
+    pizza.style.backgroundSize = "cover";
+    pizzaStack[0] = handToss;
+    pizzaStack[1] = marinara;
+    pizzaStack[2] = cheese;
+    pizzaCrust.innerHTML = "HAND-TOSSED";
+    pizzaCheese.innerHTML = "REGULAR";
+    pizzaSauce.innerHTML = "MARINARA";
+    pizzaSauceAmt.innerHTML = "REGULAR";
+    currentPizzaCostLabel.innerHTML = "$" + 5;
+    supremeBtn.style.background = 'black';
+    pepperoniPizzaBtn.style.background = 'black';
+    bbqBtn.style.background = 'black';
+    fivecheeseBtn.style.background = 'black';
+    meatloversBtn.style.background = 'black';
+    c1.style.background = 'red';
+    ch1.style.background = 'red';
+    s1.style.background = 'red';
+    ///
+    document.getElementById('pepperoniBtn1').style.background = 'black';
+    document.getElementById('pepperoniBtn2').style.background = 'black';
+    document.getElementById('pepperoniBtn3').style.background = 'black';
+    document.getElementById('pepperoniBtn4').style.background = 'black';
+    document.getElementById('pepperoniBtn5').style.background = 'black';
+    document.getElementById('pepperoniBtn6').style.background = 'black';
+    document.getElementById('sausageBtn1').style.background = 'black';
+    document.getElementById('sausageBtn2').style.background = 'black';
+    document.getElementById('sausageBtn3').style.background = 'black';
+    document.getElementById('sausageBtn4').style.background = 'black';
+    document.getElementById('sausageBtn5').style.background = 'black';
+    document.getElementById('sausageBtn6').style.background = 'black';
+    document.getElementById('hamBtn1').style.background = 'black';
+    document.getElementById('hamBtn2').style.background = 'black';
+    document.getElementById('hamBtn3').style.background = 'black';
+    document.getElementById('hamBtn4').style.background = 'black';
+    document.getElementById('hamBtn5').style.background = 'black';
+    document.getElementById('hamBtn6').style.background = 'black';
+    document.getElementById('baconBtn1').style.background = 'black';
+    document.getElementById('baconBtn2').style.background = 'black';
+    document.getElementById('baconBtn3').style.background = 'black';
+    document.getElementById('baconBtn4').style.background = 'black';
+    document.getElementById('baconBtn5').style.background = 'black';
+    document.getElementById('baconBtn6').style.background = 'black';
+    document.getElementById('chickenBtn1').style.background = 'black';
+    document.getElementById('chickenBtn2').style.background = 'black';
+    document.getElementById('chickenBtn3').style.background = 'black';
+    document.getElementById('chickenBtn4').style.background = 'black';
+    document.getElementById('chickenBtn5').style.background = 'black';
+    document.getElementById('chickenBtn6').style.background = 'black';
+    document.getElementById('salamiBtn1').style.background = 'black';
+    document.getElementById('salamiBtn2').style.background = 'black';
+    document.getElementById('salamiBtn3').style.background = 'black';
+    document.getElementById('salamiBtn4').style.background = 'black';
+    document.getElementById('salamiBtn5').style.background = 'black';
+    document.getElementById('salamiBtn6').style.background = 'black';
+    document.getElementById('greenPepperBtn1').style.background = 'black';
+    document.getElementById('greenPepperBtn2').style.background = 'black';
+    document.getElementById('greenPepperBtn3').style.background = 'black';
+    document.getElementById('greenPepperBtn4').style.background = 'black';
+    document.getElementById('greenPepperBtn5').style.background = 'black';
+    document.getElementById('greenPepperBtn6').style.background = 'black';
+    document.getElementById('bananaPepperBtn1').style.background = 'black';
+    document.getElementById('bananaPepperBtn2').style.background = 'black';
+    document.getElementById('bananaPepperBtn3').style.background = 'black';
+    document.getElementById('bananaPepperBtn4').style.background = 'black';
+    document.getElementById('bananaPepperBtn5').style.background = 'black';
+    document.getElementById('bananaPepperBtn6').style.background = 'black';
+    document.getElementById('mushroomBtn1').style.background = 'black';
+    document.getElementById('mushroomBtn2').style.background = 'black';
+    document.getElementById('mushroomBtn3').style.background = 'black';
+    document.getElementById('mushroomBtn4').style.background = 'black';
+    document.getElementById('mushroomBtn5').style.background = 'black';
+    document.getElementById('mushroomBtn6').style.background = 'black';
+    document.getElementById('spinachBtn1').style.background = 'black';
+    document.getElementById('spinachBtn2').style.background = 'black';
+    document.getElementById('spinachBtn3').style.background = 'black';
+    document.getElementById('spinachBtn4').style.background = 'black';
+    document.getElementById('spinachBtn5').style.background = 'black';
+    document.getElementById('spinachBtn6').style.background = 'black';
+    document.getElementById('olivesBtn1').style.background = 'black';
+    document.getElementById('olivesBtn2').style.background = 'black';
+    document.getElementById('olivesBtn3').style.background = 'black';
+    document.getElementById('olivesBtn4').style.background = 'black';
+    document.getElementById('olivesBtn5').style.background = 'black';
+    document.getElementById('olivesBtn6').style.background = 'black';
+    document.getElementById('onionBtn1').style.background = 'black';
+    document.getElementById('onionBtn2').style.background = 'black';
+    document.getElementById('onionBtn3').style.background = 'black';
+    document.getElementById('onionBtn4').style.background = 'black';
+    document.getElementById('onionBtn5').style.background = 'black';
+    document.getElementById('onionBtn6').style.background = 'black';
 }
 
 var modal = document.getElementById('myModal');
@@ -524,7 +701,6 @@ function finishOrder() {
     currPriceHolder = 5;
     dynListArr = [];
     currentPizzaCostLabel.innerHTML = '$' + 5;
-
     dynListArr = []
     pizza.style.background = cheese + "," + marinara + "," + handToss;
     pizza.style.backgroundSize = "cover";
@@ -535,13 +711,16 @@ function finishOrder() {
     pizzaCheese.innerHTML = "REGULAR";
     pizzaSauce.innerHTML = "MARINARA";
     pizzaSauceAmt.innerHTML = "REGULAR";
+    c1.style.background = 'red';
+    ch1.style.background = 'red';
+    s1.style.background = 'red';
 }
 
-span.onclick = function() {
+span.onclick = function () {
     modal.style.display = "none";
 }
 
-window.onclick = function(event) {
+window.onclick = function (event) {
     if (event.target == modal) {
         modal.style.display = "none";
     }
@@ -581,12 +760,31 @@ function addSupreme() {
     isBBQChicken = false;
     isFiveCheese = false;
     isMeatLovers = false;
-    currentPizzaCostLabel.innerHTML = "$ " + 30;
+    FNCUSTOMPRICE = supremeBasePrice;
+
+    currentPizzaCostLabel.innerHTML = "$ " + supremeBasePrice;
     pizza.style.background = greenPepper1 + "," + bananaPepper1 + "," + mushroom1 + "," + olives1 + ","
-                            + onion1 + "," + spinach1 + "," + bacon1 + "," + salami1 + "," + pepperoni1
-                            + "," + sausage1 + "," + ham1 + "," + chicken1 + "," + extraCheese + "," + 
-                            marinara + "," + handToss;
+        + onion1 + "," + spinach1 + "," + bacon1 + "," + salami1 + "," + pepperoni1
+        + "," + sausage1 + "," + ham1 + "," + chicken1 + "," + extraCheese + "," +
+        marinara + "," + handToss;
     pizza.style.backgroundSize = "cover";
+
+
+    ////
+    // TOPPINGS[4] = "PEPPERONI";
+    // TOPPINGS[5] = "SAUSAGE";
+    // TOPPINGS[6] = "HAM";
+    // TOPPINGS[7] = "BACON";
+    // TOPPINGS[8] = "CHICKEN";
+    // TOPPINGS[9] = "SALAMI";
+    // TOPPINGS[10] = "GREENPEPPER";
+    // TOPPINGS[11] = "BANANAPERPPER";
+    // TOPPINGS[12] = "MUSHROOM";
+    // TOPPINGS[13] = "SPINACH";
+    // TOPPINGS[14] = "OLIVES";
+    // TOPPINGS[15] = "ONIONS";
+
+    // viewToppings();
 }
 function addPepperoniPizza() {
     szBtn.style.background = 'black';
@@ -600,7 +798,7 @@ function addPepperoniPizza() {
     pizzaCheese.innerHTML = "REGULAR";
     pizzaSauce.innerHTML = "MARINARA";
     pizzaSauceAmt.innerHTML = "REGULAR";
-    pizzaTop.innerHTML = "Pepperoni";
+    pizzaTop.innerHTML = "PEPPERONI";
     supremeBtn.style.background = 'black';
     pepperoniPizzaBtn.style.background = 'red';
     bbqBtn.style.background = 'black';
@@ -611,7 +809,8 @@ function addPepperoniPizza() {
     isBBQChicken = false;
     isFiveCheese = false;
     isMeatLovers = false;
-    currentPizzaCostLabel.innerHTML = "$ " + 21;
+    FNCUSTOMPRICE = pepperoniBasePrice;
+    currentPizzaCostLabel.innerHTML = "$ " + pepperoniBasePrice;
     pizza.style.background = pepperoniExtra + "," + cheese + "," + marinara + "," + handToss;
     pizza.style.backgroundSize = "cover";
 }
@@ -638,7 +837,8 @@ function addBBQ() {
     isBBQChicken = true;
     isFiveCheese = false;
     isMeatLovers = false;
-    currentPizzaCostLabel.innerHTML = "$ " + 23;
+    FNCUSTOMPRICE = bbqBasePrice;
+    currentPizzaCostLabel.innerHTML = "$ " + bbqBasePrice;
     pizza.style.background = spinach1 + "," + onion1 + "," + chicken1 + "," + cheese + "," + bbq + "," + handToss;
     pizza.style.backgroundSize = "cover";
 }
@@ -665,7 +865,8 @@ function addFiveCheese() {
     isBBQChicken = false;
     isFiveCheese = true;
     isMeatLovers = false;
-    currentPizzaCostLabel.innerHTML = "$ " + 20;
+    FNCUSTOMPRICE = fivecheeseBasePrice;
+    currentPizzaCostLabel.innerHTML = "$ " + fivecheeseBasePrice;
     pizza.style.background = lightCheese + "," + cheese + "," + extraCheese + "," + marinara + "," + handToss;
     pizza.style.backgroundSize = "cover";
 }
@@ -692,7 +893,8 @@ function addMeatLovers() {
     isBBQChicken = false;
     isFiveCheese = false;
     isMeatLovers = true;
-    currentPizzaCostLabel.innerHTML = "$ " + 24;
+    FNCUSTOMPRICE = meatloversBasePrice;
+    currentPizzaCostLabel.innerHTML = "$ " + meatsloversBasePrice;
     pizza.style.background = bacon1 + "," + ham1 + "," + pepperoni1 + "," + chicken1 + "," + salami1
         + "," + sausage1 + "," + cheese + "," + marinara + "," + handToss;
     pizza.style.backgroundSize = "cover";
@@ -781,6 +983,7 @@ var alreadygone12 = false;
 var l = TOPPINGS.length;
 var len = 0;
 var newARR = [];
+var FNCUSTOMPRICE = 5;
 function viewToppings() {
     for (var y = 0; y < TOPPINGS.length; y++) {
         if (TOPPINGS[y] != undefined || TOPPINGS[y] != "," || !TOPPINGS[y].contains(',')) {
@@ -810,7 +1013,7 @@ function viewToppings() {
 
     len = cleanArray(TOPPINGS).length;
     console.log("len " + len);
-    console.log("TOPP" + cleanArray(TOPPINGS));
+    console.log("TOPP " + cleanArray(TOPPINGS));
 
     l = TOPPINGS.length;
     pizzaTop.innerHTML = "";
@@ -824,22 +1027,22 @@ function viewToppings() {
         currentPizzaCostLabel.innerHTML = "$ " + currPrice;
 
     } else if (len == 5) {
-        currPrice = x + (len-2);
+        currPrice = x + (len - 2);
         currentPizzaCostLabel.innerHTML = "$ " + currPrice;
         document.getElementById('dealtext').style.visibility = 'visible';
-    }else if(len >5) {
-        currPrice = x + (len-2);
+    } else if (len > 5) {
+        currPrice = x + (len - 2);
         currentPizzaCostLabel.innerHTML = "$ " + currPrice;
         document.getElementById('dealtext').style.visibility = 'hidden';
-        
+
     }
     else {
-        document.getElementById('dealtext').style.visibility = 'hidden';        
-        currPrice = x +(len-1);
+        document.getElementById('dealtext').style.visibility = 'hidden';
+        currPrice = x + (len - 1);
         console.log(currPrice);
         currentPizzaCostLabel.innerHTML = "$ " + currPrice;
     }
-
+    FNCUSTOMPRICE = currPrice;
     for (var i = 0; i < TOPPINGS.length; i++) {
         if (TOPPINGS[i] != undefined && TOPPINGS[i] != "") {
 
@@ -938,9 +1141,22 @@ function toppingAdder(arrindex, topppingName, e) {
             pizzaStack[arrindex] = "url()";
             TOPPINGS[arrindex] = "";
 
-            console.log("len inside DEL: "+ len);
+            console.log("len inside DEL: " + len);
             console.log("DEL :" + TOPPINGS.length);
-            len -=1;
+            len -= 1;
+            if (isSupreme) {
+                switch (topppingName.id) {
+                    case "pepperoni":
+console.log("MADE IT");
+TOPPINGS[3] = "";
+                        pizza.style.background = greenPepper1 + "," + bananaPepper1 + "," + mushroom1 + "," + olives1 + ","
+                            + onion1 + "," + spinach1 + "," + bacon1 + "," + salami1 + ","
+                            + sausage1 + "," + ham1 + "," + chicken1 + "," + extraCheese + "," +
+                            marinara + "," + handToss;
+                        pizza.style.backgroundSize = "cover";
+                        break;
+                }
+            }
             // if (TOPPINGS.length > 4) {
             //     TOPPINGS.pop();
             // }

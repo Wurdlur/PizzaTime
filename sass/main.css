@@ -60,6 +60,7 @@ label {
 #pizza {
   width: 200px;
   height: 200px;
+  background-size: cover;
 }
 
 .imgContainer {
@@ -317,6 +318,9 @@ ul.tab-nav li a.active-tab.button-tab {
   #left {
     width: 275px;
   }
+  #pizza {
+    background-size: cover;
+  }
   #crustHolder {
     display: inherit;
   }
@@ -333,8 +337,14 @@ ul.tab-nav li a.active-tab.button-tab {
   #leftrightwrapper {
     display: block;
   }
+  #pizza {
+    background-size: cover;
+  }
   #left {
     width: 90%;
+  }
+  #pizza {
+    background-size: cover;
   }
 }
 
