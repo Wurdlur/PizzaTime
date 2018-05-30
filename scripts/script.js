@@ -524,8 +524,6 @@ function finishOrder() {
     currPriceHolder = 5;
     dynListArr = [];
     currentPizzaCostLabel.innerHTML = '$' + 5;
-
-    dynListArr = []
     pizza.style.background = cheese + "," + marinara + "," + handToss;
     pizza.style.backgroundSize = "cover";
     pizzaStack[0] = handToss;
@@ -581,12 +579,28 @@ function addSupreme() {
     isBBQChicken = false;
     isFiveCheese = false;
     isMeatLovers = false;
-    currentPizzaCostLabel.innerHTML = "$ " + 30;
+    currentPizzaCostLabel.innerHTML = "$ " + 20;
     pizza.style.background = greenPepper1 + "," + bananaPepper1 + "," + mushroom1 + "," + olives1 + ","
                             + onion1 + "," + spinach1 + "," + bacon1 + "," + salami1 + "," + pepperoni1
                             + "," + sausage1 + "," + ham1 + "," + chicken1 + "," + extraCheese + "," + 
                             marinara + "," + handToss;
     pizza.style.backgroundSize = "cover";
+    pizzaStack[0] = handToss;
+    pizzaStack[1] = marinara;
+    pizzaStack[2] = cheese;
+    pizzaStack[3] = pepperoni1;
+    pizzaStack[4] = sausage1;
+    pizzaStack[5] = ham1;
+    pizzaStack[6] = bacon1;
+    pizzaStack[7] = chicken1;
+    pizzaStack[8] = salami1;
+    pizzaStack[9] = greenPepper1;
+    pizzaStack[10] = bananaPepper1;
+    pizzaStack[11] = mushroom1;
+    pizzaStack[12] = spinach1;
+    pizzaStack[13] = olives1;
+    pizzaStack[14] = onion1;
+    currPriceHolder = 20;
 }
 function addPepperoniPizza() {
     szBtn.style.background = 'black';
@@ -611,9 +625,14 @@ function addPepperoniPizza() {
     isBBQChicken = false;
     isFiveCheese = false;
     isMeatLovers = false;
-    currentPizzaCostLabel.innerHTML = "$ " + 21;
+    currentPizzaCostLabel.innerHTML = "$ " + 11;
     pizza.style.background = pepperoniExtra + "," + cheese + "," + marinara + "," + handToss;
     pizza.style.backgroundSize = "cover";
+    pizzaStack[0] = handToss;
+    pizzaStack[1] = marinara;
+    pizzaStack[2] = cheese;
+    pizzaStack[3] = pepperoniExtra;
+    currPriceHolder = 11;
 }
 function addBBQ() {
     szBtn.style.background = 'black';
@@ -638,9 +657,16 @@ function addBBQ() {
     isBBQChicken = true;
     isFiveCheese = false;
     isMeatLovers = false;
-    currentPizzaCostLabel.innerHTML = "$ " + 23;
+    currentPizzaCostLabel.innerHTML = "$ " + 13;
     pizza.style.background = spinach1 + "," + onion1 + "," + chicken1 + "," + cheese + "," + bbq + "," + handToss;
     pizza.style.backgroundSize = "cover";
+    pizzaStack[0] = handToss;
+    pizzaStack[1] = bbq;
+    pizzaStack[2] = cheese;
+    pizzaStack[7] = chicken1;
+    pizzaStack[12] = spinach1;
+    pizzaStack[14] = onion1;
+    currPriceHolder = 13;
 }
 function addFiveCheese() {
     szBtn.style.background = 'black';
@@ -665,9 +691,13 @@ function addFiveCheese() {
     isBBQChicken = false;
     isFiveCheese = true;
     isMeatLovers = false;
-    currentPizzaCostLabel.innerHTML = "$ " + 20;
+    currentPizzaCostLabel.innerHTML = "$ " + 11;
     pizza.style.background = lightCheese + "," + cheese + "," + extraCheese + "," + marinara + "," + handToss;
     pizza.style.backgroundSize = "cover";
+    pizzaStack[0] = handToss;
+    pizzaStack[1] = bbq;
+    pizzaStack[2] = cheese;
+    currPriceHolder = 11;
 }
 function addMeatLovers() {
     szBtn.style.background = 'black';
@@ -692,10 +722,20 @@ function addMeatLovers() {
     isBBQChicken = false;
     isFiveCheese = false;
     isMeatLovers = true;
-    currentPizzaCostLabel.innerHTML = "$ " + 24;
+    currentPizzaCostLabel.innerHTML = "$ " + 14;
     pizza.style.background = bacon1 + "," + ham1 + "," + pepperoni1 + "," + chicken1 + "," + salami1
         + "," + sausage1 + "," + cheese + "," + marinara + "," + handToss;
     pizza.style.backgroundSize = "cover";
+    pizzaStack[0] = handToss;
+    pizzaStack[1] = marinara;
+    pizzaStack[2] = cheese;
+    pizzaStack[3] = pepperoni1;
+    pizzaStack[4] = sausage1;
+    pizzaStack[5] = ham1;
+    pizzaStack[6] = bacon1;
+    pizzaStack[7] = chicken1;
+    pizzaStack[8] = salami1;
+    currPriceHolder = 14;
 }
 
 var pepp2 = document.getElementById('peppBtn2');
