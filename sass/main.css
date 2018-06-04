@@ -4,6 +4,42 @@ body {
   background-color: #f9e7c2;
 }
 
+.mybtn {
+  border: 2px solid #000;
+  width: 100px;
+  height: 30px;
+  background-color: #8F0937;
+  margin: 10px;
+  padding: 15px;
+  color: #e9bf8e;
+  letter-spacing: 1px;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.mybtn:hover {
+  color: #FC0;
+}
+
+.toppingbtn {
+  border: 2px solid #000;
+  width: 70px;
+  height: 10px;
+  background-color: #8F0937;
+  letter-spacing: 1px;
+  color: #e9bf8e;
+  margin: 10px;
+  padding: 15px;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.toppingbtn:hover {
+  color: #FC0;
+}
+
 div {
   padding: 5px;
   margin: 5px;
@@ -128,10 +164,6 @@ ul.tab-nav li a.active-tab.button-tab {
   color: red;
 }
 
-.tab-container {
-  padding: 20px;
-}
-
 .tab-content {
   padding: 20px;
   border-radius: 0 0 5px 5px;
@@ -156,10 +188,11 @@ ul.tab-nav li a.active-tab.button-tab {
   border-radius: 100%;
   padding: 10px;
   margin-right: 10px;
+  margin-left: 10px;
 }
 
 #sizeContainer span {
-  margin-right: 30px;
+  margin-right: 20px;
 }
 
 #priceContainer {
@@ -173,10 +206,6 @@ ul.tab-nav li a.active-tab.button-tab {
 #addtoContainer button {
   padding: 10px;
   margin: 10px;
-}
-
-#crustHolder {
-  display: flex;
 }
 
 #col1 button, #col2 button {
@@ -202,7 +231,7 @@ ul.tab-nav li a.active-tab.button-tab {
 }
 
 #sauceHolder {
-  display: block;
+  margin-left: 20px;
 }
 
 .row1 {
@@ -230,7 +259,7 @@ ul.tab-nav li a.active-tab.button-tab {
 
 #dealtext {
   font-size: 25px;
-  color: #511415;
+  color: #A3282A;
   visibility: hidden;
 }
 
@@ -272,6 +301,7 @@ ul.tab-nav li a.active-tab.button-tab {
 .section-divider {
   background-color: #FC0;
   border: 1px solid #FC0;
+  width: 100%;
 }
 
 .modal {
@@ -475,7 +505,7 @@ ul.tab-nav li a.active-tab.button-tab {
   border-radius: 50px;
 }
 
-#bbqChicken {
+#bbqPizza {
   background: url("../images/bbqChickenPizza.jpg");
   background-size: cover;
   height: 100px;
@@ -483,7 +513,7 @@ ul.tab-nav li a.active-tab.button-tab {
   border-radius: 50px;
 }
 
-#cheesePizza {
+#fivecheesePizza {
   background: url("../images/cheesePizza.jpg");
   background-size: cover;
   height: 100px;
@@ -491,7 +521,7 @@ ul.tab-nav li a.active-tab.button-tab {
   border-radius: 50px;
 }
 
-#meatLoverPizza {
+#meatloversPizza {
   background: url("../images/meatLoverPizza.jpg");
   background-size: cover;
   height: 100px;

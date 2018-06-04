@@ -6,6 +6,40 @@ body{
 background-color: lighten($back,20);
 }
 
+.mybtn {
+    border: 2px solid #000;
+    width: 100px;
+height: 30px;
+background-color: $mytbn;
+    margin: 10px;
+    padding: 15px;
+    color: lighten(#D88E39,20);
+    letter-spacing: 1px;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    &:hover {
+        color: #FC0;
+    }
+}
+.toppingbtn {
+    border: 2px solid #000;
+    width: 70px;
+height: 10px;
+background-color: $mytbn;
+letter-spacing: 1px;
+color: lighten(#D88E39,20);
+    margin: 10px;
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    &:hover {
+        color: #FC0;
+    }
+}
+// 
+
 div{
     // border: 2px solid black;
     padding: 5px;
@@ -127,7 +161,7 @@ ul.tab-nav {
   }
   
   .tab-container {
-    padding: 20px;
+    // padding: 20px;
   }
   
   .tab-content {
@@ -154,9 +188,10 @@ ul.tab-nav {
           border-radius: 100%;
           padding: 10px;
           margin-right: 10px;
+          margin-left: 10px;
       }
       & span {
-        margin-right: 30px;          
+        margin-right: 20px;          
       }
   }
   #priceContainer{
@@ -173,10 +208,11 @@ ul.tab-nav {
     }
   }
   #crustHolder {
-      display: flex;
+    //   display: flex;
     // border: 2px solid black;
       
       & #col2{
+        //   display: block;
         //   margin-left: 50px;
       }
   }
@@ -205,7 +241,8 @@ ul.tab-nav {
     border: #d7d7d7 2px solid;
   }
   #sauceHolder {
-      display: block;
+    //   display: block;
+    margin-left: 20px;
     //   border: 2px solid black;
 
     //   margin: 10px 0px 10px 0px;
@@ -240,7 +277,7 @@ justify-content: center;
 }
 #dealtext {
     font-size: 25px;
-    color: darken(#A3282A, 20);
+    color:#A3282A;
     visibility: hidden;
 }
 .nameContainer {
@@ -279,6 +316,7 @@ width: 100%;
 .section-divider {
     background-color: #FC0;
     border: 1px solid #FC0;    
+    width: 100%;
     // height: 100px;
 }
 .modal {
@@ -476,21 +514,21 @@ margin-left: 30px;
     width: 100px;
     border-radius: 50px;
 }
-#bbqChicken {
+#bbqPizza {
     background: url("../images/bbqChickenPizza.jpg");
     background-size: cover;
     height: 100px;
     width: 100px;
     border-radius: 50px;
 }
-#cheesePizza {
+#fivecheesePizza {
     background: url("../images/cheesePizza.jpg");
     background-size: cover;
     height: 100px;
     width: 100px;
     border-radius: 50px;
 }
-#meatLoverPizza {
+#meatloversPizza {
     background: url("../images/meatLoverPizza.jpg");
     background-size: cover;
     height: 100px;
@@ -508,3 +546,4 @@ margin-left: 30px;
         border: 2px solid #A3282A;
     }
 }
+

@@ -1,8 +1,351 @@
 var sizeRegex = /S|M|L|XL/;
-var crustRegex = /HAND-TOSSED|THIN N' CRISPY|CHEESY|STUFFED CRUST/;
-var sauceRegex = /MARINARA|BUFFALO|BBQ|GARLIC PARMESAN|ALFREDO/;
-var sauceAmtRegex = /LIGHT|REG|EXTRA/;
-var cheeseRegex = /LIGHT|REGULAR|EXTRA|NONE/;
+var toppingRegex = /pepperoni|sausage|ham|bacon|chicken|salami|greenPepper|bananaPepper|spinach|olives|mushroom|onion/;
+var meatsArray = ["pepperoni", "sausage", "ham", "bacon", "chicken", "salami"];
+var veggieArray = ["greenPepper", "bananaPepper", "spinach", "olives", "mushroom", "onion"];
+var preBuiltArray = ["supreme", "pepperoni", "bbq", "fivecheese", "meatlovers"];
+var preBuiltNamesArray = ["SUPREME", "PEPPERONI", "BBQ CHICKEN", "FIVE CHEESE", "MEAT LOVERS"];
+var activeBg = '#D82D2A';
+var defaultBg = '#8F0937';
+//EXTRA
+var mypizza = document.getElementById('mypizza');
+var Header = document.createElement('div');
+Header.className = 'wrap';
+Header.id = 'header';
+var HeaderChild = document.createElement('h1');
+HeaderChild.innerHTML = "PIZZA BUILDER";
+Header.appendChild(HeaderChild);
+mypizza.appendChild(Header);
+
+var Wrapper = document.createElement('div');
+Wrapper.className = 'wrapper';
+var allwrapper = document.createElement('div');
+allwrapper.id = 'allwrapper';
+var leftrightWrap = document.createElement('div');
+leftrightWrap.id = 'leftrightwrapper';
+var left = document.createElement('div');
+left.id = 'left';
+var deal = document.createElement('div');
+deal.innerHTML = '**SPECIAL DEAL**';
+deal.id = 'dealtext';
+deal.className = 'otherwrap';
+var pizzaCon = document.createElement('div');
+pizzaCon.className = 'pizzacontainer otherwrap';
+var pz = document.createElement('div');
+pz.id = 'pizza';
+pz.className = 'imgContainer';
+pizzaCon.appendChild(pz);
+var leftch = document.createElement('div');
+leftch.className = 'otherwrap';
+var leftch2 = document.createElement('div');
+leftch2.id = "sizeContainer";
+leftch2.className = 'otherwrap';
+var leftchSpan1 = document.createElement('span');
+leftchSpan1.className = 'wrap';
+var leftchSpanBtn1 = document.createElement('button');
+leftchSpanBtn1.id = 'smallBtn';
+leftchSpanBtn1.className = 'rndBtn';
+leftchSpan1.innerHTML = 'S ';
+leftchSpan1.appendChild(leftchSpanBtn1);
+var leftchSpan2 = document.createElement('span');
+leftchSpan2.className = 'wrap';
+var leftchSpanBtn2 = document.createElement('button');
+leftchSpanBtn2.id = 'medBtn';
+leftchSpanBtn2.className = 'rndBtn';
+leftchSpan2.innerHTML = 'M ';
+leftchSpan2.appendChild(leftchSpanBtn2);
+var leftchSpan3 = document.createElement('span');
+leftchSpan3.className = 'wrap';
+var leftchSpanBtn3 = document.createElement('button');
+leftchSpanBtn3.id = 'largeBtn';
+leftchSpanBtn3.className = 'rndBtn';
+leftchSpan3.innerHTML = 'L ';
+leftchSpan3.appendChild(leftchSpanBtn3);
+var leftchSpan4 = document.createElement('span');
+leftchSpan4.className = 'wrap';
+var leftchSpanBtn4 = document.createElement('button');
+leftchSpanBtn4.id = 'xlargeBtn';
+leftchSpanBtn4.className = 'rndBtn';
+leftchSpan4.innerHTML = 'XL ';
+leftchSpan4.appendChild(leftchSpanBtn4);
+leftch2.appendChild(leftchSpan1);
+leftch2.appendChild(leftchSpan2);
+leftch2.appendChild(leftchSpan3);
+leftch2.appendChild(leftchSpan4);
+var priceCon = document.createElement('div');
+priceCon.id = 'priceContainer';
+priceCon.className = 'otherwrap';
+var priceSpan = document.createElement('span');
+priceSpan.innerHTML = 'TOTAL: '
+var priceLbl = document.createElement('label');
+priceLbl.innerHTML = '$0';
+priceLbl.id = 'totalcostlbl';
+priceSpan.appendChild(priceLbl);
+priceCon.appendChild(priceSpan);
+leftch.appendChild(leftch2);
+left.appendChild(deal);
+left.appendChild(pizzaCon);
+left.appendChild(leftch);
+left.appendChild(priceCon);
+///end of left
+//RIGHT
+var right = document.createElement('div');
+right.id = 'right';
+var menu = document.createElement('div');
+menu.id = 'menuText';
+menu.innerHTML = '<p><em> First topping is free, each after that is $1.00.Five toppings is $3.00, each after that is still $1.00.</em></p>';
+var tabCon = document.createElement('div');
+    tabCon.className = 'tab-container';
+    var Ul = document.createElement('ul');
+    Ul.className = 'tab-nav wrap';
+    var li1 = document.createElement('li');
+    var a1 = document.createElement('a');
+    a1.className ='button-tab active-tab';
+    a1.href = '#one';
+    a1.innerHTML = "SET-UP";
+    li1.appendChild(a1);
+    var li2 = document.createElement('li');
+    var a2 = document.createElement('a');
+    a2.className ='button-tab';
+    a2.id = 'meatsTab';
+    a2.href = '#two';
+    a2.innerHTML = "MEATS";
+    li2.appendChild(a2);
+    var li3 = document.createElement('li');
+    var a3 = document.createElement('a');
+    a3.className ='button-tab';
+    a3.id = 'veggiesTab';    
+    a3.href = '#three';
+    a3.innerHTML = "VEGGIES";
+    li3.appendChild(a3);    
+    var li4 = document.createElement('li');
+    var a4 = document.createElement('a');
+    a4.className ='button-tab';
+    a4.href = '#four';
+    a4.innerHTML = "PRE-BUILT";
+    li4.appendChild(a4);
+    Ul.appendChild(li1);
+    Ul.appendChild(li2);
+    Ul.appendChild(li3);
+    Ul.appendChild(li4);
+    var tabOne = document.createElement('div');
+    tabOne.id = 'one';
+    tabOne.className = 'tab-content active';
+    var setUpHeader1 = document.createElement('h3');
+    setUpHeader1.innerHTML = "CRUST";
+    setUpHeader1.className = 'wrap';    
+    var setUpCrust = document.createElement('div');
+    setUpCrust.id = 'crustHolder';
+    var crustwrap = document.createElement('div');    
+        crustwrap.className ='row21item wrap';
+    var crustcolwrap1 = document.createElement('div');    
+        crustcolwrap1.id = 'col2';
+        crustcolwrap1.className = 'wrap';
+        var crustwrapchild1= document.createElement('div');
+        crustwrapchild1.id  = 'crustcol1';
+        crustcolwrap1.appendChild(crustwrapchild1);
+    var crustcolwrap2 = document.createElement('div');    
+        crustcolwrap2.id = 'col2';
+        crustcolwrap2.className = 'wrap';
+        var crustwrapchild2= document.createElement('div');
+        crustwrapchild2.id  = 'crustcol2';
+        crustcolwrap2.appendChild(crustwrapchild2);
+        crustwrap.appendChild(crustcolwrap1);
+        crustwrap.appendChild(crustcolwrap2);
+        setUpCrust.appendChild(crustwrap);
+    var sectionDiv1 = document.createElement('hr');
+    sectionDiv1.className = "section-divider";
+
+    var setUpHeader2 = document.createElement('h3');
+    setUpHeader2.innerHTML = "SAUCE";
+    setUpHeader2.className = 'wrap';    
+    var setUpSauce = document.createElement('div');
+    setUpSauce.id = 'crustHolder';
+    var saucewrap = document.createElement('div');    
+        saucewrap.className ='row21item wrap';
+    var saucecolwrap1 = document.createElement('div');    
+        saucecolwrap1.id = 'col2';
+        saucecolwrap1.className = 'wrap';
+        var saucewrapchild1= document.createElement('div');
+        saucewrapchild1.id  = 'saucecol1';
+        saucecolwrap1.appendChild(saucewrapchild1);
+    var saucecolwrap2 = document.createElement('div');    
+        saucecolwrap2.id = 'col2';
+        saucecolwrap2.className = 'wrap';
+        var saucewrapchild2= document.createElement('div');
+        saucewrapchild2.id  = 'saucecol2';
+        saucecolwrap2.appendChild(saucewrapchild2);
+    saucewrap.appendChild(saucecolwrap1);
+    saucewrap.appendChild(saucecolwrap2);
+        setUpSauce.appendChild(saucewrap);
+    var sectionDiv2 = document.createElement('hr');
+    sectionDiv2.className = "section-divider";
+
+    var setUpHeader3 = document.createElement('h3');
+    setUpHeader3.innerHTML = "CHEESE";
+    setUpHeader3.className = 'wrap';    
+    var setUpCheese = document.createElement('div');
+    setUpCheese.id = 'crustHolder';
+    var cheesewrap = document.createElement('div');    
+        cheesewrap.className ='row21item wrap';
+    var cheesecolwrap1 = document.createElement('div');    
+        cheesecolwrap1.id = 'col2';
+        cheesecolwrap1.className = 'wrap';
+        var cheesewrapchild1= document.createElement('div');
+        cheesewrapchild1.id  = 'cheesecol1';
+        cheesecolwrap1.appendChild(cheesewrapchild1);
+    var cheesecolwrap2 = document.createElement('div');    
+        cheesecolwrap2.id = 'col2';
+        cheesecolwrap2.className = 'wrap';
+        var cheesewrapchild2= document.createElement('div');
+        cheesewrapchild2.id  = 'cheesecol2';
+        cheesecolwrap2.appendChild(cheesewrapchild2);
+        cheesewrap.appendChild(cheesecolwrap1);
+        cheesewrap.appendChild(cheesecolwrap2);
+        setUpCheese.appendChild(cheesewrap);
+    var tabTwo = document.createElement('div');
+    tabTwo.id = 'two';
+    tabTwo.className = 'tab-content';
+    var top1 = document.createElement('div');
+    top1.className = 'pizzacontainer';
+    top1.id ='topMainContainer'
+    tabTwo.appendChild(top1);
+    var tabThree = document.createElement('div');
+    tabThree.id = 'three';
+    tabThree.className = 'tab-content';
+    var top2 = document.createElement('div');
+    top2.className = 'pizzacontainer';
+    top2.id ='topMainContainer2'
+    tabThree.appendChild(top2);
+    var tabFour = document.createElement('div');
+    tabFour.id = 'four';
+    tabFour.className = 'tab-content';
+    var top3 = document.createElement('div');
+    top3.id ='preBuiltsContainer'
+    tabFour.appendChild(top3);
+
+
+tabOne.appendChild(setUpHeader1);
+tabOne.appendChild(setUpCrust);
+tabOne.appendChild(sectionDiv1);
+tabOne.appendChild(setUpHeader2);
+tabOne.appendChild(setUpSauce);
+tabOne.appendChild(sectionDiv2);
+tabOne.appendChild(setUpHeader3);
+tabOne.appendChild(setUpCheese);
+
+tabCon.appendChild(Ul);
+tabCon.appendChild(tabOne);
+tabCon.appendChild(tabTwo);
+tabCon.appendChild(tabThree);
+tabCon.appendChild(tabFour);
+
+right.appendChild(menu);
+right.appendChild(tabCon);
+
+leftrightWrap.appendChild(left);
+leftrightWrap.appendChild(right);
+//RIGHT 2
+var right2 = document.createElement('div');
+right2.id = 'right2';
+    var right2List = document.createElement('div');
+    right2List.id = 'dynamicListHolder';
+    var currHeader = document.createElement('h3');
+    currHeader.className = 'otherwrap';
+    currHeader.innerHTML = 'CURRENT PIZZA';
+    var currHeader2 = document.createElement('h4');
+    currHeader2.className = 'otherwrap';
+    currHeader2.innerHTML = 'PIZZA PRICE';
+        var currHeader2Child = document.createElement('label');
+        currHeader2Child.id ='currentPizzaPricelbl';
+        currHeader2Child.innerHTML = "$0" 
+        currHeader2.appendChild(currHeader2Child);
+    var sizeDiv = document.createElement('div');
+    sizeDiv.className = 'addwrap';
+sizeDiv.innerHTML = 'SIZE: ';
+var sizeChild = document.createElement('label');
+sizeChild.id = "pizzaSZ";
+sizeDiv.appendChild(sizeChild);
+    var crustDiv = document.createElement('div');
+    crustDiv.className = 'addwrap';
+    crustDiv.innerHTML = 'CRUST: ';
+var crustChild = document.createElement('label');
+crustChild.id = "pizzaCR";
+crustDiv.appendChild(crustChild);
+    
+    var sauceDiv = document.createElement('div');
+    sauceDiv.className = 'addwrap';
+    sauceDiv.innerHTML = 'SAUCE: ';
+    var sauceChild = document.createElement('label');
+    sauceChild.id = "pizzaSA";
+    sauceDiv.appendChild(sauceChild);
+    var cheeseDiv = document.createElement('div');
+    cheeseDiv.className = 'addwrap';
+    cheeseDiv.innerHTML = 'CHEESE: ';
+var cheeseChild = document.createElement('label');
+cheeseChild.id = "pizzaCH";
+cheeseDiv.appendChild(cheeseChild);
+    var topDiv = document.createElement('div');
+    topDiv.className = 'addwrap';
+    topDiv.innerHTML = 'TOPPINGS: ';
+    var topChild = document.createElement('label');
+    topChild.id = "pizzaTOP";
+    topDiv.appendChild(topChild);
+var addConDiv = document.createElement('div');
+addConDiv.className = 'otherwrap';
+addConDiv.id = 'addtoContainer';
+    var addConButton = document.createElement('button');
+    addConButton.id = 'addToOrderBtn';
+    addConButton.innerHTML = "ADD TO ORDER";
+    addConDiv.appendChild(addConButton);
+
+right2List.appendChild(currHeader);
+right2List.appendChild(currHeader2);
+right2List.appendChild(sizeDiv);
+right2List.appendChild(crustDiv);
+right2List.appendChild(sauceDiv);
+right2List.appendChild(cheeseDiv);
+right2List.appendChild(topDiv);
+right2List.appendChild(addConDiv);
+    right2.appendChild(right2List);
+    var orderViewDiv = document.createElement('div');
+        orderViewDiv.id = 'orderViewer';
+        var orderHeader = document.createElement('h1');
+        orderHeader.innerHTML = 'MY ORDER';
+        orderHeader.className = 'wrap';
+        var orderContainerDiv= document.createElement('div');
+        orderContainerDiv.id = 'orderContainer';
+        var finishOrderDiv = document.createElement('div');
+        finishOrderDiv.id = 'finishOrder';
+        finishOrderDiv.className ='wrap';
+        var forderBtn = document.createElement('button');
+            forderBtn.innerHTML = 'FINISH ORDER';
+            forderBtn.id = 'finishOrderBtn';
+            finishOrderDiv.appendChild(forderBtn);
+orderViewDiv.appendChild(orderHeader);
+orderViewDiv.appendChild(orderContainerDiv);
+orderViewDiv.appendChild(finishOrderDiv);
+right2.appendChild(orderViewDiv);
+
+allwrapper.appendChild(leftrightWrap);
+allwrapper.appendChild(right2);
+
+Wrapper.appendChild(allwrapper);
+mypizza.appendChild(Wrapper);
+
+var modalDiv = document.createElement('div');
+modalDiv.id = 'myModal';
+modalDiv.className = 'modal';
+var modalDivChild = document.createElement('div');
+ modalDivChild.className ='modal-content';
+    var modalSpan = document.createElement('span');
+    modalSpan.className = 'close';
+    modalSpan.innerHTML = '&times;';
+    var modalp = document.createElement('p');
+    modalp.innerHTML = 'TRANSACTION COMPLETE!';
+    modalDivChild.appendChild(modalSpan);
+    modalDivChild.appendChild(modalp);
+    modalDiv.appendChild(modalDivChild);
+    mypizza.appendChild(modalDiv);
 
 var tabButton = [].slice.call(
     document.querySelectorAll("ul.tab-nav li a.button-tab")
@@ -18,13 +361,12 @@ tabButton.map(button => {
     });
 });
 
+
 var totalCostLabel = document.getElementById('totalcostlbl');
 var TOTALPRICE = 0;
 var pizzaStack = [];
-// pizzaStack.push("url(images/handToss.png)");
 var currentPizzaCostLabel = document.getElementById('currentPizzaPricelbl');
 var TOPPINGS = [];
-
 var dynListArr = [];
 var pizza = document.getElementById('pizza');
 
@@ -43,24 +385,158 @@ var pizzaCrust = document.getElementById('pizzaCR');
 var pizzaCheese = document.getElementById('pizzaCH');
 var pizzaTop = document.getElementById('pizzaTOP');
 var pizzaSauce = document.getElementById('pizzaSA');
-var pizzaSauceAmt = document.getElementById('sauceAmt');
-pizzaTop.innerHTML = "";
+var toppingMainContainer = document.getElementById('topMainContainer');
+var toppingMainContainer2 = document.getElementById('topMainContainer2');
+var preBuiltContainer = document.getElementById('preBuiltsContainer');
+function createToppingElements() {
 
+    for (var j = 0; j < meatsArray.length; j++) {
+        var wrapDiv = document.createElement('div');
+        wrapDiv.className = 'wrap toppingContainer';
+        var nameDiv = document.createElement('div');
+        nameDiv.className = "nameContainer"
+        var toppingHeader = document.createElement('h4');
+        toppingHeader.innerHTML = meatsArray[j].toUpperCase();
+        nameDiv.appendChild(toppingHeader);
+        var toppingImgNameDiv = document.createElement('div');
+        toppingImgNameDiv.id = meatsArray[j];
+        nameDiv.appendChild(toppingImgNameDiv);
+
+        var amtBtnDiv = document.createElement('div');
+        amtBtnDiv.className = 'amountButtons';
+        var amtBtnChild1 = document.createElement('div');
+        amtBtnChild1.className = 'col2';
+        var amtBtnChild2 = document.createElement('div');
+        amtBtnChild2.id = meatsArray[j] + "col1";
+        amtBtnChild1.appendChild(amtBtnChild2);
+        amtBtnDiv.appendChild(amtBtnChild1);
+
+        var locationBtnDiv = document.createElement('div');
+        locationBtnDiv.className = 'locationButtons';
+        var locationBtnChild1 = document.createElement('div');
+        locationBtnChild1.className = 'col2';
+        var locationBtnChild2 = document.createElement('div');
+        locationBtnChild2.id = meatsArray[j] + "col2";
+        locationBtnChild1.appendChild(locationBtnChild2);
+        locationBtnDiv.appendChild(locationBtnChild1);
+
+        var divider = document.createElement('hr');
+        divider.className = 'section-divider';
+
+        wrapDiv.appendChild(nameDiv);
+        wrapDiv.appendChild(amtBtnDiv);
+        wrapDiv.appendChild(locationBtnDiv);
+        toppingMainContainer.appendChild(wrapDiv);
+        toppingMainContainer.appendChild(divider);
+    }
+    for (var k = 0; k < veggieArray.length; k++) {
+        var wrapDiv = document.createElement('div');
+        wrapDiv.className = 'wrap toppingContainer';
+        var nameDiv = document.createElement('div');
+        nameDiv.className = "nameContainer"
+        var toppingHeader = document.createElement('h4');
+        toppingHeader.innerHTML = veggieArray[k].toUpperCase();
+        nameDiv.appendChild(toppingHeader);
+        var toppingImgNameDiv = document.createElement('div');
+        toppingImgNameDiv.id = veggieArray[k];
+        nameDiv.appendChild(toppingImgNameDiv);
+
+        var amtBtnDiv = document.createElement('div');
+        amtBtnDiv.className = 'amountButtons';
+        var amtBtnChild1 = document.createElement('div');
+        amtBtnChild1.className = 'col2';
+        var amtBtnChild2 = document.createElement('div');
+        amtBtnChild2.id = veggieArray[k] + "col1";
+        amtBtnChild1.appendChild(amtBtnChild2);
+        amtBtnDiv.appendChild(amtBtnChild1);
+
+        var locationBtnDiv = document.createElement('div');
+        locationBtnDiv.className = 'locationButtons';
+        var locationBtnChild1 = document.createElement('div');
+        locationBtnChild1.className = 'col2';
+        var locationBtnChild2 = document.createElement('div');
+        locationBtnChild2.id = veggieArray[k] + "col2";
+        locationBtnChild1.appendChild(locationBtnChild2);
+        locationBtnDiv.appendChild(locationBtnChild1);
+
+        var divider = document.createElement('hr');
+        divider.className = 'section-divider';
+
+        wrapDiv.appendChild(nameDiv);
+        wrapDiv.appendChild(amtBtnDiv);
+        wrapDiv.appendChild(locationBtnDiv);
+        toppingMainContainer2.appendChild(wrapDiv);
+        toppingMainContainer2.appendChild(divider);
+    }
+}
+createToppingElements();
+function createPreBuilt() {
+    // <h3 class="wrap">SUPREME</h3>
+    for (var i = 0; i < preBuiltArray.length; i++) {
+        var pizzaHeader = document.createElement('h3');
+        pizzaHeader.className = 'wrap';
+        pizzaHeader.innerHTML = preBuiltNamesArray[i];
+        var wrapper = document.createElement('div');
+        wrapper.className = 'wrap';
+        var spcContainer = document.createElement('div');
+        spcContainer.className = 'spcContainer';
+        var spcContainerChild1 = document.createElement('div');
+        spcContainerChild1.className = 'spcImgContiner';
+        var spcContainerChild2 = document.createElement('div');
+        spcContainerChild2.id = preBuiltArray[i] + "Pizza";
+        spcContainerChild1.appendChild(spcContainerChild2);
+        var descHolder = document.createElement('div');
+        descHolder.className = 'spcDescHolder';
+        var descHolderChild1 = document.createElement('p');
+        descHolderChild1.id = 'spcdescText';
+        descHolderChild1.innerHTML = 'STUFF';
+        descHolder.appendChild(descHolderChild1);
+        var selectContainer = document.createElement('div');
+        selectContainer.className = 'selectContainer';
+        var selectContainerChild1 = document.createElement('span');
+        selectContainerChild1.className = 'wrap';
+        selectContainerChild1.innerHTML = 'SELECT';
+        var selectContainerChild2 = document.createElement('div');
+        selectContainerChild2.style.marginLeft = '25px';
+        var selectContainerChild3 = document.createElement('button');
+        selectContainerChild3.className = 'rndBtn';
+        selectContainerChild3.id = preBuiltArray[i] + "Btn";
+        selectContainerChild2.appendChild(selectContainerChild3);
+        selectContainer.appendChild(selectContainerChild1);
+        selectContainer.appendChild(selectContainerChild2);
+        // selectContainer.appendChild(selectContainerChild3);
+
+        spcContainer.appendChild(spcContainerChild1);
+        spcContainer.appendChild(descHolder);
+        spcContainer.appendChild(selectContainer);
+        wrapper.appendChild(spcContainer);
+
+        var divider = document.createElement('hr');
+        divider.className = 'section-divider';
+        preBuiltContainer.appendChild(pizzaHeader);
+        preBuiltContainer.appendChild(wrapper);
+        preBuiltContainer.appendChild(divider);
+
+    }
+
+}
+createPreBuilt();
+//CRUSTS
 var cheesy = "url(images/cheesy.png)";
 var handToss = "url(images/handToss.png)";
 var stuffed = "url(images/stuffed.png)";
 var thin = "url(images/thin.png)";
-
+//SAUCES
 var aldredo = "url(images/alfredo.png)";
 var bbq = "url(images/bbq.png)";
 var buffalo = "url(images/buffalo.png)";
 var garlicParm = "url(images/garlicParm.png)";
 var marinara = "url(images/marinara.png)";
-
+//CHEESE
 var cheese = "url(images/cheese.png)";
 var lightCheese = "url(images/lightCheese.png)";
 var extraCheese = "url(images/extraCheese.png)";
-
+//TOPPINGS
 var bacon1 = "url(images/bacon.png)";
 var baconLeft = "url(images/baconLeft.png)";
 var baconRight = "url(images/baconRight.png)";
@@ -97,7 +573,7 @@ var sausageRight = "url(images/sausageRight.png)";
 var sausageExtra = "url(images/sausageExtra.png)";
 var sausageExtraLeft = "url(images/sausageExtraLeft.png)";
 var sausageExtraRight = "url(images/sausageExtraRight.png)";
-
+//VEGGIES
 var bananaPepper1 = "url(images/bananaPepper.png)";
 var bananaPepperLeft = "url(images/bananaPepperLeft.png)";
 var bananaPepperRight = "url(images/bananaPepperRight.png)";
@@ -135,10 +611,7 @@ var spinachExtra = "url(images/spinachExtra.png)";
 var spinachExtraLeft = "url(images/spinachExtraLeft.png)";
 var spinachExtraRight = "url(images/spinachExtraRight.png)";
 
-var c1 = document.getElementById('crustBtn1');
-var s1 = document.getElementById('sauceBtn1');
-var ch1 = document.getElementById('cheeseBtn1');
-
+//PRE-BUILT BASE PRICES
 var supremeBasePrice = 30;
 var pepperoniBasePrice = 21;
 var bbqBasePrice = 23;
@@ -146,20 +619,6 @@ var fivecheeseBasePrice = 20;
 var meatsloversBasePrice = 24;
 
 
-pizza.style.background = cheese + "," + marinara + "," + handToss;
-pizza.style.backgroundSize = "cover";
-var currPriceHolder = 5;
-currentPizzaCostLabel.innerHTML = '$' + currPriceHolder;
-pizzaStack[0] = handToss;
-pizzaStack[1] = marinara;
-pizzaStack[2] = cheese;
-c1.style.background = 'red';
-ch1.style.background = 'red';
-s1.style.background = 'red';
-pizzaCrust.innerHTML = "HAND-TOSSED";
-pizzaCheese.innerHTML = "REGULAR";
-pizzaSauce.innerHTML = "MARINARA";
-pizzaSauceAmt.innerHTML = "REGULAR";
 
 function addSmall(evt) {
     var u = szBtn.parentElement.innerHTML;
@@ -197,8 +656,6 @@ function addSmall(evt) {
     }
     currentPizzaCostLabel.innerHTML = '$' + currPriceHolder;
 }
-medBtn.style.background = 'red';
-pizzaSize.innerHTML = 'M';
 function addMed(evt) {
     var u = medBtn.parentElement.innerHTML;
     u = u.match(sizeRegex);
@@ -306,17 +763,292 @@ function addXLarge(evt) {
     currentPizzaCostLabel.innerHTML = '$' + currPriceHolder;
 
 }
+var crustCol1 = document.getElementById('crustcol1');
+var crustCol2 = document.getElementById('crustcol2');
+var sauceCol1 = document.getElementById('saucecol1');
+var sauceCol2 = document.getElementById('saucecol2');
+var sauceCol3 = document.getElementById('saucecol3');
+var cheeseCol1 = document.getElementById('cheesecol1');
+var cheeseCol2 = document.getElementById('cheesecol2');
+var peppcol1 = document.getElementById('pepperonicol1');
+var peppcol2 = document.getElementById('pepperonicol2');
+var sausagecol1 = document.getElementById('sausagecol1');
+var sausagecol2 = document.getElementById('sausagecol2');
+var hamcol1 = document.getElementById('hamcol1');
+var hamcol2 = document.getElementById('hamcol2');
+var baconcol1 = document.getElementById('baconcol1');
+var baconcol2 = document.getElementById('baconcol2');
+var chickencol1 = document.getElementById('chickencol1');
+var chickencol2 = document.getElementById('chickencol2');
+var salamicol1 = document.getElementById('salamicol1');
+var salamicol2 = document.getElementById('salamicol2');
+var greenPeppercol1 = document.getElementById('greenPeppercol1');
+var greenPeppercol2 = document.getElementById('greenPeppercol2');
+var bananaPeppercol1 = document.getElementById('bananaPeppercol1');
+var bananaPeppercol2 = document.getElementById('bananaPeppercol2');
+var mushroomcol1 = document.getElementById('mushroomcol1');
+var mushroomcol2 = document.getElementById('mushroomcol2');
+var spinachcol1 = document.getElementById('spinachcol1');
+var spinachcol2 = document.getElementById('spinachcol2');
+var olivescol1 = document.getElementById('olivescol1');
+var olivescol2 = document.getElementById('olivescol2');
+var onioncol1 = document.getElementById('onioncol1');
+var onioncol2 = document.getElementById('onioncol2');
+
+var buttonNames = ['EXTRA', 'REGULAR', 'NONE', 'BOTH', 'LEFT', 'RIGHT']
+var buttonNames2 = ['BOTH', 'LEFT', 'RIGHT'];
+var crustNames = ['HAND-TOSSED', "THIN N' CRISPY"];
+var crustNames2 = ['STUFFED CRUST', 'CHEESY CRUST'];
+var sauceNames = ['MARINARA', 'BUFFALO'];
+var sauceNames2 = ['BBQ', 'ALFREDO', 'GARLIC PARMESAN'];
+var cheeseNames = ['REGULAR', "EXTRA"];
+var cheeseNames2 = ['LIGHT', 'NONE'];
+
+buildButton(crustNames, "crust", crustCol1);
+buildButton(crustNames2, "crusts", crustCol2);
+buildButton(sauceNames, "sauce", sauceCol1);
+buildButton(sauceNames2, "sauces", sauceCol2);
+buildButton(cheeseNames, "cheese", cheeseCol1);
+buildButton(cheeseNames2, "cheeses", cheeseCol2);
+buildButton(buttonNames, "pepperoni", peppcol1, peppcol2, true);
+buildButton(buttonNames, "sausage", sausagecol1, sausagecol2, true);
+buildButton(buttonNames, "ham", hamcol1, hamcol2, true);
+buildButton(buttonNames, "bacon", baconcol1, baconcol2, true);
+buildButton(buttonNames, "chicken", chickencol1, chickencol2, true);
+buildButton(buttonNames, "salami", salamicol1, salamicol2, true);
+buildButton(buttonNames, "greenPepper", greenPeppercol1, greenPeppercol2, true);
+buildButton(buttonNames, "bananaPepper", bananaPeppercol1, bananaPeppercol2, true);
+buildButton(buttonNames, "mushroom", mushroomcol1, mushroomcol2, true);
+buildButton(buttonNames, "spinach", spinachcol1, spinachcol2, true);
+buildButton(buttonNames, "olives", olivescol1, olivescol2, true);
+buildButton(buttonNames, "onion", onioncol1, onioncol2, true);
+
+var c1 = document.getElementById('crustBtn1');
+var c2 = document.getElementById('crustBtn2');
+var c3 = document.getElementById('crustsBtn1');
+var c4 = document.getElementById('crustsBtn2');
+var s1 = document.getElementById('sauceBtn1');
+var s2 = document.getElementById('sauceBtn2');
+var s3 = document.getElementById('saucesBtn1');
+var s4 = document.getElementById('saucesBtn2');
+var s5 = document.getElementById('saucesBtn3');
+var ch1 = document.getElementById('cheeseBtn1');
+var ch2 = document.getElementById('cheeseBtn2');
+var ch3 = document.getElementById('cheesesBtn1');
+var ch4 = document.getElementById('cheesesBtn2');
+
+var crustsARR = [c1, c2, c3, c4];
+var sauceARR = [s1, s2, s3, s4, s5];
+var cheeseARR = [ch1, ch2, ch3, ch4];
+
+//DEFAULT SETUP
+pizza.style.background = cheese + "," + marinara + "," + handToss;
+pizza.style.backgroundSize = "cover";
+var currPriceHolder = 5;
+currentPizzaCostLabel.innerHTML = '$' + currPriceHolder;
+pizzaStack[0] = handToss;
+pizzaStack[1] = marinara;
+pizzaStack[2] = cheese;
+pizzaCrust.innerHTML = "HAND-TOSSED";
+pizzaCheese.innerHTML = "REGULAR";
+pizzaSauce.innerHTML = "MARINARA";
+pizzaTop.innerHTML = "";
+medBtn.style.background = 'red';
+pizzaSize.innerHTML = 'M';
+c1.style.background = '#D82D2A';
+ch1.style.background = '#D82D2A';
+s1.style.background = '#D82D2A';
+
+
+function buildButton(myarr, toppingName, containerName, containerName2, isTopping) {
+
+    var arr = [];
+    // console.log(myarr);
+    for (var i = 0; i < myarr.length; i++) {
+        arr[i] = myarr[i];
+        var text;
+        text = arr[i];
+        // console.log(text);
+        arr[i] = document.createElement('div');
+        arr[i].textContent = text;
+        arr[i].id = toppingName + "Btn" + (i + 1);
+        if (isTopping && i > 2) {
+            containerName2.appendChild(arr[i]);
+            arr[i].setAttribute('class', 'toppingbtn');
+
+        } else if (isTopping) {
+            containerName.appendChild(arr[i]);
+            arr[i].setAttribute('class', 'toppingbtn');
+        } else {
+            containerName.appendChild(arr[i]);
+            arr[i].setAttribute('class', 'mybtn');
+        }
+        arr[i].addEventListener('click', btnClicked);
+    }
+    arr = [];
+}
+function backgroundSelected(elemARR, selectedIndex, clear) {
+    if (clear) {
+        for (var i = 0; i < elemARR.length; i++) {
+            elemARR[i].style.background = '';
+        }
+    } else {
+        for (var i = 0; i < elemARR.length; i++) {
+            if (i == selectedIndex) {
+                elemARR[i].style.background = '#D82D2A';
+            } else {
+                elemARR[i].style.background = '#8F0937';
+            }
+        }
+
+    }
+}
+
+function btnClicked(evt) {
+    // console.log(evt.target.innerText + evt.target.id + " clicked");
+    console.log("CLIKED: " + TOPPINGS);
+    var name = evt.target.innerText;
+    var id = evt.target.id;
+    var target = evt.target;
+    // console.log("name: " + name);
+    // console.log("ID: " + id);
+    // console.log("target: " + target);
+    switch (name) {
+        case "HAND-TOSSED":
+            pizzaStack[0] = "url(images/handToss.png)";
+            backgroundSelected(crustsARR, 0, false);
+            pizzaCrust.innerHTML = name;
+            break;
+        case "THIN N' CRISPY":
+            pizzaStack[0] = "url(images/thin.png)";
+            backgroundSelected(crustsARR, 1, false);
+            pizzaCrust.innerHTML = name;
+            break;
+        case "STUFFED CRUST":
+            pizzaStack[0] = "url(images/stuffed.png)";
+            backgroundSelected(crustsARR, 2, false);
+            pizzaCrust.innerHTML = name;
+            break;
+        case "CHEESY CRUST":
+            pizzaStack[0] = "url(images/cheesy.png)";
+            backgroundSelected(crustsARR, 3, false);
+            pizzaCrust.innerHTML = name;
+            break;
+        //SAUCE    
+        case "MARINARA":
+            pizzaStack[1] = "url(images/marinara.png)";
+            backgroundSelected(sauceARR, 0, false);
+            pizzaSauce.innerHTML = name;
+            break;
+        case "BUFFALO":
+            pizzaStack[1] = "url(images/buffalo.png)";
+            backgroundSelected(sauceARR, 1, false);
+            pizzaSauce.innerHTML = name;
+            break;
+        case "BBQ":
+            pizzaStack[1] = "url(images/bbq.png)";
+            backgroundSelected(sauceARR, 2, false);
+            pizzaSauce.innerHTML = name;
+            break;
+        case "ALFREDO":
+            pizzaStack[1] = "url(images/alfredo.png)";
+            backgroundSelected(sauceARR, 3, false);
+            pizzaSauce.innerHTML = name;
+            break;
+        case "GARLIC PARMESAN":
+            pizzaStack[1] = "url(images/garlicParm.png)";
+            backgroundSelected(sauceARR, 4, false);
+            pizzaSauce.innerHTML = name;
+            break;
+        //CHEESE
+        case "REGULAR":
+            switch (id) {
+                case "cheeseBtn1":
+                    pizzaStack[2] = "url(images/cheese.png)";
+                    backgroundSelected(cheeseARR, 0, false);
+                    pizzaCheese.innerHTML = name;
+                    break;
+            }
+            break;
+        case "EXTRA":
+            switch (id) {
+                case "cheeseBtn2":
+                    pizzaStack[2] = "url(images/extraCheese.png)";
+                    backgroundSelected(cheeseARR, 1, false);
+                    pizzaCheese.innerHTML = name;
+                    break
+            }
+            break;
+        case "LIGHT":
+            pizzaStack[2] = "url(images/lightCheese.png)";
+            backgroundSelected(cheeseARR, 2, false);
+            pizzaCheese.innerHTML = name;
+            break;
+        case "NONE":
+            switch (id) {
+                case "cheesesBtn2":
+                    pizzaStack[2] = "url()";
+                    backgroundSelected(cheeseARR, 3, false);
+                    pizzaCheese.innerHTML = name;
+                    break;
+            }
+            break;
+    }
+    var topp = document.getElementById('meatsTab');
+    var topp2 = document.getElementById('veggiesTab');
+
+    //TOPPINGS
+    if (topp.className == "button-tab active-tab" || topp2.className == "button-tab active-tab") {
+
+        var toppingMatch = id.match(toppingRegex);
+        console.log(toppingMatch[0]);
+        var x = toppingMatch[0];
+        switch (x) {
+            case "pepperoni":
+                toppingAdder(3, pepperoni, id);
+                break;
+            case "sausage":
+                toppingAdder(4, sausage, id);
+                break;
+            case "ham":
+                toppingAdder(5, ham, id);
+                break;
+            case "bacon":
+                toppingAdder(6, bacon, id);
+                break;
+            case "chicken":
+                toppingAdder(7, chicken, id);
+                break;
+            case "salami":
+                toppingAdder(8, salami, id);
+                break;
+            case "greenPepper":
+                toppingAdder(9, greenPepper, id);
+                break;
+            case "bananaPepper":
+                toppingAdder(10, bananaPepper, id);
+                break;
+            case "mushroom":
+                toppingAdder(11, mushroom, id);
+                break;
+            case "spinach":
+                toppingAdder(12, spinach, id);
+                break;
+            case "olives":
+                toppingAdder(13, olives, id);
+                break;
+            case "onion":
+                toppingAdder(14, onion, id);
+                break;
+        }
+    }
+    resetBackground();
+}
 
 function resetBackground() {
     var s = "";
-    // a.forEach(function (element) {
-    //     console.log("El: " + element);
-    //     pizza.style.background = "url(" + element + ")";
-    //     pizza.style.backgroundSize = 'cover';
-    // });
-    // pizzaStack.reverse();
     for (var counter = pizzaStack.length - 1; counter >= 0; counter--) {
-        console.log("CT " + counter);
+        // console.log("CT " + counter);
         if (counter > 0) {
             if (pizzaStack[counter] != undefined) {
                 s += pizzaStack[counter] + ",";
@@ -328,186 +1060,148 @@ function resetBackground() {
 
             s += pizzaStack[counter];
         }
-        console.log(s);
-
+        // console.log(s);
         pizza.style.background = s;
         pizza.style.backgroundSize = 'cover';
     }
-    // for (var v = 0; v < pizzaStack.length; v++) {
-
-    //     if (v > 0) {
-    //         s += ", " + pizzaStack[v];
-
-    //     } else if (v == pizzaStack.length) {
-    //         s += ";";
-    //     } else {
-
-    //         s += pizzaStack[v];
-    //     }
-
-
-    //     console.log(s);
-    //     pizza.style.background = s;
-    //     pizza.style.backgroundSize = 'cover';
-    // }
-
-
 }
 
-// var crustBtn = document.getElementById('crustBtn');
-// crustBtn.addEventListener('click', addCrust);
-// function addCrust(){
-//     var u = crustBtn.parentElement.innerHTML;
-//     u = u.match(crustRegex);
-//     console.log(u);
-//     pizzaCrust.innerHTML = u;
-// }
-
-var c2 = document.getElementById('crustBtn2');
-var c3 = document.getElementById('crustBtn3');
-var c4 = document.getElementById('crustBtn4');
-function addCrust(elem) {
-    var c = elem.parentElement.innerHTML;
-    c = c.match(crustRegex);
-    switch (elem.id) {
-        case "crustBtn1":
-            c1.style.background = 'red';
-            c2.style.background = 'black';
-            c3.style.background = 'black';
-            c4.style.background = 'black';
-            pizzaStack[0] = "url(images/handToss.png)";
-            break;
-        case "crustBtn2":
-            c2.style.background = 'red';
-            c1.style.background = 'black';
-            c3.style.background = 'black';
-            c4.style.background = 'black';
-            pizzaStack[0] = "url(images/thin.png)";
-            break;
-        case "crustBtn3":
-            c3.style.background = 'red';
-            c2.style.background = 'black';
-            c1.style.background = 'black';
-            c4.style.background = 'black';
-            pizzaStack[0] = "url(images/stuffed.png)";
-            break;
-        case "crustBtn4":
-            c4.style.background = 'red';
-            c2.style.background = 'black';
-            c3.style.background = 'black';
-            c1.style.background = 'black';
-            pizzaStack[0] = "url(images/cheesy.png)";
-            break;
+function resetBtns(resetBtncolor) {
+    document.getElementById('pepperoniBtn1').style.background = resetBtncolor;
+    document.getElementById('pepperoniBtn2').style.background = resetBtncolor;
+    document.getElementById('pepperoniBtn3').style.background = resetBtncolor;
+    document.getElementById('pepperoniBtn4').style.background = resetBtncolor;
+    document.getElementById('pepperoniBtn5').style.background = resetBtncolor;
+    document.getElementById('pepperoniBtn6').style.background = resetBtncolor;
+    document.getElementById('sausageBtn1').style.background = resetBtncolor;
+    document.getElementById('sausageBtn2').style.background = resetBtncolor;
+    document.getElementById('sausageBtn3').style.background = resetBtncolor;
+    document.getElementById('sausageBtn4').style.background = resetBtncolor;
+    document.getElementById('sausageBtn5').style.background = resetBtncolor;
+    document.getElementById('sausageBtn6').style.background = resetBtncolor;
+    document.getElementById('hamBtn1').style.background = resetBtncolor;
+    document.getElementById('hamBtn2').style.background = resetBtncolor;
+    document.getElementById('hamBtn3').style.background = resetBtncolor;
+    document.getElementById('hamBtn4').style.background = resetBtncolor;
+    document.getElementById('hamBtn5').style.background = resetBtncolor;
+    document.getElementById('hamBtn6').style.background = resetBtncolor;
+    document.getElementById('baconBtn1').style.background = resetBtncolor;
+    document.getElementById('baconBtn2').style.background = resetBtncolor;
+    document.getElementById('baconBtn3').style.background = resetBtncolor;
+    document.getElementById('baconBtn4').style.background = resetBtncolor;
+    document.getElementById('baconBtn5').style.background = resetBtncolor;
+    document.getElementById('baconBtn6').style.background = resetBtncolor;
+    document.getElementById('chickenBtn1').style.background = resetBtncolor;
+    document.getElementById('chickenBtn2').style.background = resetBtncolor;
+    document.getElementById('chickenBtn3').style.background = resetBtncolor;
+    document.getElementById('chickenBtn4').style.background = resetBtncolor;
+    document.getElementById('chickenBtn5').style.background = resetBtncolor;
+    document.getElementById('chickenBtn6').style.background = resetBtncolor;
+    document.getElementById('salamiBtn1').style.background = resetBtncolor;
+    document.getElementById('salamiBtn2').style.background = resetBtncolor;
+    document.getElementById('salamiBtn3').style.background = resetBtncolor;
+    document.getElementById('salamiBtn4').style.background = resetBtncolor;
+    document.getElementById('salamiBtn5').style.background = resetBtncolor;
+    document.getElementById('salamiBtn6').style.background = resetBtncolor;
+    document.getElementById('greenPepperBtn1').style.background = resetBtncolor;
+    document.getElementById('greenPepperBtn2').style.background = resetBtncolor;
+    document.getElementById('greenPepperBtn3').style.background = resetBtncolor;
+    document.getElementById('greenPepperBtn4').style.background = resetBtncolor;
+    document.getElementById('greenPepperBtn5').style.background = resetBtncolor;
+    document.getElementById('greenPepperBtn6').style.background = resetBtncolor;
+    document.getElementById('bananaPepperBtn1').style.background = resetBtncolor;
+    document.getElementById('bananaPepperBtn2').style.background = resetBtncolor;
+    document.getElementById('bananaPepperBtn3').style.background = resetBtncolor;
+    document.getElementById('bananaPepperBtn4').style.background = resetBtncolor;
+    document.getElementById('bananaPepperBtn5').style.background = resetBtncolor;
+    document.getElementById('bananaPepperBtn6').style.background = resetBtncolor;
+    document.getElementById('mushroomBtn1').style.background = resetBtncolor;
+    document.getElementById('mushroomBtn2').style.background = resetBtncolor;
+    document.getElementById('mushroomBtn3').style.background = resetBtncolor;
+    document.getElementById('mushroomBtn4').style.background = resetBtncolor;
+    document.getElementById('mushroomBtn5').style.background = resetBtncolor;
+    document.getElementById('mushroomBtn6').style.background = resetBtncolor;
+    document.getElementById('spinachBtn1').style.background = resetBtncolor;
+    document.getElementById('spinachBtn2').style.background = resetBtncolor;
+    document.getElementById('spinachBtn3').style.background = resetBtncolor;
+    document.getElementById('spinachBtn4').style.background = resetBtncolor;
+    document.getElementById('spinachBtn5').style.background = resetBtncolor;
+    document.getElementById('spinachBtn6').style.background = resetBtncolor;
+    document.getElementById('olivesBtn1').style.background = resetBtncolor;
+    document.getElementById('olivesBtn2').style.background = resetBtncolor;
+    document.getElementById('olivesBtn3').style.background = resetBtncolor;
+    document.getElementById('olivesBtn4').style.background = resetBtncolor;
+    document.getElementById('olivesBtn5').style.background = resetBtncolor;
+    document.getElementById('olivesBtn6').style.background = resetBtncolor;
+    document.getElementById('onionBtn1').style.background = resetBtncolor;
+    document.getElementById('onionBtn2').style.background = resetBtncolor;
+    document.getElementById('onionBtn3').style.background = resetBtncolor;
+    document.getElementById('onionBtn4').style.background = resetBtncolor;
+    document.getElementById('onionBtn5').style.background = resetBtncolor;
+    document.getElementById('onionBtn6').style.background = resetBtncolor;
+}
+var newArr = [];
+function setPreBuiltBtns() {
+    newArr = cleanArray(TOPPINGS);
+    for (var i = 0; i < newArr.length; i++) {
+        console.log("NEWARR: " + newArr[i]);
+        var s = newArr[i].toLowerCase();
+        if (s == 'greenpepper') {
+            s = 'greenPepper';
+        } else if (s == 'bananapepper') {
+            s = 'bananaPepper';
+        }
+        console.log("NEWSSS: " + s);
+        var z = document.getElementById(s + 'Btn2').style.background = activeBg;
     }
-    resetBackground();
-
-    pizzaCrust.innerHTML = c;
+}
+function resetApp() {
+    pizzaSize.innerHTML = "M";
+    pizzaCrust.innerHTML = "";
+    pizzaCheese.innerHTML = "";
+    pizzaSauce.innerHTML = "";
+    pizzaTop.innerHTML = "";
+    ch1.style.background = '#8F0937';
+    ch2.style.background = '#8F0937';
+    ch3.style.background = '#8F0937';
+    ch4.style.background = '#8F0937';
+    s1.style.background = '#8F0937';
+    s2.style.background = '#8F0937';
+    s3.style.background = '#8F0937';
+    s4.style.background = '#8F0937';
+    s5.style.background = '#8F0937';
+    c1.style.background = '#8F0937';
+    c2.style.background = '#8F0937';
+    c3.style.background = '#8F0937';
+    c4.style.background = '#8F0937';
+    medBtn.style.background = 'red';
+    szBtn.style.background = 'black';
+    largeBtn.style.background = 'black';
+    xlargeBtn.style.background = 'black';
+    document.getElementById('dealtext').style.visibility = 'hidden';
+    pizza.style.width = '200px';
+    pizza.style.height = '200px';
+    pizza.style.background = cheese + "," + marinara + "," + handToss;
+    pizza.style.backgroundSize = "cover";
+    pizzaStack[0] = handToss;
+    pizzaStack[1] = marinara;
+    pizzaStack[2] = cheese;
+    pizzaCrust.innerHTML = "HAND-TOSSED";
+    pizzaCheese.innerHTML = "REGULAR";
+    pizzaSauce.innerHTML = "MARINARA";
+    currentPizzaCostLabel.innerHTML = "$" + 5;
+    supremeBtn.style.background = 'black';
+    pepperoniPizzaBtn.style.background = 'black';
+    bbqBtn.style.background = 'black';
+    fivecheeseBtn.style.background = 'black';
+    meatloversBtn.style.background = 'black';
+    c1.style.background = '#D82D2A';
+    ch1.style.background = '#D82D2A';
+    s1.style.background = '#D82D2A';
+    resetBtns('#8F0937');
 }
 
-var s2 = document.getElementById('sauceBtn2');
-var s3 = document.getElementById('sauceBtn3');
-var s4 = document.getElementById('sauceBtn4');
-var s5 = document.getElementById('sauceBtn5');
-function addSauce(elem) {
-    var c = elem.parentElement.innerHTML;
-    c = c.match(sauceRegex);
-    switch (elem.id) {
-        case "sauceBtn1":
-            s1.style.background = 'red';
-            s2.style.background = 'black';
-            s3.style.background = 'black';
-            s4.style.background = 'black';
-            s5.style.background = 'black';
-            pizzaStack[1] = "url(images/marinara.png)";
-            break;
-        case "sauceBtn2":
-            s2.style.background = 'red';
-            s1.style.background = 'black';
-            s3.style.background = 'black';
-            s4.style.background = 'black';
-            s5.style.background = 'black';
-            pizzaStack[1] = "url(images/buffalo.png)";
-            break;
-        case "sauceBtn3":
-            s3.style.background = 'red';
-            s2.style.background = 'black';
-            s1.style.background = 'black';
-            s4.style.background = 'black';
-            s5.style.background = 'black';
-            pizzaStack[1] = "url(images/bbq.png)";
-            break;
-        case "sauceBtn4":
-            s4.style.background = 'red';
-            s2.style.background = 'black';
-            s3.style.background = 'black';
-            s1.style.background = 'black';
-            s5.style.background = 'black';
-            pizzaStack[1] = "url(images/alfredo.png)";
-            break;
-        case "sauceBtn5":
-            s5.style.background = 'red';
-            s2.style.background = 'black';
-            s3.style.background = 'black';
-            s1.style.background = 'black';
-            s4.style.background = 'black';
-            pizzaStack[1] = "url(images/garlicParm.png)";
-            break;
-    }
-    resetBackground();
 
-    pizzaSauce.innerHTML = c;
-}
-function addSauceAmt(elem) {
-    var c = elem.innerHTML;
-    c = c.match(sauceAmtRegex);
-    pizzaSauceAmt.innerHTML = c;
-}
-
-var ch2 = document.getElementById('cheeseBtn2');
-var ch3 = document.getElementById('cheeseBtn3');
-var ch4 = document.getElementById('cheeseBtn4');
-function addCheese(elem) {
-    var c = elem.parentElement.innerHTML;
-    c = c.match(cheeseRegex);
-    switch (elem.id) {
-        case "cheeseBtn1":
-            ch1.style.background = 'red';
-            ch2.style.background = 'black';
-            ch3.style.background = 'black';
-            ch4.style.background = 'black';
-            pizzaStack[2] = "url(images/cheese.png)";
-
-            break;
-        case "cheeseBtn2":
-            ch2.style.background = 'red';
-            ch1.style.background = 'black';
-            ch3.style.background = 'black';
-            ch4.style.background = 'black';
-            pizzaStack[2] = "url(images/extraCheese.png)";
-            break;
-        case "cheeseBtn3":
-            ch3.style.background = 'red';
-            ch2.style.background = 'black';
-            ch1.style.background = 'black';
-            ch4.style.background = 'black';
-            pizzaStack[2] = "url(images/lightCheese.png)";
-
-            break;
-        case "cheeseBtn4":
-            ch4.style.background = 'red';
-            ch2.style.background = 'black';
-            ch3.style.background = 'black';
-            ch1.style.background = 'black';
-            pizzaStack[2] = "url()";
-
-            break;
-    }
-    resetBackground();
-    console.log("lenght " + TOPPINGS.length);
-
-    pizzaCheese.innerHTML = c;
-    console.log(dynListArr);
-}
 var addBtn = document.getElementById('addToOrderBtn');
 addBtn.addEventListener('click', addToOrder);
 var finish = document.getElementById('finishOrderBtn');
@@ -524,7 +1218,6 @@ var isMeatLovers = false;
 var final = 0;
 function addToOrder() {
     pizzaCt += 1;
-    // orderContainer.innerHTML = "";
     var pizzaCtHeader = document.createElement('h2');
     pizzaCtHeader.id = 'pizzaHeader' + pizzaCt;
     pizzaCtHeader.className = 'wrap';
@@ -534,7 +1227,7 @@ function addToOrder() {
 
     dynListArr.push(pizzaSize.innerHTML);
     dynListArr.push(pizzaCrust.innerHTML);
-    dynListArr.push(pizzaSauce.innerHTML + " " + pizzaSauceAmt.innerHTML);
+    dynListArr.push(pizzaSauce.innerHTML);
     dynListArr.push(pizzaCheese.innerHTML);
     dynListArr.push(pizzaTop.innerHTML);
 
@@ -543,47 +1236,11 @@ function addToOrder() {
         pizzaString += "<p class='listwrap'>" + dynListArr[i] + "</p>";
         orderContainer.innerHTML = pizzaString;
     }
-    pizzaSize.innerHTML = "M";
-    pizzaCrust.innerHTML = "";
-    pizzaCheese.innerHTML = "";
-    pizzaSauce.innerHTML = "";
-    pizzaSauceAmt.innerHTML = "";
-    pizzaTop.innerHTML = "";
-    ch1.style.background = 'black';
-    ch2.style.background = 'black';
-    ch3.style.background = 'black';
-    ch4.style.background = 'black';
-    s1.style.background = 'black';
-    s2.style.background = 'black';
-    s3.style.background = 'black';
-    s4.style.background = 'black';
-    s5.style.background = 'black';
-    c1.style.background = 'black';
-    c2.style.background = 'black';
-    c3.style.background = 'black';
-    c4.style.background = 'black';
-    medBtn.style.background = 'red';
-    szBtn.style.background = 'black';
-    largeBtn.style.background = 'black';
-    xlargeBtn.style.background = 'black';
-    pizza.style.width = '200px';
-    pizza.style.height = '200px';
-    console.log(isSupreme);
-    // if (isSupreme) {
-    //     TOTALPRICE += 30;
-    // } else if (isPepperoni) {
-    //     TOTALPRICE += 17;
-
-    // } else if (isBBQChicken) {
-    //     TOTALPRICE += 15;
-
-    // } else if (isFiveCheese) {
-    //     TOTALPRICE += 16;
-
-    // } else if (isMeatLovers) {
-    //     TOTALPRICE += 16;
-
-    // }
+    isSupreme = false;
+    isPepperoni = false;
+    isBBQChicken = false;
+    isFiveCheese = false;
+    isMeatLovers = false;
     // TOTALPRICE = currPriceHolder;
     console.log("TP" + TOTALPRICE);
     console.log("FN" + FNCUSTOMPRICE);
@@ -593,99 +1250,14 @@ function addToOrder() {
     console.log(final);
     totalCostLabel.innerHTML = "$" + final;
     dynListArr = [];
+    console.log("BEFORE EM: " + TOPPINGS);
     TOPPINGS = [];
+    pizzaStack = [];
     FNCUSTOMPRICE = 5;
-    pizza.style.background = cheese + "," + marinara + "," + handToss;
-    pizza.style.backgroundSize = "cover";
-    pizzaStack[0] = handToss;
-    pizzaStack[1] = marinara;
-    pizzaStack[2] = cheese;
-    pizzaCrust.innerHTML = "HAND-TOSSED";
-    pizzaCheese.innerHTML = "REGULAR";
-    pizzaSauce.innerHTML = "MARINARA";
-    pizzaSauceAmt.innerHTML = "REGULAR";
-    currentPizzaCostLabel.innerHTML = "$" + 5;
-    supremeBtn.style.background = 'black';
-    pepperoniPizzaBtn.style.background = 'black';
-    bbqBtn.style.background = 'black';
-    fivecheeseBtn.style.background = 'black';
-    meatloversBtn.style.background = 'black';
-    c1.style.background = 'red';
-    ch1.style.background = 'red';
-    s1.style.background = 'red';
+    resetApp();
+    console.log("AFTER: " + TOPPINGS);
     ///
-    document.getElementById('pepperoniBtn1').style.background = 'black';
-    document.getElementById('pepperoniBtn2').style.background = 'black';
-    document.getElementById('pepperoniBtn3').style.background = 'black';
-    document.getElementById('pepperoniBtn4').style.background = 'black';
-    document.getElementById('pepperoniBtn5').style.background = 'black';
-    document.getElementById('pepperoniBtn6').style.background = 'black';
-    document.getElementById('sausageBtn1').style.background = 'black';
-    document.getElementById('sausageBtn2').style.background = 'black';
-    document.getElementById('sausageBtn3').style.background = 'black';
-    document.getElementById('sausageBtn4').style.background = 'black';
-    document.getElementById('sausageBtn5').style.background = 'black';
-    document.getElementById('sausageBtn6').style.background = 'black';
-    document.getElementById('hamBtn1').style.background = 'black';
-    document.getElementById('hamBtn2').style.background = 'black';
-    document.getElementById('hamBtn3').style.background = 'black';
-    document.getElementById('hamBtn4').style.background = 'black';
-    document.getElementById('hamBtn5').style.background = 'black';
-    document.getElementById('hamBtn6').style.background = 'black';
-    document.getElementById('baconBtn1').style.background = 'black';
-    document.getElementById('baconBtn2').style.background = 'black';
-    document.getElementById('baconBtn3').style.background = 'black';
-    document.getElementById('baconBtn4').style.background = 'black';
-    document.getElementById('baconBtn5').style.background = 'black';
-    document.getElementById('baconBtn6').style.background = 'black';
-    document.getElementById('chickenBtn1').style.background = 'black';
-    document.getElementById('chickenBtn2').style.background = 'black';
-    document.getElementById('chickenBtn3').style.background = 'black';
-    document.getElementById('chickenBtn4').style.background = 'black';
-    document.getElementById('chickenBtn5').style.background = 'black';
-    document.getElementById('chickenBtn6').style.background = 'black';
-    document.getElementById('salamiBtn1').style.background = 'black';
-    document.getElementById('salamiBtn2').style.background = 'black';
-    document.getElementById('salamiBtn3').style.background = 'black';
-    document.getElementById('salamiBtn4').style.background = 'black';
-    document.getElementById('salamiBtn5').style.background = 'black';
-    document.getElementById('salamiBtn6').style.background = 'black';
-    document.getElementById('greenPepperBtn1').style.background = 'black';
-    document.getElementById('greenPepperBtn2').style.background = 'black';
-    document.getElementById('greenPepperBtn3').style.background = 'black';
-    document.getElementById('greenPepperBtn4').style.background = 'black';
-    document.getElementById('greenPepperBtn5').style.background = 'black';
-    document.getElementById('greenPepperBtn6').style.background = 'black';
-    document.getElementById('bananaPepperBtn1').style.background = 'black';
-    document.getElementById('bananaPepperBtn2').style.background = 'black';
-    document.getElementById('bananaPepperBtn3').style.background = 'black';
-    document.getElementById('bananaPepperBtn4').style.background = 'black';
-    document.getElementById('bananaPepperBtn5').style.background = 'black';
-    document.getElementById('bananaPepperBtn6').style.background = 'black';
-    document.getElementById('mushroomBtn1').style.background = 'black';
-    document.getElementById('mushroomBtn2').style.background = 'black';
-    document.getElementById('mushroomBtn3').style.background = 'black';
-    document.getElementById('mushroomBtn4').style.background = 'black';
-    document.getElementById('mushroomBtn5').style.background = 'black';
-    document.getElementById('mushroomBtn6').style.background = 'black';
-    document.getElementById('spinachBtn1').style.background = 'black';
-    document.getElementById('spinachBtn2').style.background = 'black';
-    document.getElementById('spinachBtn3').style.background = 'black';
-    document.getElementById('spinachBtn4').style.background = 'black';
-    document.getElementById('spinachBtn5').style.background = 'black';
-    document.getElementById('spinachBtn6').style.background = 'black';
-    document.getElementById('olivesBtn1').style.background = 'black';
-    document.getElementById('olivesBtn2').style.background = 'black';
-    document.getElementById('olivesBtn3').style.background = 'black';
-    document.getElementById('olivesBtn4').style.background = 'black';
-    document.getElementById('olivesBtn5').style.background = 'black';
-    document.getElementById('olivesBtn6').style.background = 'black';
-    document.getElementById('onionBtn1').style.background = 'black';
-    document.getElementById('onionBtn2').style.background = 'black';
-    document.getElementById('onionBtn3').style.background = 'black';
-    document.getElementById('onionBtn4').style.background = 'black';
-    document.getElementById('onionBtn5').style.background = 'black';
-    document.getElementById('onionBtn6').style.background = 'black';
+
 }
 
 var modal = document.getElementById('myModal');
@@ -700,91 +1272,7 @@ function finishOrder() {
     pizzaCt = 0;
     currPriceHolder = 5;
     dynListArr = [];
-    currentPizzaCostLabel.innerHTML = '$' + 5;
-    pizza.style.background = cheese + "," + marinara + "," + handToss;
-    pizza.style.backgroundSize = "cover";
-    pizzaStack[0] = handToss;
-    pizzaStack[1] = marinara;
-    pizzaStack[2] = cheese;
-    pizzaCrust.innerHTML = "HAND-TOSSED";
-    pizzaCheese.innerHTML = "REGULAR";
-    pizzaSauce.innerHTML = "MARINARA";
-    pizzaSauceAmt.innerHTML = "REGULAR";
-    c1.style.background = 'red';
-    ch1.style.background = 'red';
-    s1.style.background = 'red';
-    document.getElementById('pepperoniBtn1').style.background = 'black';
-    document.getElementById('pepperoniBtn2').style.background = 'black';
-    document.getElementById('pepperoniBtn3').style.background = 'black';
-    document.getElementById('pepperoniBtn4').style.background = 'black';
-    document.getElementById('pepperoniBtn5').style.background = 'black';
-    document.getElementById('pepperoniBtn6').style.background = 'black';
-    document.getElementById('sausageBtn1').style.background = 'black';
-    document.getElementById('sausageBtn2').style.background = 'black';
-    document.getElementById('sausageBtn3').style.background = 'black';
-    document.getElementById('sausageBtn4').style.background = 'black';
-    document.getElementById('sausageBtn5').style.background = 'black';
-    document.getElementById('sausageBtn6').style.background = 'black';
-    document.getElementById('hamBtn1').style.background = 'black';
-    document.getElementById('hamBtn2').style.background = 'black';
-    document.getElementById('hamBtn3').style.background = 'black';
-    document.getElementById('hamBtn4').style.background = 'black';
-    document.getElementById('hamBtn5').style.background = 'black';
-    document.getElementById('hamBtn6').style.background = 'black';
-    document.getElementById('baconBtn1').style.background = 'black';
-    document.getElementById('baconBtn2').style.background = 'black';
-    document.getElementById('baconBtn3').style.background = 'black';
-    document.getElementById('baconBtn4').style.background = 'black';
-    document.getElementById('baconBtn5').style.background = 'black';
-    document.getElementById('baconBtn6').style.background = 'black';
-    document.getElementById('chickenBtn1').style.background = 'black';
-    document.getElementById('chickenBtn2').style.background = 'black';
-    document.getElementById('chickenBtn3').style.background = 'black';
-    document.getElementById('chickenBtn4').style.background = 'black';
-    document.getElementById('chickenBtn5').style.background = 'black';
-    document.getElementById('chickenBtn6').style.background = 'black';
-    document.getElementById('salamiBtn1').style.background = 'black';
-    document.getElementById('salamiBtn2').style.background = 'black';
-    document.getElementById('salamiBtn3').style.background = 'black';
-    document.getElementById('salamiBtn4').style.background = 'black';
-    document.getElementById('salamiBtn5').style.background = 'black';
-    document.getElementById('salamiBtn6').style.background = 'black';
-    document.getElementById('greenPepperBtn1').style.background = 'black';
-    document.getElementById('greenPepperBtn2').style.background = 'black';
-    document.getElementById('greenPepperBtn3').style.background = 'black';
-    document.getElementById('greenPepperBtn4').style.background = 'black';
-    document.getElementById('greenPepperBtn5').style.background = 'black';
-    document.getElementById('greenPepperBtn6').style.background = 'black';
-    document.getElementById('bananaPepperBtn1').style.background = 'black';
-    document.getElementById('bananaPepperBtn2').style.background = 'black';
-    document.getElementById('bananaPepperBtn3').style.background = 'black';
-    document.getElementById('bananaPepperBtn4').style.background = 'black';
-    document.getElementById('bananaPepperBtn5').style.background = 'black';
-    document.getElementById('bananaPepperBtn6').style.background = 'black';
-    document.getElementById('mushroomBtn1').style.background = 'black';
-    document.getElementById('mushroomBtn2').style.background = 'black';
-    document.getElementById('mushroomBtn3').style.background = 'black';
-    document.getElementById('mushroomBtn4').style.background = 'black';
-    document.getElementById('mushroomBtn5').style.background = 'black';
-    document.getElementById('mushroomBtn6').style.background = 'black';
-    document.getElementById('spinachBtn1').style.background = 'black';
-    document.getElementById('spinachBtn2').style.background = 'black';
-    document.getElementById('spinachBtn3').style.background = 'black';
-    document.getElementById('spinachBtn4').style.background = 'black';
-    document.getElementById('spinachBtn5').style.background = 'black';
-    document.getElementById('spinachBtn6').style.background = 'black';
-    document.getElementById('olivesBtn1').style.background = 'black';
-    document.getElementById('olivesBtn2').style.background = 'black';
-    document.getElementById('olivesBtn3').style.background = 'black';
-    document.getElementById('olivesBtn4').style.background = 'black';
-    document.getElementById('olivesBtn5').style.background = 'black';
-    document.getElementById('olivesBtn6').style.background = 'black';
-    document.getElementById('onionBtn1').style.background = 'black';
-    document.getElementById('onionBtn2').style.background = 'black';
-    document.getElementById('onionBtn3').style.background = 'black';
-    document.getElementById('onionBtn4').style.background = 'black';
-    document.getElementById('onionBtn5').style.background = 'black';
-    document.getElementById('onionBtn6').style.background = 'black';
+    resetApp();
 }
 
 span.onclick = function () {
@@ -798,7 +1286,7 @@ window.onclick = function (event) {
 }
 //PRE-BUILT
 var supremeBtn = document.getElementById('supremeBtn');
-var pepperoniPizzaBtn = document.getElementById('pepperoniPizzaBtn');
+var pepperoniPizzaBtn = document.getElementById('pepperoniBtn');
 var bbqBtn = document.getElementById('bbqBtn');
 var fivecheeseBtn = document.getElementById('fivecheeseBtn');
 var meatloversBtn = document.getElementById('meatloversBtn');
@@ -809,28 +1297,7 @@ fivecheeseBtn.addEventListener('click', addFiveCheese);
 meatloversBtn.addEventListener('click', addMeatLovers);
 
 function addSupreme() {
-    szBtn.style.background = 'black';
-    medBtn.style.background = 'black';
-    largeBtn.style.background = 'black';
-    xlargeBtn.style.background = 'red';
-    pizza.style.width = '300px';
-    pizza.style.height = '300px';
-    pizzaSize.innerHTML = "XL";
-    pizzaCrust.innerHTML = "HAND-TOSSED";
-    pizzaCheese.innerHTML = "REGULAR";
-    pizzaSauce.innerHTML = "MARINARA";
-    pizzaSauceAmt.innerHTML = "REGULAR";
-    pizzaTop.innerHTML = "EVERYTHING";
-    supremeBtn.style.background = 'red';
-    pepperoniPizzaBtn.style.background = 'black';
-    bbqBtn.style.background = 'black';
-    fivecheeseBtn.style.background = 'black';
-    meatloversBtn.style.background = 'black';
-    isSupreme = true;
-    isPepperoni = false;
-    isBBQChicken = false;
-    isFiveCheese = false;
-    isMeatLovers = false;
+    formatPreBuilt([true, false, false, false, false], ['red', 'black', 'black', 'black', 'black'], ["HAND-TOSSED", "REGULAR", "MARINARA", "EVERYTHING"]);
     currentPizzaCostLabel.innerHTML = "$ " + 20;
     FNCUSTOMPRICE = supremeBasePrice;
     TOPPINGS = [];
@@ -856,78 +1323,6 @@ function addSupreme() {
     pizzaStack[13] = olives1;
     pizzaStack[14] = onion1;
     currPriceHolder = 20;
-    document.getElementById('pepperoniBtn1').style.background = 'black';
-    document.getElementById('pepperoniBtn2').style.background = 'red';
-    document.getElementById('pepperoniBtn3').style.background = 'black';
-    document.getElementById('pepperoniBtn4').style.background = 'black';
-    document.getElementById('pepperoniBtn5').style.background = 'black';
-    document.getElementById('pepperoniBtn6').style.background = 'black';
-    document.getElementById('sausageBtn1').style.background = 'black';
-    document.getElementById('sausageBtn2').style.background = 'red';
-    document.getElementById('sausageBtn3').style.background = 'black';
-    document.getElementById('sausageBtn4').style.background = 'black';
-    document.getElementById('sausageBtn5').style.background = 'black';
-    document.getElementById('sausageBtn6').style.background = 'black';
-    document.getElementById('hamBtn1').style.background = 'black';
-    document.getElementById('hamBtn2').style.background = 'red';
-    document.getElementById('hamBtn3').style.background = 'black';
-    document.getElementById('hamBtn4').style.background = 'black';
-    document.getElementById('hamBtn5').style.background = 'black';
-    document.getElementById('hamBtn6').style.background = 'black';
-    document.getElementById('baconBtn1').style.background = 'black';
-    document.getElementById('baconBtn2').style.background = 'red';
-    document.getElementById('baconBtn3').style.background = 'black';
-    document.getElementById('baconBtn4').style.background = 'black';
-    document.getElementById('baconBtn5').style.background = 'black';
-    document.getElementById('baconBtn6').style.background = 'black';
-    document.getElementById('chickenBtn1').style.background = 'black';
-    document.getElementById('chickenBtn2').style.background = 'red';
-    document.getElementById('chickenBtn3').style.background = 'black';
-    document.getElementById('chickenBtn4').style.background = 'black';
-    document.getElementById('chickenBtn5').style.background = 'black';
-    document.getElementById('chickenBtn6').style.background = 'black';
-    document.getElementById('salamiBtn1').style.background = 'black';
-    document.getElementById('salamiBtn2').style.background = 'red';
-    document.getElementById('salamiBtn3').style.background = 'black';
-    document.getElementById('salamiBtn4').style.background = 'black';
-    document.getElementById('salamiBtn5').style.background = 'black';
-    document.getElementById('salamiBtn6').style.background = 'black';
-    document.getElementById('greenPepperBtn1').style.background = 'black';
-    document.getElementById('greenPepperBtn2').style.background = 'red';
-    document.getElementById('greenPepperBtn3').style.background = 'black';
-    document.getElementById('greenPepperBtn4').style.background = 'black';
-    document.getElementById('greenPepperBtn5').style.background = 'black';
-    document.getElementById('greenPepperBtn6').style.background = 'black';
-    document.getElementById('bananaPepperBtn1').style.background = 'black';
-    document.getElementById('bananaPepperBtn2').style.background = 'red';
-    document.getElementById('bananaPepperBtn3').style.background = 'black';
-    document.getElementById('bananaPepperBtn4').style.background = 'black';
-    document.getElementById('bananaPepperBtn5').style.background = 'black';
-    document.getElementById('bananaPepperBtn6').style.background = 'black';
-    document.getElementById('mushroomBtn1').style.background = 'black';
-    document.getElementById('mushroomBtn2').style.background = 'red';
-    document.getElementById('mushroomBtn3').style.background = 'black';
-    document.getElementById('mushroomBtn4').style.background = 'black';
-    document.getElementById('mushroomBtn5').style.background = 'black';
-    document.getElementById('mushroomBtn6').style.background = 'black';
-    document.getElementById('spinachBtn1').style.background = 'black';
-    document.getElementById('spinachBtn2').style.background = 'red';
-    document.getElementById('spinachBtn3').style.background = 'black';
-    document.getElementById('spinachBtn4').style.background = 'black';
-    document.getElementById('spinachBtn5').style.background = 'black';
-    document.getElementById('spinachBtn6').style.background = 'black';
-    document.getElementById('olivesBtn1').style.background = 'black';
-    document.getElementById('olivesBtn2').style.background = 'red';
-    document.getElementById('olivesBtn3').style.background = 'black';
-    document.getElementById('olivesBtn4').style.background = 'black';
-    document.getElementById('olivesBtn5').style.background = 'black';
-    document.getElementById('olivesBtn6').style.background = 'black';
-    document.getElementById('onionBtn1').style.background = 'black';
-    document.getElementById('onionBtn2').style.background = 'red';
-    document.getElementById('onionBtn3').style.background = 'black';
-    document.getElementById('onionBtn4').style.background = 'black';
-    document.getElementById('onionBtn5').style.background = 'black';
-    document.getElementById('onionBtn6').style.background = 'black';
     TOPPINGS[3] = "PEPPERONI";
     TOPPINGS[4] = "SAUSAGE";
     TOPPINGS[5] = "HAM";
@@ -935,37 +1330,16 @@ function addSupreme() {
     TOPPINGS[7] = "CHICKEN";
     TOPPINGS[8] = "SALAMI";
     TOPPINGS[9] = "GREENPEPPER";
-    TOPPINGS[10] = "BANANAPERPPER";
+    TOPPINGS[10] = "BANANAPEPPER";
     TOPPINGS[11] = "MUSHROOM";
     TOPPINGS[12] = "SPINACH";
     TOPPINGS[13] = "OLIVES";
-    TOPPINGS[14] = "ONIONS";
+    TOPPINGS[14] = "ONION";
+    setPreBuiltBtns();
     viewToppings();
 }
 function addPepperoniPizza() {
-    TOPPINGS = [];
-    szBtn.style.background = 'black';
-    medBtn.style.background = 'black';
-    largeBtn.style.background = 'black';
-    xlargeBtn.style.background = 'red';
-    pizza.style.width = '300px';
-    pizza.style.height = '300px';
-    pizzaSize.innerHTML = "XL";
-    pizzaCrust.innerHTML = "HAND-TOSSED";
-    pizzaCheese.innerHTML = "REGULAR";
-    pizzaSauce.innerHTML = "MARINARA";
-    pizzaSauceAmt.innerHTML = "REGULAR";
-    pizzaTop.innerHTML = "PEPPERONI";
-    supremeBtn.style.background = 'black';
-    pepperoniPizzaBtn.style.background = 'red';
-    bbqBtn.style.background = 'black';
-    fivecheeseBtn.style.background = 'black';
-    meatloversBtn.style.background = 'black';
-    isSupreme = false;
-    isPepperoni = true;
-    isBBQChicken = false;
-    isFiveCheese = false;
-    isMeatLovers = false;
+    formatPreBuilt([false, true, false, false, false], ['black', 'red', 'black', 'black', 'black'], ["HAND-TOSSED", "REGULAR", "MARINARA", "PEPPERONI"]);
     currentPizzaCostLabel.innerHTML = "$ " + 11;
     FNCUSTOMPRICE = pepperoniBasePrice;
     currentPizzaCostLabel.innerHTML = "$ " + pepperoniBasePrice;
@@ -976,105 +1350,12 @@ function addPepperoniPizza() {
     pizzaStack[2] = cheese;
     pizzaStack[3] = pepperoniExtra;
     currPriceHolder = 11;
-    document.getElementById('pepperoniBtn1').style.background = 'black';
-    document.getElementById('pepperoniBtn2').style.background = 'red';
-    document.getElementById('pepperoniBtn3').style.background = 'black';
-    document.getElementById('pepperoniBtn4').style.background = 'black';
-    document.getElementById('pepperoniBtn5').style.background = 'black';
-    document.getElementById('pepperoniBtn6').style.background = 'black';
-    document.getElementById('sausageBtn1').style.background = 'black';
-    document.getElementById('sausageBtn2').style.background = 'black';
-    document.getElementById('sausageBtn3').style.background = 'black';
-    document.getElementById('sausageBtn4').style.background = 'black';
-    document.getElementById('sausageBtn5').style.background = 'black';
-    document.getElementById('sausageBtn6').style.background = 'black';
-    document.getElementById('hamBtn1').style.background = 'black';
-    document.getElementById('hamBtn2').style.background = 'black';
-    document.getElementById('hamBtn3').style.background = 'black';
-    document.getElementById('hamBtn4').style.background = 'black';
-    document.getElementById('hamBtn5').style.background = 'black';
-    document.getElementById('hamBtn6').style.background = 'black';
-    document.getElementById('baconBtn1').style.background = 'black';
-    document.getElementById('baconBtn2').style.background = 'black';
-    document.getElementById('baconBtn3').style.background = 'black';
-    document.getElementById('baconBtn4').style.background = 'black';
-    document.getElementById('baconBtn5').style.background = 'black';
-    document.getElementById('baconBtn6').style.background = 'black';
-    document.getElementById('chickenBtn1').style.background = 'black';
-    document.getElementById('chickenBtn2').style.background = 'black';
-    document.getElementById('chickenBtn3').style.background = 'black';
-    document.getElementById('chickenBtn4').style.background = 'black';
-    document.getElementById('chickenBtn5').style.background = 'black';
-    document.getElementById('chickenBtn6').style.background = 'black';
-    document.getElementById('salamiBtn1').style.background = 'black';
-    document.getElementById('salamiBtn2').style.background = 'black';
-    document.getElementById('salamiBtn3').style.background = 'black';
-    document.getElementById('salamiBtn4').style.background = 'black';
-    document.getElementById('salamiBtn5').style.background = 'black';
-    document.getElementById('salamiBtn6').style.background = 'black';
-    document.getElementById('greenPepperBtn1').style.background = 'black';
-    document.getElementById('greenPepperBtn2').style.background = 'black';
-    document.getElementById('greenPepperBtn3').style.background = 'black';
-    document.getElementById('greenPepperBtn4').style.background = 'black';
-    document.getElementById('greenPepperBtn5').style.background = 'black';
-    document.getElementById('greenPepperBtn6').style.background = 'black';
-    document.getElementById('bananaPepperBtn1').style.background = 'black';
-    document.getElementById('bananaPepperBtn2').style.background = 'black';
-    document.getElementById('bananaPepperBtn3').style.background = 'black';
-    document.getElementById('bananaPepperBtn4').style.background = 'black';
-    document.getElementById('bananaPepperBtn5').style.background = 'black';
-    document.getElementById('bananaPepperBtn6').style.background = 'black';
-    document.getElementById('mushroomBtn1').style.background = 'black';
-    document.getElementById('mushroomBtn2').style.background = 'black';
-    document.getElementById('mushroomBtn3').style.background = 'black';
-    document.getElementById('mushroomBtn4').style.background = 'black';
-    document.getElementById('mushroomBtn5').style.background = 'black';
-    document.getElementById('mushroomBtn6').style.background = 'black';
-    document.getElementById('spinachBtn1').style.background = 'black';
-    document.getElementById('spinachBtn2').style.background = 'black';
-    document.getElementById('spinachBtn3').style.background = 'black';
-    document.getElementById('spinachBtn4').style.background = 'black';
-    document.getElementById('spinachBtn5').style.background = 'black';
-    document.getElementById('spinachBtn6').style.background = 'black';
-    document.getElementById('olivesBtn1').style.background = 'black';
-    document.getElementById('olivesBtn2').style.background = 'black';
-    document.getElementById('olivesBtn3').style.background = 'black';
-    document.getElementById('olivesBtn4').style.background = 'black';
-    document.getElementById('olivesBtn5').style.background = 'black';
-    document.getElementById('olivesBtn6').style.background = 'black';
-    document.getElementById('onionBtn1').style.background = 'black';
-    document.getElementById('onionBtn2').style.background = 'black';
-    document.getElementById('onionBtn3').style.background = 'black';
-    document.getElementById('onionBtn4').style.background = 'black';
-    document.getElementById('onionBtn5').style.background = 'black';
-    document.getElementById('onionBtn6').style.background = 'black';
     TOPPINGS[3] = "PEPPERONI";
+    setPreBuiltBtns();
     viewToppings();
 }
 function addBBQ() {
-    TOPPINGS = [];
-    szBtn.style.background = 'black';
-    medBtn.style.background = 'black';
-    largeBtn.style.background = 'black';
-    xlargeBtn.style.background = 'red';
-    pizza.style.width = '300px';
-    pizza.style.height = '300px';
-    pizzaSize.innerHTML = "XL";
-    pizzaCrust.innerHTML = "HAND-TOSSED";
-    pizzaCheese.innerHTML = "REGULAR";
-    pizzaSauce.innerHTML = "BBQ";
-    pizzaSauceAmt.innerHTML = "REGULAR";
-    pizzaTop.innerHTML = "BACON<br/>CHICKEN<br/>ONION<br/>";
-    supremeBtn.style.background = 'black';
-    pepperoniPizzaBtn.style.background = 'black';
-    bbqBtn.style.background = 'red';
-    fivecheeseBtn.style.background = 'black';
-    meatloversBtn.style.background = 'black';
-    isSupreme = false;
-    isPepperoni = false;
-    isBBQChicken = true;
-    isFiveCheese = false;
-    isMeatLovers = false;
+    formatPreBuilt([false, false, true, false, false], ['black', 'black', 'red', 'black', 'black'], ["HAND-TOSSED", "REGULAR", "BBQ", "BACON<br/>CHICKEN<br/>ONION<br/>"]);
     currentPizzaCostLabel.innerHTML = "$ " + 13;
     FNCUSTOMPRICE = bbqBasePrice;
     currentPizzaCostLabel.innerHTML = "$ " + bbqBasePrice;
@@ -1087,107 +1368,14 @@ function addBBQ() {
     pizzaStack[12] = spinach1;
     pizzaStack[14] = onion1;
     currPriceHolder = 13;
-    document.getElementById('pepperoniBtn1').style.background = 'black';
-    document.getElementById('pepperoniBtn2').style.background = 'red';
-    document.getElementById('pepperoniBtn3').style.background = 'black';
-    document.getElementById('pepperoniBtn4').style.background = 'black';
-    document.getElementById('pepperoniBtn5').style.background = 'black';
-    document.getElementById('pepperoniBtn6').style.background = 'black';
-    document.getElementById('sausageBtn1').style.background = 'black';
-    document.getElementById('sausageBtn2').style.background = 'black';
-    document.getElementById('sausageBtn3').style.background = 'black';
-    document.getElementById('sausageBtn4').style.background = 'black';
-    document.getElementById('sausageBtn5').style.background = 'black';
-    document.getElementById('sausageBtn6').style.background = 'black';
-    document.getElementById('hamBtn1').style.background = 'black';
-    document.getElementById('hamBtn2').style.background = 'black';
-    document.getElementById('hamBtn3').style.background = 'black';
-    document.getElementById('hamBtn4').style.background = 'black';
-    document.getElementById('hamBtn5').style.background = 'black';
-    document.getElementById('hamBtn6').style.background = 'black';
-    document.getElementById('baconBtn1').style.background = 'black';
-    document.getElementById('baconBtn2').style.background = 'black';
-    document.getElementById('baconBtn3').style.background = 'black';
-    document.getElementById('baconBtn4').style.background = 'black';
-    document.getElementById('baconBtn5').style.background = 'black';
-    document.getElementById('baconBtn6').style.background = 'black';
-    document.getElementById('chickenBtn1').style.background = 'black';
-    document.getElementById('chickenBtn2').style.background = 'red';
-    document.getElementById('chickenBtn3').style.background = 'black';
-    document.getElementById('chickenBtn4').style.background = 'black';
-    document.getElementById('chickenBtn5').style.background = 'black';
-    document.getElementById('chickenBtn6').style.background = 'black';
-    document.getElementById('salamiBtn1').style.background = 'black';
-    document.getElementById('salamiBtn2').style.background = 'black';
-    document.getElementById('salamiBtn3').style.background = 'black';
-    document.getElementById('salamiBtn4').style.background = 'black';
-    document.getElementById('salamiBtn5').style.background = 'black';
-    document.getElementById('salamiBtn6').style.background = 'black';
-    document.getElementById('greenPepperBtn1').style.background = 'black';
-    document.getElementById('greenPepperBtn2').style.background = 'black';
-    document.getElementById('greenPepperBtn3').style.background = 'black';
-    document.getElementById('greenPepperBtn4').style.background = 'black';
-    document.getElementById('greenPepperBtn5').style.background = 'black';
-    document.getElementById('greenPepperBtn6').style.background = 'black';
-    document.getElementById('bananaPepperBtn1').style.background = 'black';
-    document.getElementById('bananaPepperBtn2').style.background = 'black';
-    document.getElementById('bananaPepperBtn3').style.background = 'black';
-    document.getElementById('bananaPepperBtn4').style.background = 'black';
-    document.getElementById('bananaPepperBtn5').style.background = 'black';
-    document.getElementById('bananaPepperBtn6').style.background = 'black';
-    document.getElementById('mushroomBtn1').style.background = 'black';
-    document.getElementById('mushroomBtn2').style.background = 'black';
-    document.getElementById('mushroomBtn3').style.background = 'black';
-    document.getElementById('mushroomBtn4').style.background = 'black';
-    document.getElementById('mushroomBtn5').style.background = 'black';
-    document.getElementById('mushroomBtn6').style.background = 'black';
-    document.getElementById('spinachBtn1').style.background = 'black';
-    document.getElementById('spinachBtn2').style.background = 'red';
-    document.getElementById('spinachBtn3').style.background = 'black';
-    document.getElementById('spinachBtn4').style.background = 'black';
-    document.getElementById('spinachBtn5').style.background = 'black';
-    document.getElementById('spinachBtn6').style.background = 'black';
-    document.getElementById('olivesBtn1').style.background = 'black';
-    document.getElementById('olivesBtn2').style.background = 'black';
-    document.getElementById('olivesBtn3').style.background = 'black';
-    document.getElementById('olivesBtn4').style.background = 'black';
-    document.getElementById('olivesBtn5').style.background = 'black';
-    document.getElementById('olivesBtn6').style.background = 'black';
-    document.getElementById('onionBtn1').style.background = 'black';
-    document.getElementById('onionBtn2').style.background = 'red';
-    document.getElementById('onionBtn3').style.background = 'black';
-    document.getElementById('onionBtn4').style.background = 'black';
-    document.getElementById('onionBtn5').style.background = 'black';
-    document.getElementById('onionBtn6').style.background = 'black';
     TOPPINGS[7] = "CHICKEN";
     TOPPINGS[12] = "SPINACH";
-    TOPPINGS[14] = "ONIONS";
+    TOPPINGS[14] = "ONION";
+    setPreBuiltBtns();
     viewToppings();
 }
 function addFiveCheese() {
-    TOPPINGS = [];
-    szBtn.style.background = 'black';
-    medBtn.style.background = 'black';
-    largeBtn.style.background = 'black';
-    xlargeBtn.style.background = 'red';
-    pizza.style.width = '300px';
-    pizza.style.height = '300px';
-    pizzaSize.innerHTML = "XL";
-    pizzaCrust.innerHTML = "CHEESY";
-    pizzaCheese.innerHTML = "MOZZARELLA<br/>CHEDDAR<br/>PARMESAN<br/>ASIAGO<br/>ROMANO<br/>";
-    pizzaSauce.innerHTML = "GARLIC PARMESAN";
-    pizzaSauceAmt.innerHTML = "REGULAR";
-    pizzaTop.innerHTML = "NONE";
-    supremeBtn.style.background = 'black';
-    pepperoniPizzaBtn.style.background = 'black';
-    bbqBtn.style.background = 'black';
-    fivecheeseBtn.style.background = 'red';
-    meatloversBtn.style.background = 'black';
-    isSupreme = false;
-    isPepperoni = false;
-    isBBQChicken = false;
-    isFiveCheese = true;
-    isMeatLovers = false;
+    formatPreBuilt([false, false, false, true, false], ['black', 'black', 'black', 'red', 'black'], ["CHEESY", "MOZZARELLA<br/>CHEDDAR<br/>PARMESAN<br/>ASIAGO<br/>ROMANO<br/>", "GARLIC PARMESAN", "NONE"]);
     currentPizzaCostLabel.innerHTML = "$ " + 11;
     FNCUSTOMPRICE = fivecheeseBasePrice;
     currentPizzaCostLabel.innerHTML = "$ " + fivecheeseBasePrice;
@@ -1196,86 +1384,12 @@ function addFiveCheese() {
     pizzaStack[0] = handToss;
     pizzaStack[1] = garlicParm;
     pizzaStack[2] = extraCheese;
+    setPreBuiltBtns();
     currPriceHolder = 11;
-    document.getElementById('sauceBtn1').style.background = 'black';
-    document.getElementById('sauceBtn5').style.background = 'red';
-    document.getElementById('cheeseBtn1').style.background = 'black';
-    document.getElementById('cheeseBtn2').style.background = 'red';
-    document.getElementById('pepperoniBtn1').style.background = 'black';
-    document.getElementById('pepperoniBtn2').style.background = 'black';
-    document.getElementById('pepperoniBtn3').style.background = 'black';
-    document.getElementById('pepperoniBtn4').style.background = 'black';
-    document.getElementById('pepperoniBtn5').style.background = 'black';
-    document.getElementById('pepperoniBtn6').style.background = 'black';
-    document.getElementById('sausageBtn1').style.background = 'black';
-    document.getElementById('sausageBtn2').style.background = 'black';
-    document.getElementById('sausageBtn3').style.background = 'black';
-    document.getElementById('sausageBtn4').style.background = 'black';
-    document.getElementById('sausageBtn5').style.background = 'black';
-    document.getElementById('sausageBtn6').style.background = 'black';
-    document.getElementById('hamBtn1').style.background = 'black';
-    document.getElementById('hamBtn2').style.background = 'black';
-    document.getElementById('hamBtn3').style.background = 'black';
-    document.getElementById('hamBtn4').style.background = 'black';
-    document.getElementById('hamBtn5').style.background = 'black';
-    document.getElementById('hamBtn6').style.background = 'black';
-    document.getElementById('baconBtn1').style.background = 'black';
-    document.getElementById('baconBtn2').style.background = 'black';
-    document.getElementById('baconBtn3').style.background = 'black';
-    document.getElementById('baconBtn4').style.background = 'black';
-    document.getElementById('baconBtn5').style.background = 'black';
-    document.getElementById('baconBtn6').style.background = 'black';
-    document.getElementById('chickenBtn1').style.background = 'black';
-    document.getElementById('chickenBtn2').style.background = 'black';
-    document.getElementById('chickenBtn3').style.background = 'black';
-    document.getElementById('chickenBtn4').style.background = 'black';
-    document.getElementById('chickenBtn5').style.background = 'black';
-    document.getElementById('chickenBtn6').style.background = 'black';
-    document.getElementById('salamiBtn1').style.background = 'black';
-    document.getElementById('salamiBtn2').style.background = 'black';
-    document.getElementById('salamiBtn3').style.background = 'black';
-    document.getElementById('salamiBtn4').style.background = 'black';
-    document.getElementById('salamiBtn5').style.background = 'black';
-    document.getElementById('salamiBtn6').style.background = 'black';
-    document.getElementById('greenPepperBtn1').style.background = 'black';
-    document.getElementById('greenPepperBtn2').style.background = 'black';
-    document.getElementById('greenPepperBtn3').style.background = 'black';
-    document.getElementById('greenPepperBtn4').style.background = 'black';
-    document.getElementById('greenPepperBtn5').style.background = 'black';
-    document.getElementById('greenPepperBtn6').style.background = 'black';
-    document.getElementById('bananaPepperBtn1').style.background = 'black';
-    document.getElementById('bananaPepperBtn2').style.background = 'black';
-    document.getElementById('bananaPepperBtn3').style.background = 'black';
-    document.getElementById('bananaPepperBtn4').style.background = 'black';
-    document.getElementById('bananaPepperBtn5').style.background = 'black';
-    document.getElementById('bananaPepperBtn6').style.background = 'black';
-    document.getElementById('mushroomBtn1').style.background = 'black';
-    document.getElementById('mushroomBtn2').style.background = 'black';
-    document.getElementById('mushroomBtn3').style.background = 'black';
-    document.getElementById('mushroomBtn4').style.background = 'black';
-    document.getElementById('mushroomBtn5').style.background = 'black';
-    document.getElementById('mushroomBtn6').style.background = 'black';
-    document.getElementById('spinachBtn1').style.background = 'black';
-    document.getElementById('spinachBtn2').style.background = 'black';
-    document.getElementById('spinachBtn3').style.background = 'black';
-    document.getElementById('spinachBtn4').style.background = 'black';
-    document.getElementById('spinachBtn5').style.background = 'black';
-    document.getElementById('spinachBtn6').style.background = 'black';
-    document.getElementById('olivesBtn1').style.background = 'black';
-    document.getElementById('olivesBtn2').style.background = 'black';
-    document.getElementById('olivesBtn3').style.background = 'black';
-    document.getElementById('olivesBtn4').style.background = 'black';
-    document.getElementById('olivesBtn5').style.background = 'black';
-    document.getElementById('olivesBtn6').style.background = 'black';
-    document.getElementById('onionBtn1').style.background = 'black';
-    document.getElementById('onionBtn2').style.background = 'black';
-    document.getElementById('onionBtn3').style.background = 'black';
-    document.getElementById('onionBtn4').style.background = 'black';
-    document.getElementById('onionBtn5').style.background = 'black';
-    document.getElementById('onionBtn6').style.background = 'black';
 }
-function addMeatLovers() {
+function formatPreBuilt(boolArray, btnBackArray, pizzaHTMLArray) {
     TOPPINGS = [];
+    resetBtns(defaultBg);
     szBtn.style.background = 'black';
     medBtn.style.background = 'black';
     largeBtn.style.background = 'black';
@@ -1283,21 +1397,24 @@ function addMeatLovers() {
     pizza.style.width = '300px';
     pizza.style.height = '300px';
     pizzaSize.innerHTML = "XL";
-    pizzaCrust.innerHTML = "HAND-TOSSED";
-    pizzaCheese.innerHTML = "REGULAR";
-    pizzaSauce.innerHTML = "MARINARA";
-    pizzaSauceAmt.innerHTML = "REGULAR";
-    pizzaTop.innerHTML = "PEPPERONI<br/>SAUSAGE<br/>BACON<br/>HAM<br/>SALAMI<br/>CHICKEN";
-    supremeBtn.style.background = 'black';
-    pepperoniPizzaBtn.style.background = 'black';
-    bbqBtn.style.background = 'black';
-    fivecheeseBtn.style.background = 'black';
-    meatloversBtn.style.background = 'red';
-    isSupreme = false;
-    isPepperoni = false;
-    isBBQChicken = false;
-    isFiveCheese = false;
-    isMeatLovers = true;
+    isSupreme = boolArray[0];
+    isPepperoni = boolArray[1];
+    isBBQChicken = boolArray[2];
+    isFiveCheese = boolArray[3];
+    isMeatLovers = boolArray[4];
+    supremeBtn.style.background = btnBackArray[0];
+    pepperoniPizzaBtn.style.background = btnBackArray[1];
+    bbqBtn.style.background = btnBackArray[2];
+    fivecheeseBtn.style.background = btnBackArray[3];
+    meatloversBtn.style.background = btnBackArray[4];
+    pizzaCrust.innerHTML = pizzaHTMLArray[0];
+    pizzaCheese.innerHTML = pizzaHTMLArray[1];
+    pizzaSauce.innerHTML = pizzaHTMLArray[2];
+    pizzaTop.innerHTML = pizzaHTMLArray[3];
+
+}
+function addMeatLovers() {
+    formatPreBuilt([false, false, false, false, true], ['black', 'black', 'black', 'black', 'red'], ["HAND-TOSSED", "REGULAR", "MARINARA", "PEPPERONI<br/>SAUSAGE<br/>BACON<br/>HAM<br/>SALAMI<br/>CHICKEN"]);
     currentPizzaCostLabel.innerHTML = "$ " + 14;
     FNCUSTOMPRICE = meatsloversBasePrice;
     currentPizzaCostLabel.innerHTML = "$ " + meatsloversBasePrice;
@@ -1314,167 +1431,26 @@ function addMeatLovers() {
     pizzaStack[7] = chicken1;
     pizzaStack[8] = salami1;
     currPriceHolder = 14;
-    document.getElementById('pepperoniBtn1').style.background = 'black';
-    document.getElementById('pepperoniBtn2').style.background = 'red';
-    document.getElementById('pepperoniBtn3').style.background = 'black';
-    document.getElementById('pepperoniBtn4').style.background = 'black';
-    document.getElementById('pepperoniBtn5').style.background = 'black';
-    document.getElementById('pepperoniBtn6').style.background = 'black';
-    document.getElementById('sausageBtn1').style.background = 'black';
-    document.getElementById('sausageBtn2').style.background = 'red';
-    document.getElementById('sausageBtn3').style.background = 'black';
-    document.getElementById('sausageBtn4').style.background = 'black';
-    document.getElementById('sausageBtn5').style.background = 'black';
-    document.getElementById('sausageBtn6').style.background = 'black';
-    document.getElementById('hamBtn1').style.background = 'black';
-    document.getElementById('hamBtn2').style.background = 'red';
-    document.getElementById('hamBtn3').style.background = 'black';
-    document.getElementById('hamBtn4').style.background = 'black';
-    document.getElementById('hamBtn5').style.background = 'black';
-    document.getElementById('hamBtn6').style.background = 'black';
-    document.getElementById('baconBtn1').style.background = 'black';
-    document.getElementById('baconBtn2').style.background = 'red';
-    document.getElementById('baconBtn3').style.background = 'black';
-    document.getElementById('baconBtn4').style.background = 'black';
-    document.getElementById('baconBtn5').style.background = 'black';
-    document.getElementById('baconBtn6').style.background = 'black';
-    document.getElementById('chickenBtn1').style.background = 'black';
-    document.getElementById('chickenBtn2').style.background = 'red';
-    document.getElementById('chickenBtn3').style.background = 'black';
-    document.getElementById('chickenBtn4').style.background = 'black';
-    document.getElementById('chickenBtn5').style.background = 'black';
-    document.getElementById('chickenBtn6').style.background = 'black';
-    document.getElementById('salamiBtn1').style.background = 'black';
-    document.getElementById('salamiBtn2').style.background = 'red';
-    document.getElementById('salamiBtn3').style.background = 'black';
-    document.getElementById('salamiBtn4').style.background = 'black';
-    document.getElementById('salamiBtn5').style.background = 'black';
-    document.getElementById('salamiBtn6').style.background = 'black';
-    document.getElementById('greenPepperBtn1').style.background = 'black';
-    document.getElementById('greenPepperBtn2').style.background = 'black';
-    document.getElementById('greenPepperBtn3').style.background = 'black';
-    document.getElementById('greenPepperBtn4').style.background = 'black';
-    document.getElementById('greenPepperBtn5').style.background = 'black';
-    document.getElementById('greenPepperBtn6').style.background = 'black';
-    document.getElementById('bananaPepperBtn1').style.background = 'black';
-    document.getElementById('bananaPepperBtn2').style.background = 'black';
-    document.getElementById('bananaPepperBtn3').style.background = 'black';
-    document.getElementById('bananaPepperBtn4').style.background = 'black';
-    document.getElementById('bananaPepperBtn5').style.background = 'black';
-    document.getElementById('bananaPepperBtn6').style.background = 'black';
-    document.getElementById('mushroomBtn1').style.background = 'black';
-    document.getElementById('mushroomBtn2').style.background = 'black';
-    document.getElementById('mushroomBtn3').style.background = 'black';
-    document.getElementById('mushroomBtn4').style.background = 'black';
-    document.getElementById('mushroomBtn5').style.background = 'black';
-    document.getElementById('mushroomBtn6').style.background = 'black';
-    document.getElementById('spinachBtn1').style.background = 'black';
-    document.getElementById('spinachBtn2').style.background = 'black';
-    document.getElementById('spinachBtn3').style.background = 'black';
-    document.getElementById('spinachBtn4').style.background = 'black';
-    document.getElementById('spinachBtn5').style.background = 'black';
-    document.getElementById('spinachBtn6').style.background = 'black';
-    document.getElementById('olivesBtn1').style.background = 'black';
-    document.getElementById('olivesBtn2').style.background = 'black';
-    document.getElementById('olivesBtn3').style.background = 'black';
-    document.getElementById('olivesBtn4').style.background = 'black';
-    document.getElementById('olivesBtn5').style.background = 'black';
-    document.getElementById('olivesBtn6').style.background = 'black';
-    document.getElementById('onionBtn1').style.background = 'black';
-    document.getElementById('onionBtn2').style.background = 'black';
-    document.getElementById('onionBtn3').style.background = 'black';
-    document.getElementById('onionBtn4').style.background = 'black';
-    document.getElementById('onionBtn5').style.background = 'black';
-    document.getElementById('onionBtn6').style.background = 'black';
     TOPPINGS[3] = "PEPPERONI";
     TOPPINGS[4] = "SAUSAGE";
     TOPPINGS[5] = "HAM";
     TOPPINGS[6] = "BACON";
     TOPPINGS[7] = "CHICKEN";
     TOPPINGS[8] = "SALAMI";
+    setPreBuiltBtns();
     viewToppings();
 }
 
-var pepp2 = document.getElementById('peppBtn2');
-var pepp3 = document.getElementById('peppBtn3');
-var pepp4 = document.getElementById('peppBtn4');
-var pepp5 = document.getElementById('peppBtn5');
-var pepp6 = document.getElementById('peppBtn6');
-var TOPPING_COUNT = 0;
-var toppingCounter = 0;
-var selected = 0;
-var b1selected = false;
-var b2selected = false;
-var b3selected = false;
-var b4selected = false;
-var b5selected = false;
-var b6selected = false;
-
-function addPepp(elem) {
-    toppingAdder(3, pepperoni, elem)
-
-}
-var TOPPING_COUNT = 0;
-
-function addSausage(elem) {
-    toppingAdder(4, sausage, elem);
-
-    // pizzaCheese.innerHTML = c;
-    console.log(dynListArr);
-}
-function addHam(elem) {
-    toppingAdder(5, ham, elem);
-
-}
-function addBacon(elem) {
-    toppingAdder(6, bacon, elem);
-
-}
-function addChicken(elem) {
-    toppingAdder(7, chicken, elem);
-
-}
-function addSalami(elem) {
-    toppingAdder(8, salami, elem);
-
-}
-function addGreenPepper(elem) {
-    toppingAdder(9, greenPepper, elem);
-
-}
-function addBananaPepper(elem) {
-    toppingAdder(10, bananaPepper, elem);
-
-}
-function addMushrooms(elem) {
-    toppingAdder(11, mushroom, elem);
-
-}
-function addSpinach(elem) {
-    toppingAdder(12, spinach, elem);
-
-}
-function addOlives(elem) {
-    toppingAdder(13, olives, elem);
-
-}
-function addOnions(elem) {
-    toppingAdder(14, onion, elem);
-
+function cleanArray(actual) {
+    var newArray = new Array();
+    for (var i = 0; i < actual.length; i++) {
+        if (actual[i]) {
+            newArray.push(actual[i]);
+        }
+    }
+    return newArray;
 }
 
-var alreadygone = false;
-var alreadygone2 = false;
-var alreadygone3 = false;
-var alreadygone4 = false;
-var alreadygone5 = false;
-var alreadygone6 = false;
-var alreadygone7 = false;
-var alreadygone8 = false;
-var alreadygone9 = false;
-var alreadygone10 = false;
-var alreadygone11 = false;
-var alreadygone12 = false;
 var l = TOPPINGS.length;
 var len = 0;
 var newARR = [];
@@ -1484,27 +1460,7 @@ function viewToppings() {
         if (TOPPINGS[y] != undefined || TOPPINGS[y] != "," || !TOPPINGS[y].contains(',')) {
             newARR[y] = TOPPINGS[y];
         }
-
-        // TOPPINGS.splice(0,TOPPINGS.length-1,"");
-        // if (TOPPINGS[y] == undefined) {
-        //     TOPPINGS[y] = "";
-        // }
-        // if (TOPPINGS[y] != "" && TOPPINGS[y] !=  undefined &&TOPPINGS[y] != ",") {
-        //     len++;
-        // }
-        // console.log(TOPPINGS[y]);
-        // console.log(newARR);
     }
-    function cleanArray(actual) {
-        var newArray = new Array();
-        for (var i = 0; i < actual.length; i++) {
-            if (actual[i]) {
-                newArray.push(actual[i]);
-            }
-        }
-        return newArray;
-    }
-
 
     len = cleanArray(TOPPINGS).length;
     console.log("len " + len);
@@ -1533,7 +1489,9 @@ function viewToppings() {
     }
     else {
         document.getElementById('dealtext').style.visibility = 'hidden';
-        currPrice = x + (len - 1);
+        if (len != 0) {
+            currPrice = x + (len - 1);
+        }
         console.log(currPrice);
         currentPizzaCostLabel.innerHTML = "$ " + currPrice;
     }
@@ -1545,55 +1503,43 @@ function viewToppings() {
         }
     }
 }
-var alreadySubtracted = false;
-var alreadySubtracted2 = false;
-var alreadySubtracted3 = false;
-var alreadySubtracted4 = false;
-var alreadySubtracted5 = false;
-var alreadySubtracted6 = false;
-var alreadySubtracted7 = false;
-var alreadySubtracted8 = false;
-var alreadySubtracted9 = false;
-var alreadySubtracted10 = false;
-var alreadySubtracted11 = false;
-var alreadySubtracted12 = false;
 function toppingAdder(arrindex, topppingName, e) {
-    // var s1 = topppingName.id + 1;
-    // var s2 = topppingName.id + 2;
-    // var s3 = topppingName.id + 3;
-    // var s4 = topppingName.id + 4;
-    // var s5 = topppingName.id + 5;
-    // var s6 = topppingName.id + 6;
-    console.log(s1);
-    // console.log("TN " + topppingName.id + 'Btn1');
     var b1name = topppingName.id + 'Btn1';
     var b2name = topppingName.id + 'Btn2';
     var b3name = topppingName.id + 'Btn3';
     var b4name = topppingName.id + 'Btn4';
     var b5name = topppingName.id + 'Btn5';
     var b6name = topppingName.id + 'Btn6';
-    // console.log(b1name);
     s1 = document.getElementById(b1name);
     s2 = document.getElementById(b2name);
     s3 = document.getElementById(b3name);
     s4 = document.getElementById(b4name);
     s5 = document.getElementById(b5name);
     s6 = document.getElementById(b6name);
-    // console.log(s1);
-    // console.log(s1.id)
-    var c = e.parentElement.innerHTML;
-    // c = c.match(cheeseRegex);
-    // console.log(topppingName.id + 1);
-    // console.log(e.id);
-    switch (e.id) {
+    var elementsARR = [s1, s2, s3, s4, s5, s6];
+    switch (e) {
         case b1name:
-            s1.style.background = 'red';
-            s2.style.background = 'black';
-            s3.style.background = 'black';
-            if (s5.style.background == 'red') {
+
+            s1.style.background = '#D82D2A';
+            s2.style.background = '#8F0937';
+            s3.style.background = '#8F0937';
+            // console.log(s5.style.background);
+            //     if (s5.style.background == '#D82D2A') {
+            //         s4.style.background = '#8F0937';
+            //         s6.style.background = '#8F0937';
+            //     } else if (s6.style.background == '#D82D2A') {
+            //         s4.style.background = '#8F0937';
+            //         s5.style.background = '#8F0937';
+            //     } else {
+            //         s4.style.background = '#D82D2A';
+            //         s5.style.background = '#8F0937';
+            //         s6.style.background = '#8F0937';
+            //     }
+
+            if (s5.style.background == '#D82D2A') {
                 pizzaStack[arrindex] = "url(images/" + topppingName.id + "ExtraLeft.png)";
                 TOPPINGS[arrindex] = topppingName.id.toUpperCase() + "(EXTRA, LEFT)";
-            } else if (s6.style.background == 'red') {
+            } else if (s6.style.background == '#D82D2A') {
                 pizzaStack[arrindex] = "url(images/" + topppingName.id + "ExtraRight.png)";
                 TOPPINGS[arrindex] = topppingName.id.toUpperCase() + "(EXTRA, RIGHT)";
             } else {
@@ -1602,91 +1548,82 @@ function toppingAdder(arrindex, topppingName, e) {
                 TOPPINGS[arrindex] = topppingName.id.toUpperCase() + "(EXTRA)";
 
             }
-            b1selected = true;
-            selected = 1;
             break;
         case b2name:
-            s1.style.background = 'black';
-            s2.style.background = 'red';
-            s3.style.background = 'black';
-            if (s5.style.background == 'red') {
+            s1.style.background = '#8F0937';
+            s2.style.background = '#D82D2A';
+            s3.style.background = '#8F0937';
+            // if (s5.style.background == '#D82D2A') {
+            //     s4.style.background = '#8F0937';
+            //     s6.style.background = '#8F0937';
+            // } else if (s6.style.background == '#D82D2A') {
+            //     s4.style.background = '#8F0937';
+            //     s5.style.background = '#8F0937';
+            // } else {
+            //     s4.style.background = '#D82D2A';
+            //     s5.style.background = '#8F0937';
+            //     s6.style.background = '#8F0937';
+            // }
+            if (s5.style.background == '#D82D2A') {
                 pizzaStack[arrindex] = "url(images/" + topppingName.id + "Left.png)";
                 TOPPINGS[arrindex] = topppingName.id.toUpperCase() + "(LEFT)";
-
-            } else if (s6.style.background == 'red') {
+            } else if (s6.style.background == '#D82D2A') {
                 pizzaStack[arrindex] = "url(images/" + topppingName.id + "Right.png)";
                 TOPPINGS[arrindex] = topppingName.id.toUpperCase() + "(RIGHT)";
-
             } else {
-
                 pizzaStack[arrindex] = "url(images/" + topppingName.id + ".png)";
                 TOPPINGS[arrindex] = topppingName.id.toUpperCase() + "";
-
             }
-            selected = 1;
             break;
         case b3name:
             var x = currPriceHolder;
-            s1.style.background = 'black';
-            s2.style.background = 'black';
-            s3.style.background = 'red';
-            s4.style.background = 'black';
-            s5.style.background = 'black';
-            s6.style.background = 'black';
+            s1.style.background = '#8F0937';
+            s2.style.background = '#8F0937';
+            s3.style.background = '#D82D2A';
+            s4.style.background = '#8F0937';
+            s5.style.background = '#8F0937';
+            s6.style.background = '#8F0937';
             pizzaStack[arrindex] = "url()";
             TOPPINGS[arrindex] = "";
 
             console.log("len inside DEL: " + len);
             console.log("DEL :" + TOPPINGS.length);
+
             len -= 1;
-            if (isSupreme) {
-                switch (topppingName.id) {
-                    case "pepperoni":
-                        console.log("MADE IT");
-                        TOPPINGS[3] = "";
-                        pizza.style.background = greenPepper1 + "," + bananaPepper1 + "," + mushroom1 + "," + olives1 + ","
-                            + onion1 + "," + spinach1 + "," + bacon1 + "," + salami1 + ","
-                            + sausage1 + "," + ham1 + "," + chicken1 + "," + extraCheese + "," +
-                            marinara + "," + handToss;
-                        pizza.style.backgroundSize = "cover";
-                        break;
-                }
-            }
-            // if (TOPPINGS.length > 4) {
-            //     TOPPINGS.pop();
+
+            // if (isSupreme) {
+            //     switch (topppingName.id) {
+            //         case "pepperoni":
+            //             TOPPINGS[3] = "";
+            //             pizza.style.background = greenPepper1 + "," + bananaPepper1 + "," + mushroom1 + "," + olives1 + ","
+            //                 + onion1 + "," + spinach1 + "," + bacon1 + "," + salami1 + ","
+            //                 + sausage1 + "," + ham1 + "," + chicken1 + "," + extraCheese + "," +
+            //                 marinara + "," + handToss;
+            //             pizza.style.backgroundSize = "cover";
+            //             break;
+            //     }
             // }
-            // selected = 1;
-            // var currPrice = (x + l) - 2;
-            // console.log("INSIDE DELEETE: " + currPrice);
-            // currentPizzaCostLabel.innerHTML = "$ " + currPrice;
-
             break;
-
         case b4name:
-            s3.style.background = 'black';
-            s4.style.background = 'red';
-            s5.style.background = 'black';
-            s6.style.background = 'black';
-            if (s1.style.background == 'red') {
+            s3.style.background = '#8F0937';
+            s4.style.background = '#D82D2A';
+            s5.style.background = '#8F0937';
+            s6.style.background = '#8F0937';
+            if (s1.style.background == '#D82D2A') {
                 pizzaStack[arrindex] = "url(images/" + topppingName.id + "Extra.png)";
                 TOPPINGS[arrindex] = topppingName.id.toUpperCase() + "(EXTRA)";
 
             } else {
                 pizzaStack[arrindex] = "url(images/" + topppingName.id + ".png)";
                 TOPPINGS[arrindex] = topppingName.id.toUpperCase() + "";
-
             }
-            selected = 1;
-
             break;
-
         case b5name:
-            s3.style.background = 'black';
-
-            s4.style.background = 'black';
-            s5.style.background = 'red';
-            s6.style.background = 'black';
-            if (s1.style.background == 'red') {
+            s3.style.background = '#8F0937';
+            s4.style.background = '#8F0937';
+            s5.style.background = '#D82D2A';
+            s6.style.background = '#8F0937';
+            if (s1.style.background == '#D82D2A') {
                 pizzaStack[arrindex] = "url(images/" + topppingName.id + "ExtraLeft.png)";
                 TOPPINGS[arrindex] = topppingName.id.toUpperCase() + "(EXTRA, LEFT)";
 
@@ -1694,35 +1631,24 @@ function toppingAdder(arrindex, topppingName, e) {
                 pizzaStack[arrindex] = "url(images/" + topppingName.id + "Left.png)";
                 TOPPINGS[arrindex] = topppingName.id.toUpperCase() + "(LEFT)";
             }
-
-            selected = 1;
-
             break;
         case b6name:
-            s3.style.background = 'black';
-
-            s4.style.background = 'black';
-            s5.style.background = 'black';
-            s6.style.background = 'red';
-            if (s1.style.background == 'red') {
+            s3.style.background = '#8F0937';
+            s4.style.background = '#8F0937';
+            s5.style.background = '#8F0937';
+            s6.style.background = '#D82D2A';
+            if (s1.style.background == '#D82D2A') {
                 pizzaStack[arrindex] = "url(images/" + topppingName.id + "ExtraRight.png)";
                 TOPPINGS[arrindex] = topppingName.id.toUpperCase() + "(EXTRA, RIGHT)";
             } else {
                 pizzaStack[arrindex] = "url(images/" + topppingName.id.toUpperCase() + "Right.png)";
                 TOPPINGS[arrindex] = topppingName.id.toUpperCase() + "(RIGHT)";
-
             }
-
-            selected = 1;
-
             break;
-
         default:
             pizzaStack[arrindex] = "url()";
-
             break;
     }
-
     viewToppings();
     resetBackground();
 }
